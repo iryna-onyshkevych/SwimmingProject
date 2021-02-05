@@ -78,3 +78,10 @@ C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming\bi
 C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming\bin\Debug\netcoreapp3.1\Swimming.EntityFramework.DAL.pdb
 C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming\bin\Debug\netcoreapp3.1\Swimming.Abstractions.pdb
 C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming\bin\Debug\netcoreapp3.1\Swimming.ADO.DAL.pdb
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming\bin\Debug\netcoreapp3.1\System.Security.AccessControl.dll
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming\bin\Debug\netcoreapp3.1\System.Security.Principal.Windows.dll
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Security.AccessControl.dll
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming\bin\Debug\netcoreapp3.1\Swimming.Abstractions.dll.config
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming\bin\Debug\netcoreapp3.1\Swimming.dll.config

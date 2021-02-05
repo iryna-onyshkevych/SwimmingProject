@@ -3,7 +3,6 @@ using Swimming.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Swimming.EntityFramework.DAL.Repositories
 {
@@ -34,7 +33,7 @@ namespace Swimming.EntityFramework.DAL.Repositories
 
         public void Delete(int id)
         {
-            var training = _context.Trainings.Single(x => x.Id == id);
+            var training = _context.Trainings.SingleOrDefault(x => x.Id == id);
 
             _context.Trainings.Remove(training);
             _context.SaveChanges();
@@ -48,7 +47,7 @@ namespace Swimming.EntityFramework.DAL.Repositories
 
         public Training Update(int id, Training training)
         {
-            var trainingToUpdate = _context.Trainings.Single(x => x.Id == id);
+            var trainingToUpdate = _context.Trainings.SingleOrDefault(x => x.Id == id);
 
             trainingToUpdate.Distance = training.Distance;
 

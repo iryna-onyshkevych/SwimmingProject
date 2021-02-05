@@ -7,3 +7,4 @@ C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.Ab
 C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.Abstractions\bin\Debug\netcoreapp3.1\Swimming.Abstractions.pdb
 C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.Abstractions\obj\Debug\netcoreapp3.1\Swimming.Abstractions.dll
 C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.Abstractions\obj\Debug\netcoreapp3.1\Swimming.Abstractions.pdb
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.Abstractions\bin\Debug\netcoreapp3.1\Swimming.Abstractions.dll.config

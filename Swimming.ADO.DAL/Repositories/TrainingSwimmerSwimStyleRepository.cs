@@ -3,7 +3,6 @@ using Swimming.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Text;
 
 namespace Swimming.ADO.DAL.Repositories
 {

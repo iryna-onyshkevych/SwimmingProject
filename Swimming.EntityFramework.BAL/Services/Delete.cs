@@ -2,8 +2,6 @@
 using Swimming.EntityFramework.DAL.Repositories;
 using Swimming.Models;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Swimming.EntityFramework.BAL.Services
 {

@@ -3,7 +3,6 @@ using Swimming.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Text;
 
 namespace Swimming.ADO.DAL.Repositories
 {
@@ -21,7 +20,7 @@ namespace Swimming.ADO.DAL.Repositories
             string sqlExpression3 = ($"DELETE FROM Coaches WHERE Id = {id}");
 
             SqlCommand command = new SqlCommand(sqlExpression3, _context);
-            int number = command.ExecuteNonQuery();
+            command.ExecuteNonQuery();
 
 
         }
@@ -30,7 +29,7 @@ namespace Swimming.ADO.DAL.Repositories
 
             string sqlExpression1 = ($"INSERT INTO Coaches (FirstName,LastName, WorkExperience) VALUES ('{coach.FirstName}','{coach.LastName}',{coach.WorkExperience})");
             SqlCommand command = new SqlCommand(sqlExpression1, _context);
-            int number = command.ExecuteNonQuery();
+            command.ExecuteNonQuery();
 
             return coach;
         }
@@ -75,7 +74,7 @@ namespace Swimming.ADO.DAL.Repositories
 
 
             SqlCommand command = new SqlCommand(sqlExpression2, _context);
-            int number = command.ExecuteNonQuery();
+            command.ExecuteNonQuery();
 
             return coach;
         }

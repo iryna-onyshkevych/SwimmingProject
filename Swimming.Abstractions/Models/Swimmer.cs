@@ -1,5 +1,4 @@
-﻿using Swimming.Abstractions;
-using Swimming.Abstractions.Attributes;
+﻿using Swimming.Abstractions.Attributes;
 using System;
 using System.Collections.Generic;
 

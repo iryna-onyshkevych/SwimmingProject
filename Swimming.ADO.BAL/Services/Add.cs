@@ -1,18 +1,18 @@
-﻿using Swimming.Abstractions;
+﻿using Microsoft.IdentityModel.Protocols;
+using Swimming.Abstractions;
 using Swimming.Abstractions.Attributes;
 using Swimming.Abstractions.Interfaces;
 using Swimming.ADO.DAL.Repositories;
 using Swimming.Models;
 using System;
-using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
-using System.Text;
 
 namespace Swimming.ADO.BAL.Services
 {
     public class Add
     {
-        string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=swimming;Integrated Security=True";
+        string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
         public bool IsAllAlphabetic(string value)
         {
             foreach (char c in value)
@@ -47,16 +47,12 @@ namespace Swimming.ADO.BAL.Services
             string age = Console.ReadLine();
             int tryint;
            
-            while (!int.TryParse(age, out tryint))
+            while ((!int.TryParse(age, out tryint))|| (!AgeValidationAttribute.IsValidSwimmerAge(Convert.ToInt32(age))))
             {
                 Console.WriteLine("Incorrect Age! Try again ");
                 age = Console.ReadLine();
             }
-            while (!AgeValidationAttribute.IsValidSwimmerAge(Convert.ToInt32(age)))
-            {
-                Console.WriteLine("Incorrect Age! Try again ");
-                age = Console.ReadLine();
-            }
+            
             Console.Write("Enter Coach Id:");
             string swimmerCoachId = Console.ReadLine();
             while (!int.TryParse(swimmerCoachId, out tryint))
@@ -107,16 +103,12 @@ namespace Swimming.ADO.BAL.Services
             string workExperience = Console.ReadLine();
             int tryint;
 
-            while (!int.TryParse(workExperience, out tryint))
+            while ((!int.TryParse(workExperience, out tryint))|| (!WorkExperienceValidationAttribute.IsValidCoachExperience(Convert.ToInt32(workExperience))))
             {
                 Console.WriteLine("Incorrect Work Experience! Try again ");
                 workExperience = Console.ReadLine();
             }
-            while (!WorkExperienceValidationAttribute.IsValidCoachExperience(Convert.ToInt32(workExperience)))
-            {
-                Console.WriteLine("Incorrect Work Experience! Try again ");
-                workExperience = Console.ReadLine();
-            }
+           
             try
             {
                 Coach coach = new Coach { FirstName = name, LastName = surname, WorkExperience = Convert.ToInt32(workExperience) };

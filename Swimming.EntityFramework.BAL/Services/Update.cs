@@ -3,8 +3,7 @@ using Swimming.Abstractions.Interfaces;
 using Swimming.EntityFramework.DAL.Repositories;
 using Swimming.Models;
 using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace Swimming.EntityFramework.BAL.Services
 {
@@ -49,9 +48,10 @@ namespace Swimming.EntityFramework.BAL.Services
             }
             Console.Write("Enter Coach work experience:");
             string newWorkExperience = Console.ReadLine();
-            while (!int.TryParse(newWorkExperience, out tryint))
+
+            while ((!int.TryParse(newWorkExperience, out tryint)) || (!WorkExperienceValidationAttribute.IsValidCoachExperience(Convert.ToInt32(newWorkExperience))))
             {
-                Console.WriteLine("Incorrect work experience! Try again ");
+                Console.WriteLine("Incorrect Work Experience! Try again ");
                 newWorkExperience = Console.ReadLine();
             }
             try
@@ -85,16 +85,12 @@ namespace Swimming.EntityFramework.BAL.Services
             }
             Console.Write("Enter new distance:");
             string newDistance = Console.ReadLine();
-            while (!int.TryParse(newDistance, out tryint))
+            while ((!int.TryParse(newDistance, out tryint))|| (!DistanceValidationAttribute.IsValidDistance(Convert.ToInt32(newDistance))))
             {
                 Console.WriteLine("Incorrect distance! Try again ");
                 newDistance = Console.ReadLine();
             }
-            while (!DistanceValidationAttribute.IsValidDistance(Convert.ToInt32(newDistance)))
-            {
-                Console.WriteLine("Incorrect distance! Try again ");
-                newDistance = Console.ReadLine();
-            }
+          
             try
             {
                 Training training = new Training { Distance = Convert.ToInt32(newDistance) };

@@ -1,7 +1,6 @@
 ﻿using Swimming.EntityFramework.BAL.Services;
 using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace Swimming
 {

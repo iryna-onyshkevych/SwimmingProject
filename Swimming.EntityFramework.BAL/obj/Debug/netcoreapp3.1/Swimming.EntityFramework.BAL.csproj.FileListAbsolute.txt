@@ -12,3 +12,4 @@ C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.En
 C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.EntityFramework.BAL\obj\Debug\netcoreapp3.1\Swimming.EntityFramework.BAL.csproj.CopyComplete
 C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.EntityFramework.BAL\bin\Debug\netcoreapp3.1\Swimming.Abstractions.dll
 C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.EntityFramework.BAL\bin\Debug\netcoreapp3.1\Swimming.Abstractions.pdb
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.EntityFramework.BAL\bin\Debug\netcoreapp3.1\Swimming.Abstractions.dll.config

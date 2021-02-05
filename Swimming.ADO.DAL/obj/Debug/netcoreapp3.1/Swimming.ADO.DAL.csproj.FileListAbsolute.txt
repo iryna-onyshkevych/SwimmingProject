@@ -10,3 +10,4 @@ C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.AD
 C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.ADO.DAL\obj\Debug\netcoreapp3.1\Swimming.ADO.DAL.csproj.CopyComplete
 C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.ADO.DAL\obj\Debug\netcoreapp3.1\Swimming.ADO.DAL.dll
 C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.ADO.DAL\obj\Debug\netcoreapp3.1\Swimming.ADO.DAL.pdb
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.ADO.DAL\bin\Debug\netcoreapp3.1\Swimming.Abstractions.dll.config

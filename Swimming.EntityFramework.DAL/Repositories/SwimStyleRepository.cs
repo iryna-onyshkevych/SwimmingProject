@@ -3,7 +3,6 @@ using Swimming.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Swimming.EntityFramework.DAL.Repositories
 {
@@ -30,7 +29,7 @@ namespace Swimming.EntityFramework.DAL.Repositories
 
         public void Delete(int id)
         {
-            var swimstyle = _context.SwimStyles.Single(x => x.Id == id);
+            var swimstyle = _context.SwimStyles.SingleOrDefault(x => x.Id == id);
 
             _context.SwimStyles.Remove(swimstyle);
             _context.SaveChanges();
@@ -44,7 +43,7 @@ namespace Swimming.EntityFramework.DAL.Repositories
 
         public SwimStyle Update(int id, SwimStyle swimStyle)
         {
-            var swimStyleToUpdate = _context.SwimStyles.Single(x => x.Id == id);
+            var swimStyleToUpdate = _context.SwimStyles.SingleOrDefault(x => x.Id == id);
 
             swimStyleToUpdate.StyleName = swimStyle.StyleName;
 

@@ -2,15 +2,14 @@
 using Swimming.ADO.DAL.Repositories;
 using Swimming.Models;
 using System;
-using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
-using System.Text;
 
 namespace Swimming.ADO.BAL.Services
 {
     public class Select
     {
-        string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=swimming;Integrated Security=True";
+        string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
         public void SelectSwimmers()
         {

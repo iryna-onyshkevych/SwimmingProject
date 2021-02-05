@@ -3,8 +3,7 @@ using Swimming.Abstractions.Interfaces;
 using Swimming.EntityFramework.DAL.Repositories;
 using Swimming.Models;
 using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace Swimming.EntityFramework.BAL.Services
 {
@@ -20,6 +19,8 @@ namespace Swimming.EntityFramework.BAL.Services
 
             return true;
         }
+        
+
         public void AddSwimmwer()
         {
 
@@ -44,17 +45,12 @@ namespace Swimming.EntityFramework.BAL.Services
 
             string age = Console.ReadLine();
             int tryint;
+            while ((!int.TryParse(age, out tryint))||(!AgeValidationAttribute.IsValidSwimmerAge(Convert.ToInt32(age))))
+            {
+                Console.WriteLine("Incorrect Age! Try again ");
+                age = Console.ReadLine();
+            }
 
-            while (!int.TryParse(age, out tryint))
-            {
-                Console.WriteLine("Incorrect Age! Try again ");
-                age = Console.ReadLine();
-            }
-            while (!AgeValidationAttribute.IsValidSwimmerAge(Convert.ToInt32(age)))
-            {
-                Console.WriteLine("Incorrect Age! Try again ");
-                age = Console.ReadLine();
-            }
             Console.Write("Enter Coach Id:");
             string swimmerCoachId = Console.ReadLine();
             while (!int.TryParse(swimmerCoachId, out tryint))
@@ -103,7 +99,8 @@ namespace Swimming.EntityFramework.BAL.Services
             string workExperience = Console.ReadLine();
             int tryint;
 
-            while (!int.TryParse(workExperience, out tryint))
+         
+            while ((!int.TryParse(workExperience, out tryint)) || (!WorkExperienceValidationAttribute.IsValidCoachExperience(Convert.ToInt32(workExperience))))
             {
                 Console.WriteLine("Incorrect Work Experience! Try again ");
                 workExperience = Console.ReadLine();

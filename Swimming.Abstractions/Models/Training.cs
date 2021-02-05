@@ -1,6 +1,5 @@
 ﻿using Swimming.Abstractions.Attributes;
 using System;
-using System.Collections.Generic;
 
 #nullable disable
 

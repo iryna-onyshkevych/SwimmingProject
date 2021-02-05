@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Swimming.Abstractions\Swimming.Abstractions.csproj" />
     <ProjectReference Include="..\Swimming.ADO.DAL\Swimming.ADO.DAL.csproj" />
   </ItemGroup>

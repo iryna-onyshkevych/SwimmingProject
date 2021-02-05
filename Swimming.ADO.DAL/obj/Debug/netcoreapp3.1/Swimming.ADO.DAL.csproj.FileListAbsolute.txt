@@ -1,0 +1,16 @@
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.ADO.DAL\bin\Debug\netcoreapp3.1\Swimming.Abstractions.dll
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.ADO.DAL\obj\Debug\netcoreapp3.1\Swimming.ADO.DAL.csprojAssemblyReference.cache
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.ADO.DAL\obj\Debug\netcoreapp3.1\Swimming.ADO.DAL.AssemblyInfoInputs.cache
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.ADO.DAL\obj\Debug\netcoreapp3.1\Swimming.ADO.DAL.AssemblyInfo.cs
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.ADO.DAL\obj\Debug\netcoreapp3.1\Swimming.ADO.DAL.csproj.CoreCompileInputs.cache
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.ADO.DAL\bin\Debug\netcoreapp3.1\Swimming.ADO.DAL.deps.json
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.ADO.DAL\bin\Debug\netcoreapp3.1\Swimming.ADO.DAL.dll
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.ADO.DAL\bin\Debug\netcoreapp3.1\Swimming.ADO.DAL.pdb
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.ADO.DAL\bin\Debug\netcoreapp3.1\Swimming.EntityFramework.BAL.dll
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.ADO.DAL\bin\Debug\netcoreapp3.1\Swimming.EntityFramework.DAL.dll
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.ADO.DAL\bin\Debug\netcoreapp3.1\Swimming.Abstractions.pdb
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.ADO.DAL\bin\Debug\netcoreapp3.1\Swimming.EntityFramework.BAL.pdb
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.ADO.DAL\bin\Debug\netcoreapp3.1\Swimming.EntityFramework.DAL.pdb
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.ADO.DAL\obj\Debug\netcoreapp3.1\Swimming.ADO.DAL.csproj.CopyComplete
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.ADO.DAL\obj\Debug\netcoreapp3.1\Swimming.ADO.DAL.dll
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.ADO.DAL\obj\Debug\netcoreapp3.1\Swimming.ADO.DAL.pdb

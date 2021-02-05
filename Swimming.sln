@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swimming", "Swimming\Swimming.csproj", "{796B87AF-0FB7-4CD6-87ED-42A888CE2549}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swimming.EntityFramework.DAL", "Swimming.EntityFramework.DAL\Swimming.EntityFramework.DAL.csproj", "{D930BC48-63B8-48A5-9350-66D1C28EFBB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swimming.ADO.DAL", "Swimming.ADO.DAL\Swimming.ADO.DAL.csproj", "{70C3F049-9839-44D1-B4EC-491B6B5036BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swimming.Abstractions", "Swimming.Abstractions\Swimming.Abstractions.csproj", "{1A426194-27AD-405F-A6CE-EBDBAAE48468}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swimming.EntityFramework.BAL", "Swimming.EntityFramework.BAL\Swimming.EntityFramework.BAL.csproj", "{8BF23879-B3A7-49E1-A309-F872BD48494A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swimming.ADO.BAL", "Swimming.ADO.BAL\Swimming.ADO.BAL.csproj", "{DAA746CD-A023-4488-968E-3D4E5D4B99F2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{796B87AF-0FB7-4CD6-87ED-42A888CE2549}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{796B87AF-0FB7-4CD6-87ED-42A888CE2549}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{796B87AF-0FB7-4CD6-87ED-42A888CE2549}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{796B87AF-0FB7-4CD6-87ED-42A888CE2549}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D930BC48-63B8-48A5-9350-66D1C28EFBB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D930BC48-63B8-48A5-9350-66D1C28EFBB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D930BC48-63B8-48A5-9350-66D1C28EFBB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D930BC48-63B8-48A5-9350-66D1C28EFBB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70C3F049-9839-44D1-B4EC-491B6B5036BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70C3F049-9839-44D1-B4EC-491B6B5036BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70C3F049-9839-44D1-B4EC-491B6B5036BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70C3F049-9839-44D1-B4EC-491B6B5036BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A426194-27AD-405F-A6CE-EBDBAAE48468}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A426194-27AD-405F-A6CE-EBDBAAE48468}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A426194-27AD-405F-A6CE-EBDBAAE48468}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A426194-27AD-405F-A6CE-EBDBAAE48468}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BF23879-B3A7-49E1-A309-F872BD48494A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BF23879-B3A7-49E1-A309-F872BD48494A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BF23879-B3A7-49E1-A309-F872BD48494A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BF23879-B3A7-49E1-A309-F872BD48494A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAA746CD-A023-4488-968E-3D4E5D4B99F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAA746CD-A023-4488-968E-3D4E5D4B99F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAA746CD-A023-4488-968E-3D4E5D4B99F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAA746CD-A023-4488-968E-3D4E5D4B99F2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {30A3A7C2-793D-4818-8EC7-43C990657E26}
+	EndGlobalSection
+EndGlobal

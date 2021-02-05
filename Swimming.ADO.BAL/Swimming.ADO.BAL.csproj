@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Swimming.Abstractions\Swimming.Abstractions.csproj" />
+    <ProjectReference Include="..\Swimming.ADO.DAL\Swimming.ADO.DAL.csproj" />
+  </ItemGroup>
+
+</Project>

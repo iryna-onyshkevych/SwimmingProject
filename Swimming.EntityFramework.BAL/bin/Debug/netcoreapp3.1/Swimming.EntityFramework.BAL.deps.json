@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Swimming.EntityFramework.BAL/1.0.0": {
+        "dependencies": {
+          "Swimming.EntityFramework.DAL": "1.0.0"
+        },
+        "runtime": {
+          "Swimming.EntityFramework.BAL.dll": {}
+        }
+      },
+      "Swimming.EntityFramework.DAL/1.0.0": {
+        "runtime": {
+          "Swimming.EntityFramework.DAL.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Swimming.EntityFramework.BAL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Swimming.EntityFramework.DAL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

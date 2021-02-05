@@ -1585,9 +1585,7 @@
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "5.0.2",
-          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.2",
-          "Swimming.EntityFramework.BAL": "1.0.0",
-          "Swimming.EntityFramework.DAL": "1.0.0"
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.2"
         },
         "compile": {
           "bin/placeholder/Swimming.Abstractions.dll": {}
@@ -1628,6 +1626,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "Swimming.Abstractions": "1.0.0",
           "Swimming.EntityFramework.DAL": "1.0.0"
         },
         "compile": {
@@ -1640,6 +1639,9 @@
       "Swimming.EntityFramework.DAL/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Swimming.Abstractions": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/Swimming.EntityFramework.DAL.dll": {}
         },

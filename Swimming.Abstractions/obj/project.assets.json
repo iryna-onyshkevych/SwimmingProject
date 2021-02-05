@@ -1482,29 +1482,6 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "Swimming.EntityFramework.BAL/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "Swimming.EntityFramework.DAL": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Swimming.EntityFramework.BAL.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Swimming.EntityFramework.BAL.dll": {}
-        }
-      },
-      "Swimming.EntityFramework.DAL/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "compile": {
-          "bin/placeholder/Swimming.EntityFramework.DAL.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Swimming.EntityFramework.DAL.dll": {}
-        }
       }
     }
   },
@@ -5717,24 +5694,12 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
-    },
-    "Swimming.EntityFramework.BAL/1.0.0": {
-      "type": "project",
-      "path": "../Swimming.EntityFramework.BAL/Swimming.EntityFramework.BAL.csproj",
-      "msbuildProject": "../Swimming.EntityFramework.BAL/Swimming.EntityFramework.BAL.csproj"
-    },
-    "Swimming.EntityFramework.DAL/1.0.0": {
-      "type": "project",
-      "path": "../Swimming.EntityFramework.DAL/Swimming.EntityFramework.DAL.csproj",
-      "msbuildProject": "../Swimming.EntityFramework.DAL/Swimming.EntityFramework.DAL.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Microsoft.EntityFrameworkCore >= 5.0.2",
-      "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.2",
-      "Swimming.EntityFramework.BAL >= 1.0.0",
-      "Swimming.EntityFramework.DAL >= 1.0.0"
+      "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.2"
     ]
   },
   "packageFolders": {
@@ -5763,14 +5728,7 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {
-            "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.EntityFramework.BAL\\Swimming.EntityFramework.BAL.csproj": {
-              "projectPath": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.EntityFramework.BAL\\Swimming.EntityFramework.BAL.csproj"
-            },
-            "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.EntityFramework.DAL\\Swimming.EntityFramework.DAL.csproj": {
-              "projectPath": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.EntityFramework.DAL\\Swimming.EntityFramework.DAL.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

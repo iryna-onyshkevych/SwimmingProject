@@ -12,10 +12,10 @@ namespace Swimming
         public void Menu()
         {
             Add add = new Add();
-            //Select select = new Select();
-            //Delete delete = new Delete();
-            //Update update = new Update();
-            //MainMenu menu = new MainMenu();
+            Select select = new Select();
+            Delete delete = new Delete();
+            Update update = new Update();
+            SwimmingMenu menu = new SwimmingMenu();
             do
             {
                 Console.WriteLine("\nEnter 1 to delete coach\nEnter 2 to insert coach\nEnter 3 to show coaches' list\n" +
@@ -24,39 +24,39 @@ namespace Swimming
                 menunumber = Console.ReadLine();
                 switch (menunumber)
                 {
-                    //case "1":
-                    //    delete.DeleteCoach();
-                    //    break;
+                    case "1":
+                        delete.DeleteCoach();
+                        break;
                     case "2":
                         add.AddCoach();
                         break;
-                    //case "3":
-                    //    select.SelectCoaches();
-                    //    break;
-                    //case "4":
-                    //    update.UpdateCoach();
-                    //    break;
-                    //case "5":
-                    //    select.SelectSwimmers();
+                    case "3":
+                        select.SelectCoaches();
+                        break;
+                    case "4":
+                        update.UpdateCoach();
+                        break;
+                    case "5":
+                        select.SelectSwimmers();
                         break;
                     case "6":
                         add.AddSwimmwer();
                         break;
-                    //case "7":
-                    //    delete.DeleteSwimmer();
-                    //    break;
-                    //case "8":
-                    //    select.SelectTraining();
-                    //    break;
-                    //case "9":
-                    //    update.UpdateDistance();
-                    //    break;
-                    //case "10":
-                    //    select.SelectSwimmersByAge();
-                    //    break;
-                    //case "11":
-                    //    menu.Menu();
-                    //    break;
+                    case "7":
+                        delete.DeleteSwimmer();
+                        break;
+                    case "8":
+                        select.SelectTraining();
+                        break;
+                    case "9":
+                        update.UpdateDistance();
+                        break;
+                    case "10":
+                        select.SelectSwimmersByAge();
+                        break;
+                    case "11":
+                        menu.Menu();
+                        break;
                     default:
                         menunumber = "default";
                         Console.WriteLine("Default case");

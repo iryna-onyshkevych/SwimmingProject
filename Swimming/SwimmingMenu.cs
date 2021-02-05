@@ -18,7 +18,7 @@ namespace Swimming
                 {
                     case "1":
                         EFMenu efMenu = new EFMenu();
-                        //efMenu.Menu();
+                        efMenu.Menu();
                         break;
                     case "2":
                         ADOMenu adoMenu = new ADOMenu();

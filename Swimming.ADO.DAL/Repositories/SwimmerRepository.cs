@@ -72,7 +72,7 @@ namespace Swimming.ADO.DAL.Repositories
         {
             SqlParameter param1 = new SqlParameter("@age", mimimalAge);
 
-            string sqlExpression = "GetSwimmers";
+            string sqlExpression = "GetSwimmersByAge";
             List<Swimmer> swimmers = new List<Swimmer>();
 
             SqlCommand command = new SqlCommand(sqlExpression, _context);

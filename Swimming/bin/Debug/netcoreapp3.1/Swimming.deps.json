@@ -1149,9 +1149,7 @@
       "Swimming.Abstractions/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "5.0.2",
-          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.2",
-          "Swimming.EntityFramework.BAL": "1.0.0",
-          "Swimming.EntityFramework.DAL": "1.0.0"
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.2"
         },
         "runtime": {
           "Swimming.Abstractions.dll": {}
@@ -1177,6 +1175,7 @@
       },
       "Swimming.EntityFramework.BAL/1.0.0": {
         "dependencies": {
+          "Swimming.Abstractions": "1.0.0",
           "Swimming.EntityFramework.DAL": "1.0.0"
         },
         "runtime": {
@@ -1184,6 +1183,9 @@
         }
       },
       "Swimming.EntityFramework.DAL/1.0.0": {
+        "dependencies": {
+          "Swimming.Abstractions": "1.0.0"
+        },
         "runtime": {
           "Swimming.EntityFramework.DAL.dll": {}
         }

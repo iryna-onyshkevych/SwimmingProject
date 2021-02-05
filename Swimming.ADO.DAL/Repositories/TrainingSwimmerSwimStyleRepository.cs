@@ -16,7 +16,7 @@ namespace Swimming.ADO.DAL.Repositories
             _context = context;
         }
 
-        public IEnumerable<TrainingsSwimmersSwimStyle> GetList()
+        public IEnumerable<TrainingsSwimmersSwimStyle> GetView()
         {
 
             string sqlExpression4 = "SELECT * FROM TrainingsSwimmersSwimStyles";

@@ -217,9 +217,6 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.Abstractions\\Swimming.Abstractions.csproj": {
-                "projectPath": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.Abstractions\\Swimming.Abstractions.csproj"
-              },
               "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.EntityFramework.DAL\\Swimming.EntityFramework.DAL.csproj": {
                 "projectPath": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.EntityFramework.DAL\\Swimming.EntityFramework.DAL.csproj"
               }

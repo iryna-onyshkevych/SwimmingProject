@@ -1626,7 +1626,6 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "Swimming.Abstractions": "1.0.0",
           "Swimming.EntityFramework.DAL": "1.0.0"
         },
         "compile": {

@@ -1,4 +1,6 @@
-﻿using Swimming.Abstractions.Interfaces;
+﻿using Swimming.Abstractions;
+using Swimming.Abstractions.Attributes;
+using Swimming.Abstractions.Interfaces;
 using Swimming.ADO.DAL.Repositories;
 using Swimming.Models;
 using System;
@@ -44,8 +46,13 @@ namespace Swimming.ADO.BAL.Services
 
             string age = Console.ReadLine();
             int tryint;
-
+           
             while (!int.TryParse(age, out tryint))
+            {
+                Console.WriteLine("Incorrect Age! Try again ");
+                age = Console.ReadLine();
+            }
+            while (!AgeValidationAttribute.IsValidSwimmerAge(Convert.ToInt32(age)))
             {
                 Console.WriteLine("Incorrect Age! Try again ");
                 age = Console.ReadLine();
@@ -101,6 +108,11 @@ namespace Swimming.ADO.BAL.Services
             int tryint;
 
             while (!int.TryParse(workExperience, out tryint))
+            {
+                Console.WriteLine("Incorrect Work Experience! Try again ");
+                workExperience = Console.ReadLine();
+            }
+            while (!WorkExperienceValidationAttribute.IsValidCoachExperience(Convert.ToInt32(workExperience)))
             {
                 Console.WriteLine("Incorrect Work Experience! Try again ");
                 workExperience = Console.ReadLine();

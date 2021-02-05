@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Swimming.Abstractions;
+using Swimming.Abstractions.Attributes;
+using System;
 using System.Collections.Generic;
 
 #nullable disable
@@ -15,6 +17,7 @@ namespace Swimming.Models
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        [AgeValidation]
         public int Age { get; set; }
         public int? CoachId { get; set; }
 

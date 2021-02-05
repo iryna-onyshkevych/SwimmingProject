@@ -1,4 +1,5 @@
-﻿using Swimming.Abstractions.Interfaces;
+﻿using Swimming.Abstractions.Attributes;
+using Swimming.Abstractions.Interfaces;
 using Swimming.EntityFramework.DAL.Repositories;
 using Swimming.Models;
 using System;
@@ -45,6 +46,11 @@ namespace Swimming.EntityFramework.BAL.Services
             int tryint;
 
             while (!int.TryParse(age, out tryint))
+            {
+                Console.WriteLine("Incorrect Age! Try again ");
+                age = Console.ReadLine();
+            }
+            while (!AgeValidationAttribute.IsValidSwimmerAge(Convert.ToInt32(age)))
             {
                 Console.WriteLine("Incorrect Age! Try again ");
                 age = Console.ReadLine();

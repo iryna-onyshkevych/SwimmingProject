@@ -9,14 +9,8 @@ namespace Swimming.Abstractions.Attributes
     {
         public static bool IsValidSwimmerAge(int age)
         {
-            if ((age > 6) && (age < 21))
-
-                return true;
-
-            else
-
-                return false;
-
+          
+            return ((age > 6) && (age < 21)) ? true : false;
         }
     }
 }

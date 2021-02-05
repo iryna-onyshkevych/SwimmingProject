@@ -1,4 +1,5 @@
-﻿using Swimming.Abstractions.Interfaces;
+﻿using Swimming.Abstractions.Attributes;
+using Swimming.Abstractions.Interfaces;
 using Swimming.ADO.DAL.Repositories;
 using Swimming.Models;
 using System;
@@ -88,6 +89,11 @@ namespace Swimming.ADO.BAL.Services
             Console.Write("Enter new distance:");
             string newDistance = Console.ReadLine();
             while (!int.TryParse(newDistance, out tryint))
+            {
+                Console.WriteLine("Incorrect distance! Try again ");
+                newDistance = Console.ReadLine();
+            }
+            while (!DistanceValidationAttribute.IsValidDistance(Convert.ToInt32(newDistance)))
             {
                 Console.WriteLine("Incorrect distance! Try again ");
                 newDistance = Console.ReadLine();

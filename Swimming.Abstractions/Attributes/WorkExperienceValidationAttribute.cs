@@ -8,14 +8,8 @@ namespace Swimming.Abstractions.Attributes
     {
         public static bool IsValidCoachExperience(int workExperience)
         {
-            if ((workExperience >= 0) && (workExperience < 80))
-
-                return true;
-
-            else
-
-                return false;
-
+            
+            return ((workExperience >= 0) && (workExperience < 80)) ? true : false;
         }
     }
 }

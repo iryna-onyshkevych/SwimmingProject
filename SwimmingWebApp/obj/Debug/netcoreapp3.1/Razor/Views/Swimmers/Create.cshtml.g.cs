@@ -27,7 +27,7 @@ using DTO.Models;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"60296b057e294ff78919ee5c717ee3f6b86717cb", @"/Views/Swimmers/Create.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9ed60981f5cb1688269fdd02e94505c3132d7e87", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7e114ac2b4f1515a93ff42503b9aea6b041283ce", @"/Views/_ViewImports.cshtml")]
     public class Views_Swimmers_Create : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<DTO.Models.SwimmerDTO>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("control-label"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);

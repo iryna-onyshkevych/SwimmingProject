@@ -1,12 +1,36 @@
 ﻿@model IEnumerable<DTO.Models.CoachDTO>
+
 @{
-    ViewBag.Title = "All coaches";
+    ViewBag.Title = "Coaches";
 }
 @*<a asp-action="Create">Add coach</a>*@
 <a asp-action="Delete">Delete coach</a>
 <a asp-action="Update">Update coach</a>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Find by name: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+}
+
 <table class="table">
-    <tr><td>Name</td><td>Surname</td><td>Work Experience</td></tr>
+    <tr>
+        <th>
+            @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.NameSortParm })
+        </th>
+        <th>
+            First Name
+        </th>
+        <th>
+            @Html.ActionLink("Work Experience", "Index", new { sortOrder = ViewBag.DateSortParm })
+        </th>
+        <th></th>
+    </tr>
+
+
+    @*<tr><td>Name</td><td>Surname</td><td>Work Experience</td></tr>*@
     @foreach (var item in Model)
     {
         <tr><td>@item.FirstName</td><td>@item.LastName</td><td>@item.WorkExperience</td></tr>

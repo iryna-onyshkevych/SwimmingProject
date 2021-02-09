@@ -2,7 +2,8 @@
 using DTO.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-
+using System;
+using System.Linq;
 namespace SwimmingWebApp.Controllers
 {
     public class CoachesController : Controller
@@ -13,17 +14,48 @@ namespace SwimmingWebApp.Controllers
         {
             Configuration = configuration;
         }
-        public IActionResult Index()
+        //public IActionResult Index()
+        //{
+
+
+        //    //string connectionString = Configuration["ConnectionStrings:DefaultConnection"];
+
+        //    CoachService coachService = new CoachService();
+        //    var e = coachService.SelectCoaches();
+
+        //    return View(e);
+
+
+        //}
+        public ActionResult Index(string sortOrder, string searchString)
         {
-
-
-            //string connectionString = Configuration["ConnectionStrings:DefaultConnection"];
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            
 
             CoachService coachService = new CoachService();
-            var e = coachService.SelectCoaches();
-
-            return View(e);
-
+            var coaches = coachService.SelectCoaches();
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                coaches = coaches.Where(s => s.FirstName.Contains(searchString)
+                                       || s.LastName.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    coaches = coaches.OrderByDescending(s => s.LastName);
+                    break;
+                case "Date":
+                    coaches = coaches.OrderBy(s => s.WorkExperience);
+                    break;
+                case "date_desc":
+                    coaches = coaches.OrderByDescending(s => s.WorkExperience);
+                    break;
+                default:
+                    coaches = coaches.OrderBy(s => s.LastName);
+                    break;
+            }
+            return View(coaches.ToList());
 
         }
         public IActionResult Create()

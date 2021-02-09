@@ -27,7 +27,7 @@ using DTO.Models;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8e33568467389bfd164301c6e04c2772106c40f9", @"/Views/Swimmers/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9ed60981f5cb1688269fdd02e94505c3132d7e87", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7e114ac2b4f1515a93ff42503b9aea6b041283ce", @"/Views/_ViewImports.cshtml")]
     public class Views_Swimmers_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<DTO.Models.SwimmerDTO>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "create", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);

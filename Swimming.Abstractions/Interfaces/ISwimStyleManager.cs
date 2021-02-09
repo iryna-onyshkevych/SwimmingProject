@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-
 namespace Swimming.Abstractions.Interfaces
 {
     public interface ISwimStyleManager<SwimStyle>

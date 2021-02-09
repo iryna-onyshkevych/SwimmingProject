@@ -1,0 +1,9 @@
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\DTO\bin\Debug\netcoreapp3.1\DTO.deps.json
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\DTO\bin\Debug\netcoreapp3.1\DTO.dll
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\DTO\bin\Debug\netcoreapp3.1\DTO.pdb
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\DTO\obj\Debug\netcoreapp3.1\DTO.csprojAssemblyReference.cache
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\DTO\obj\Debug\netcoreapp3.1\DTO.AssemblyInfoInputs.cache
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\DTO\obj\Debug\netcoreapp3.1\DTO.AssemblyInfo.cs
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\DTO\obj\Debug\netcoreapp3.1\DTO.csproj.CoreCompileInputs.cache
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\DTO\obj\Debug\netcoreapp3.1\DTO.dll
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\DTO\obj\Debug\netcoreapp3.1\DTO.pdb

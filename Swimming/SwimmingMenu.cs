@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Swimming
+namespace SwimmingConsoleApp
 {
     public class SwimmingMenu
     {

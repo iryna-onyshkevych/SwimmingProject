@@ -1483,10 +1483,25 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "DTO/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "5.0.2",
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.2"
+        },
+        "compile": {
+          "bin/placeholder/DTO.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DTO.dll": {}
+        }
+      },
       "Swimming.Abstractions/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "DTO": "1.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.2"
         },
@@ -5722,6 +5737,11 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "DTO/1.0.0": {
+      "type": "project",
+      "path": "../DTO/DTO.csproj",
+      "msbuildProject": "../DTO/DTO.csproj"
+    },
     "Swimming.Abstractions/1.0.0": {
       "type": "project",
       "path": "../Swimming.Abstractions/Swimming.Abstractions.csproj",
@@ -5744,9 +5764,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.EntityFramework.BAL\\Swimming.EntityFramework.BAL.csproj",
-      "projectName": "Swimming.EntityFramework.BAL",
-      "projectPath": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.EntityFramework.BAL\\Swimming.EntityFramework.BAL.csproj",
+      "projectUniqueName": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.EntityFramework.BAL\\Swimming.EntityFramework.BL.csproj",
+      "projectName": "Swimming.EntityFramework.BL",
+      "projectPath": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.EntityFramework.BAL\\Swimming.EntityFramework.BL.csproj",
       "packagesPath": "C:\\Users\\irini\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.EntityFramework.BAL\\obj\\",
       "projectStyle": "PackageReference",

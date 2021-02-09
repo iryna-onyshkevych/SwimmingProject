@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Swimming.Abstractions.Attributes;
+using System;
 using System.Collections.Generic;
 
 #nullable disable
 
-namespace Swimming.Models
+namespace Swimming.Abstractions.Models
 {
     public partial class SwimStyle
     {

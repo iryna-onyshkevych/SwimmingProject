@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mgsfqrMu8vMsBzcdYZrb7m8+iHTEM2+pdWN6bxQ8c09kq2HjhrH5WQbhHu/LXF0vbaC9PwPkvv4IHmFI0iT7kg==",
+  "dgSpecHash": "+2H+K22bFMmKrrLwPw0xpQtHRgyC6g1M0f5r52R00LvPBlv0SwcPQG4NEWI7pO13DTpSkpYfwyg89GUnzN2abg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.EntityFramework.BAL\\Swimming.EntityFramework.BAL.csproj",
+  "projectFilePath": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.EntityFramework.BAL\\Swimming.EntityFramework.BL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\irini\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\irini\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

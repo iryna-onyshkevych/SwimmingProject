@@ -1579,10 +1579,40 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "ADO.BL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Swimming.ADO.DAL": "1.0.0",
+          "System.Configuration.ConfigurationManager": "5.0.0",
+          "System.Data.SqlClient": "4.8.2"
+        },
+        "compile": {
+          "bin/placeholder/ADO.BL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ADO.BL.dll": {}
+        }
+      },
+      "DTO/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "5.0.2",
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.2"
+        },
+        "compile": {
+          "bin/placeholder/DTO.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DTO.dll": {}
+        }
+      },
       "Swimming.Abstractions/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "DTO": "1.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.2"
         },
@@ -1593,7 +1623,7 @@
           "bin/placeholder/Swimming.Abstractions.dll": {}
         }
       },
-      "Swimming.ADO.BAL/1.0.0": {
+      "Swimming.ADO.BL/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
@@ -1602,10 +1632,10 @@
           "System.Configuration.ConfigurationManager": "5.0.0"
         },
         "compile": {
-          "bin/placeholder/Swimming.ADO.BAL.dll": {}
+          "bin/placeholder/Swimming.ADO.BL.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Swimming.ADO.BAL.dll": {}
+          "bin/placeholder/Swimming.ADO.BL.dll": {}
         }
       },
       "Swimming.ADO.DAL/1.0.0": {
@@ -1622,17 +1652,17 @@
           "bin/placeholder/Swimming.ADO.DAL.dll": {}
         }
       },
-      "Swimming.EntityFramework.BAL/1.0.0": {
+      "Swimming.EntityFramework.BL/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "Swimming.EntityFramework.DAL": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/Swimming.EntityFramework.BAL.dll": {}
+          "bin/placeholder/Swimming.EntityFramework.BL.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Swimming.EntityFramework.BAL.dll": {}
+          "bin/placeholder/Swimming.EntityFramework.BL.dll": {}
         }
       },
       "Swimming.EntityFramework.DAL/1.0.0": {
@@ -6078,25 +6108,35 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "ADO.BL/1.0.0": {
+      "type": "project",
+      "path": "../ADO.BL/ADO.BL.csproj",
+      "msbuildProject": "../ADO.BL/ADO.BL.csproj"
+    },
+    "DTO/1.0.0": {
+      "type": "project",
+      "path": "../DTO/DTO.csproj",
+      "msbuildProject": "../DTO/DTO.csproj"
+    },
     "Swimming.Abstractions/1.0.0": {
       "type": "project",
       "path": "../Swimming.Abstractions/Swimming.Abstractions.csproj",
       "msbuildProject": "../Swimming.Abstractions/Swimming.Abstractions.csproj"
     },
-    "Swimming.ADO.BAL/1.0.0": {
+    "Swimming.ADO.BL/1.0.0": {
       "type": "project",
-      "path": "../Swimming.ADO.BAL/Swimming.ADO.BAL.csproj",
-      "msbuildProject": "../Swimming.ADO.BAL/Swimming.ADO.BAL.csproj"
+      "path": "../Swimming.ADO.BAL/Swimming.ADO.BL.csproj",
+      "msbuildProject": "../Swimming.ADO.BAL/Swimming.ADO.BL.csproj"
     },
     "Swimming.ADO.DAL/1.0.0": {
       "type": "project",
       "path": "../Swimming.ADO.DAL/Swimming.ADO.DAL.csproj",
       "msbuildProject": "../Swimming.ADO.DAL/Swimming.ADO.DAL.csproj"
     },
-    "Swimming.EntityFramework.BAL/1.0.0": {
+    "Swimming.EntityFramework.BL/1.0.0": {
       "type": "project",
-      "path": "../Swimming.EntityFramework.BAL/Swimming.EntityFramework.BAL.csproj",
-      "msbuildProject": "../Swimming.EntityFramework.BAL/Swimming.EntityFramework.BAL.csproj"
+      "path": "../Swimming.EntityFramework.BAL/Swimming.EntityFramework.BL.csproj",
+      "msbuildProject": "../Swimming.EntityFramework.BAL/Swimming.EntityFramework.BL.csproj"
     },
     "Swimming.EntityFramework.DAL/1.0.0": {
       "type": "project",
@@ -6106,11 +6146,12 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "ADO.BL >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 5.0.2",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.2",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.2",
-      "Swimming.ADO.BAL >= 1.0.0",
-      "Swimming.EntityFramework.BAL >= 1.0.0",
+      "Swimming.ADO.BL >= 1.0.0",
+      "Swimming.EntityFramework.BL >= 1.0.0",
       "Swimming.EntityFramework.DAL >= 1.0.0"
     ]
   },
@@ -6120,9 +6161,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming\\Swimming.csproj",
-      "projectName": "Swimming",
-      "projectPath": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming\\Swimming.csproj",
+      "projectUniqueName": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming\\SwimmingConsoleApp.csproj",
+      "projectName": "SwimmingConsoleApp",
+      "projectPath": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming\\SwimmingConsoleApp.csproj",
       "packagesPath": "C:\\Users\\irini\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming\\obj\\",
       "projectStyle": "PackageReference",
@@ -6141,11 +6182,14 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.ADO.BAL\\Swimming.ADO.BAL.csproj": {
-              "projectPath": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.ADO.BAL\\Swimming.ADO.BAL.csproj"
+            "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\ADO.BL\\ADO.BL.csproj": {
+              "projectPath": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\ADO.BL\\ADO.BL.csproj"
             },
-            "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.EntityFramework.BAL\\Swimming.EntityFramework.BAL.csproj": {
-              "projectPath": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.EntityFramework.BAL\\Swimming.EntityFramework.BAL.csproj"
+            "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.ADO.BAL\\Swimming.ADO.BL.csproj": {
+              "projectPath": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.ADO.BAL\\Swimming.ADO.BL.csproj"
+            },
+            "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.EntityFramework.BAL\\Swimming.EntityFramework.BL.csproj": {
+              "projectPath": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.EntityFramework.BAL\\Swimming.EntityFramework.BL.csproj"
             },
             "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.EntityFramework.DAL\\Swimming.EntityFramework.DAL.csproj": {
               "projectPath": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.EntityFramework.DAL\\Swimming.EntityFramework.DAL.csproj"

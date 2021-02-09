@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
-namespace Swimming.Models
+namespace Swimming.Abstractions.Models
 {
     public partial class swimmingContext : DbContext
     {

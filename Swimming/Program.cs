@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Swimming
+namespace SwimmingConsoleApp
 {
     class Program
     {
@@ -8,6 +8,7 @@ namespace Swimming
         {
             SwimmingMenu menu = new SwimmingMenu();
             menu.Menu();
+           
         }
     }
 }

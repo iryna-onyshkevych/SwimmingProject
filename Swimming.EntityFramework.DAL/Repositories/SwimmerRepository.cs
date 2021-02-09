@@ -1,7 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Swimming.Abstractions.Interfaces;
-using Swimming.Models;
+using Swimming.Abstractions.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +33,7 @@ namespace Swimming.EntityFramework.DAL.Repositories
 
         public void Delete(int id)
         {
-            var swimmer = _context.Swimmers.SingleOrDefault(x => x.Id == id);
+            var swimmer = _context.Swimmers.Single(x => x.Id == id);
 
             _context.Swimmers.Remove(swimmer);
             _context.SaveChanges();
@@ -55,7 +55,7 @@ namespace Swimming.EntityFramework.DAL.Repositories
 
         public Swimmer Update(int id, Swimmer swimmer)
         {
-            var swimmerToUpdate = _context.Swimmers.SingleOrDefault(x => x.Id == id);
+            var swimmerToUpdate = _context.Swimmers.Single(x => x.Id == id);
 
             swimmerToUpdate.FirstName = swimmer.FirstName;
             swimmerToUpdate.LastName = swimmer.LastName;

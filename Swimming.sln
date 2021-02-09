@@ -3,17 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swimming", "Swimming\Swimming.csproj", "{796B87AF-0FB7-4CD6-87ED-42A888CE2549}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwimmingConsoleApp", "Swimming\SwimmingConsoleApp.csproj", "{796B87AF-0FB7-4CD6-87ED-42A888CE2549}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swimming.EntityFramework.DAL", "Swimming.EntityFramework.DAL\Swimming.EntityFramework.DAL.csproj", "{D930BC48-63B8-48A5-9350-66D1C28EFBB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Swimming.EntityFramework.DAL", "Swimming.EntityFramework.DAL\Swimming.EntityFramework.DAL.csproj", "{D930BC48-63B8-48A5-9350-66D1C28EFBB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swimming.ADO.DAL", "Swimming.ADO.DAL\Swimming.ADO.DAL.csproj", "{70C3F049-9839-44D1-B4EC-491B6B5036BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Swimming.ADO.DAL", "Swimming.ADO.DAL\Swimming.ADO.DAL.csproj", "{70C3F049-9839-44D1-B4EC-491B6B5036BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swimming.Abstractions", "Swimming.Abstractions\Swimming.Abstractions.csproj", "{1A426194-27AD-405F-A6CE-EBDBAAE48468}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Swimming.Abstractions", "Swimming.Abstractions\Swimming.Abstractions.csproj", "{1A426194-27AD-405F-A6CE-EBDBAAE48468}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swimming.EntityFramework.BAL", "Swimming.EntityFramework.BAL\Swimming.EntityFramework.BAL.csproj", "{8BF23879-B3A7-49E1-A309-F872BD48494A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Swimming.EntityFramework.BL", "Swimming.EntityFramework.BAL\Swimming.EntityFramework.BL.csproj", "{8BF23879-B3A7-49E1-A309-F872BD48494A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swimming.ADO.BAL", "Swimming.ADO.BAL\Swimming.ADO.BAL.csproj", "{DAA746CD-A023-4488-968E-3D4E5D4B99F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Swimming.ADO.BL", "Swimming.ADO.BAL\Swimming.ADO.BL.csproj", "{DAA746CD-A023-4488-968E-3D4E5D4B99F2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwimmingWebApp", "SwimmingWebApp\SwimmingWebApp.csproj", "{5FBBDE33-45DE-4A47-9F35-E44C3AA8421C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ADO.BL", "ADO.BL\ADO.BL.csproj", "{BECA2BB5-4DFB-4B79-931C-2D6415E16AAB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DTO", "DTO\DTO.csproj", "{08A9FAAB-3240-40EC-BC8C-2127F6C74E75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnitTest.Swimming", "NUnitTest.Swimming\NUnitTest.Swimming.csproj", "{4AA8EDB0-1FEA-474D-BB57-32730FE97DF6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +53,22 @@ Global
 		{DAA746CD-A023-4488-968E-3D4E5D4B99F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAA746CD-A023-4488-968E-3D4E5D4B99F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAA746CD-A023-4488-968E-3D4E5D4B99F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FBBDE33-45DE-4A47-9F35-E44C3AA8421C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FBBDE33-45DE-4A47-9F35-E44C3AA8421C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FBBDE33-45DE-4A47-9F35-E44C3AA8421C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FBBDE33-45DE-4A47-9F35-E44C3AA8421C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BECA2BB5-4DFB-4B79-931C-2D6415E16AAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BECA2BB5-4DFB-4B79-931C-2D6415E16AAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BECA2BB5-4DFB-4B79-931C-2D6415E16AAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BECA2BB5-4DFB-4B79-931C-2D6415E16AAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08A9FAAB-3240-40EC-BC8C-2127F6C74E75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08A9FAAB-3240-40EC-BC8C-2127F6C74E75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08A9FAAB-3240-40EC-BC8C-2127F6C74E75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08A9FAAB-3240-40EC-BC8C-2127F6C74E75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AA8EDB0-1FEA-474D-BB57-32730FE97DF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AA8EDB0-1FEA-474D-BB57-32730FE97DF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AA8EDB0-1FEA-474D-BB57-32730FE97DF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AA8EDB0-1FEA-474D-BB57-32730FE97DF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

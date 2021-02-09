@@ -1,0 +1,14 @@
+﻿@model IEnumerable<DTO.Models.CoachDTO>
+@{
+    ViewBag.Title = "All coaches";
+}
+@*<a asp-action="Create">Add coach</a>*@
+<a asp-action="Delete">Delete coach</a>
+<a asp-action="Update">Update coach</a>
+<table class="table">
+    <tr><td>Name</td><td>Surname</td><td>Work Experience</td></tr>
+    @foreach (var item in Model)
+    {
+        <tr><td>@item.FirstName</td><td>@item.LastName</td><td>@item.WorkExperience</td></tr>
+    }
+</table>

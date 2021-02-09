@@ -1,0 +1,17 @@
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\ADO.BL\bin\Debug\netcoreapp3.1\ADO.BL.deps.json
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\ADO.BL\bin\Debug\netcoreapp3.1\ADO.BL.dll
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\ADO.BL\bin\Debug\netcoreapp3.1\ADO.BL.pdb
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\ADO.BL\bin\Debug\netcoreapp3.1\Swimming.Abstractions.dll
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\ADO.BL\bin\Debug\netcoreapp3.1\Swimming.ADO.DAL.dll
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\ADO.BL\bin\Debug\netcoreapp3.1\Swimming.ADO.DAL.pdb
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\ADO.BL\bin\Debug\netcoreapp3.1\Swimming.Abstractions.pdb
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\ADO.BL\bin\Debug\netcoreapp3.1\Swimming.Abstractions.dll.config
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\ADO.BL\obj\Debug\netcoreapp3.1\ADO.BL.csprojAssemblyReference.cache
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\ADO.BL\obj\Debug\netcoreapp3.1\ADO.BL.AssemblyInfoInputs.cache
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\ADO.BL\obj\Debug\netcoreapp3.1\ADO.BL.AssemblyInfo.cs
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\ADO.BL\obj\Debug\netcoreapp3.1\ADO.BL.csproj.CoreCompileInputs.cache
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\ADO.BL\obj\Debug\netcoreapp3.1\ADO.BL.csproj.CopyComplete
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\ADO.BL\obj\Debug\netcoreapp3.1\ADO.BL.dll
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\ADO.BL\obj\Debug\netcoreapp3.1\ADO.BL.pdb
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\ADO.BL\bin\Debug\netcoreapp3.1\DTO.dll
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\ADO.BL\bin\Debug\netcoreapp3.1\DTO.pdb

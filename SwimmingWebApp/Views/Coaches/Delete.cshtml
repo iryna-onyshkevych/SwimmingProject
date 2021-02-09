@@ -1,0 +1,14 @@
+﻿@model DTO.Models.CoachDTO
+@{
+    ViewBag.Title = "Delete Coach";
+}
+<form asp-action="delete" asp-controller="Coaches">
+    <div class="form-group">
+        <label asp-for="Id" class="control-label">Id</label>
+        <input type="text" asp-for="Id" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Submit" class="btn btn-default" />
+    </div>
+</form>

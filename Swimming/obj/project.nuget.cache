@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JkQxt4TRNBdiVXxwHxQShUcpRPRGum9GATclN+yaBQiSTsXih8HQSa5ihwQuiWQV96+iLDBysP0wPxGLhTOGAw==",
+  "dgSpecHash": "oubLgp2Bi71dci12hXHAq/djgeGUxFptTn5xO7htUGY8RFFxkXYYB7u7+nkPWN141XlAhqpNwhxqVlE68xcE7w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming\\Swimming.csproj",
+  "projectFilePath": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming\\SwimmingConsoleApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\irini\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\irini\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

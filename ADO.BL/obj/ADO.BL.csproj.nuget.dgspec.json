@@ -1,0 +1,272 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\ADO.BL\\ADO.BL.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\ADO.BL\\ADO.BL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\ADO.BL\\ADO.BL.csproj",
+        "projectName": "ADO.BL",
+        "projectPath": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\ADO.BL\\ADO.BL.csproj",
+        "packagesPath": "C:\\Users\\irini\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\ADO.BL\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\irini\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.ADO.DAL\\Swimming.ADO.DAL.csproj": {
+                "projectPath": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.ADO.DAL\\Swimming.ADO.DAL.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\DTO\\DTO.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\DTO\\DTO.csproj",
+        "projectName": "DTO",
+        "projectPath": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\DTO\\DTO.csproj",
+        "packagesPath": "C:\\Users\\irini\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\DTO\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\irini\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.Abstractions\\Swimming.Abstractions.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.Abstractions\\Swimming.Abstractions.csproj",
+        "projectName": "Swimming.Abstractions",
+        "projectPath": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.Abstractions\\Swimming.Abstractions.csproj",
+        "packagesPath": "C:\\Users\\irini\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.Abstractions\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\irini\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\DTO\\DTO.csproj": {
+                "projectPath": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\DTO\\DTO.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.ADO.DAL\\Swimming.ADO.DAL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.ADO.DAL\\Swimming.ADO.DAL.csproj",
+        "projectName": "Swimming.ADO.DAL",
+        "projectPath": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.ADO.DAL\\Swimming.ADO.DAL.csproj",
+        "packagesPath": "C:\\Users\\irini\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.ADO.DAL\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\irini\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.Abstractions\\Swimming.Abstractions.csproj": {
+                "projectPath": "C:\\Users\\irini\\OneDrive\\Робочий стіл\\SwimmingApp\\Swimming\\Swimming.Abstractions\\Swimming.Abstractions.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

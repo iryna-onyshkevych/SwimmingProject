@@ -1,5 +1,5 @@
 ﻿using Swimming.Abstractions.Interfaces;
-using Swimming.Models;
+using Swimming.Abstractions.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -27,8 +27,8 @@ namespace Swimming.ADO.DAL.Repositories
         public Training Add(Training training)
         {
 
-            string sqlExpression1 = ($"INSERT INTO Trainings (Id, SwimmerId,SwimStyleId,TrainingDate,Distance) VALUES ({training.Id},{ training.SwimmerId},  " +
-                $"{training.SwimStyleId},{training.TrainingDate},{training.Distance})");
+            string sqlExpression1 = ($"INSERT INTO Trainings (SwimmerId,SwimStyleId,TrainingDate,Distance) VALUES ({ training.SwimmerId},  " +
+                $"{training.SwimStyleId},'{training.TrainingDate}',{training.Distance})");
 
 
             SqlCommand command = new SqlCommand(sqlExpression1, _context);

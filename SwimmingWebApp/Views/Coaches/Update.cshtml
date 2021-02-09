@@ -1,0 +1,25 @@
+﻿@model DTO.Models.CoachDTO
+@{
+    ViewBag.Title = "Update Coach";
+}
+<form asp-action="update" asp-controller="Coaches">
+    <div class="form-group">
+        <label asp-for="Id" class=" control-label">Id</label>
+        <input type ="number" asp-for="Id" class="form-control" >
+    </div>
+    <div class="form-group">
+        <label asp-for="FirstName" class="control-label">Name</label>
+        <input type="text" asp-for="FirstName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="LastName" class="control-label">Surname</label>
+        <input type="text" asp-for="LastName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="WorkExperience" class="control-label">Work Experience</label>
+        <input type="number" asp-for="WorkExperience" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Submit" class="btn btn-default" />
+    </div>
+</form>

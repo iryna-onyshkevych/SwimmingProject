@@ -1,59 +1,62 @@
-﻿using Swimming.EntityFramework.BAL.Services;
+﻿using Swimming.EntityFramework.BL.Services;
 using System;
 
 
-namespace Swimming
+namespace SwimmingConsoleApp
 {
     public class EFMenu
     {
         string menunumber = "";
         public void Menu()
         {
-            Add add = new Add();
-            Delete delete = new Delete();
-            Select select = new Select();
-            Update update = new Update();
+            CoachService coachService = new CoachService();
+            SwimmerService swimmerService = new SwimmerService();
+            TrainingService trainingService = new TrainingService();
+            TrainingSwimmerSwimStyleService trainingSwimmerSwimStyleService = new TrainingSwimmerSwimStyleService();
             SwimmingMenu menu = new SwimmingMenu();
 
             do
             {
                 Console.WriteLine("\nEnter 1 to delete coach\nEnter 2 to insert coach\nEnter 3 to show coaches' list\n" +
                     "Enter 4 to update coach\nEnter 5 to show swimmers' list\nEnter 6 to add swimmer\nEnter 7 to delete swimmer\nEnter 8 to show all trainings" +
-                    "\nEnter 9 to update distance\nEnter 10 to show swimmers who have age more than entered\nEnter 11 to go back to Main menu\n");
+                    "\nEnter 9 to update distance\nEnter 10 to show swimmers who have age more than entered\nEnter 11 to add training\nEnter 12 to go back to Main menu\n");
                 menunumber = Console.ReadLine();
                 switch (menunumber)
                 {
                     case "1":
-                        delete.DeleteCoach();
+                        coachService.DeleteCoach();
                         break;
                     case "2":
-                        add.AddCoach();
+                        coachService.AddCoach();
                         break;
                     case "3":
-                        select.SelectCoaches();
+                        coachService.SelectCoaches();
                         break;
                     case "4":
-                        update.UpdateCoach();
+                        coachService.UpdateCoach();
                         break;
                     case "5":
-                        select.SelectSwimmers();
+                        swimmerService.SelectSwimmers();
                         break;
                     case "6":
-                        add.AddSwimmwer();
+                        swimmerService.AddSwimmwer();
                         break;
                     case "7":
-                        delete.DeleteSwimmer();
+                        swimmerService.DeleteSwimmer();
                         break;
                     case "8":
-                        select.SelectTraining();
+                        trainingSwimmerSwimStyleService.SelectTraining();
                         break;
                     case "9":
-                        update.UpdateDistance();
+                        trainingService.UpdateDistance();
                         break;
                     case "10":
-                        select.SelectSwimmersByAge();
+                        swimmerService.SelectSwimmersByAge();
                         break;
                     case "11":
+                        trainingService.AddTraining();
+                        break;
+                    case "12":
                         menu.Menu();
                         break;
                     default:

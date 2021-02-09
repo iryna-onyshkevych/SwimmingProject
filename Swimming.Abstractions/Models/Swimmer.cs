@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace Swimming.Models
+namespace Swimming.Abstractions.Models
 {
     public partial class Swimmer
     {

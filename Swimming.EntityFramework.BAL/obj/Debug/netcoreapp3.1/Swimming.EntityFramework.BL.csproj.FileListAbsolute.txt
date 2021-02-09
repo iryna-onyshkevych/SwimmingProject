@@ -1,0 +1,17 @@
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.EntityFramework.BAL\bin\Debug\netcoreapp3.1\Swimming.EntityFramework.BL.deps.json
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.EntityFramework.BAL\bin\Debug\netcoreapp3.1\Swimming.EntityFramework.BL.dll
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.EntityFramework.BAL\bin\Debug\netcoreapp3.1\Swimming.EntityFramework.BL.pdb
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.EntityFramework.BAL\bin\Debug\netcoreapp3.1\Swimming.Abstractions.dll
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.EntityFramework.BAL\bin\Debug\netcoreapp3.1\Swimming.EntityFramework.DAL.dll
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.EntityFramework.BAL\bin\Debug\netcoreapp3.1\Swimming.EntityFramework.DAL.pdb
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.EntityFramework.BAL\bin\Debug\netcoreapp3.1\Swimming.Abstractions.pdb
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.EntityFramework.BAL\bin\Debug\netcoreapp3.1\Swimming.Abstractions.dll.config
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.EntityFramework.BAL\obj\Debug\netcoreapp3.1\Swimming.EntityFramework.BL.csprojAssemblyReference.cache
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.EntityFramework.BAL\obj\Debug\netcoreapp3.1\Swimming.EntityFramework.BL.AssemblyInfoInputs.cache
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.EntityFramework.BAL\obj\Debug\netcoreapp3.1\Swimming.EntityFramework.BL.AssemblyInfo.cs
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.EntityFramework.BAL\obj\Debug\netcoreapp3.1\Swimming.EntityFramework.BL.csproj.CoreCompileInputs.cache
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.EntityFramework.BAL\obj\Debug\netcoreapp3.1\Swimming.EntityFramework.BL.csproj.CopyComplete
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.EntityFramework.BAL\obj\Debug\netcoreapp3.1\Swimming.EntityFramework.BL.dll
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.EntityFramework.BAL\obj\Debug\netcoreapp3.1\Swimming.EntityFramework.BL.pdb
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.EntityFramework.BAL\bin\Debug\netcoreapp3.1\DTO.dll
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\Swimming.EntityFramework.BAL\bin\Debug\netcoreapp3.1\DTO.pdb

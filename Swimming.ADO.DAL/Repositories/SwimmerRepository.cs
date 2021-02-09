@@ -1,5 +1,6 @@
-﻿using Swimming.Abstractions.Interfaces;
-using Swimming.Models;
+﻿
+using Swimming.Abstractions.Interfaces;
+using Swimming.Abstractions.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;

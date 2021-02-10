@@ -19,19 +19,8 @@ namespace SwimmingWebApp.Controllers
             Configuration = configuration;
         }
 
-        //public IActionResult Index()
-        //{
-
-
-        //    //string connectionString = Configuration["ConnectionStrings:DefaultConnection"];
-
-        //    CoachService coachService = new CoachService();
-        //    var e = coachService.SelectCoaches();
-
-        //    return View(e);
-
-
-        //}
+       
+       
         public IActionResult Index(string sortOrder, string searchString,int page = 1)
         {
             int pageSize = 5; 
@@ -82,7 +71,14 @@ namespace SwimmingWebApp.Controllers
         public IActionResult Create(CoachDTO coach)
         {
             CoachService coachService = new CoachService();
-            coachService.AddCoach(coach);
+            try
+            {
+                coachService.AddCoach(coach);
+            }
+            catch (Exception ex)
+            {
+                return Content("\tERROR!\n\n" + ex.Message);
+            }
 
             return RedirectToAction("Index");
         }
@@ -94,8 +90,14 @@ namespace SwimmingWebApp.Controllers
         public IActionResult Update(CoachDTO coach)
         {
             CoachService coachService = new CoachService();
-            coachService.UpdateCoach(coach);
-
+            try
+            {
+                coachService.UpdateCoach(coach);
+            }
+            catch (Exception ex)
+            {
+                return Content("\tERROR!\n\n" + ex.Message);
+            }
             return RedirectToAction("Index");
         }
         public IActionResult Delete()
@@ -108,8 +110,14 @@ namespace SwimmingWebApp.Controllers
         {
 
             CoachService coachService = new CoachService();
-            coachService.DeleteCoach(id);
-
+            try
+            {
+                coachService.DeleteCoach(id);
+            }
+            catch (Exception ex)
+            {
+                return Content("\tERROR!\n\n" + ex.Message);
+            }
 
             return RedirectToAction("Index");
         }

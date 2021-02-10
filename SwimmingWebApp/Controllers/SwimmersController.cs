@@ -32,7 +32,7 @@ namespace SwimmingWebApp.Controllers
             }
             catch ( Exception ex)
             {
-                return Content ("ERROR!\n" + ex.Message) ;
+                return Content ("\tERROR!\n\n" + ex.Message) ;
             }
          
             return RedirectToAction("Index");
@@ -48,8 +48,14 @@ namespace SwimmingWebApp.Controllers
         {
 
             SwimmerService swimmerService = new SwimmerService();
-            swimmerService.DeleteSwimmer(id);
-
+            try
+            {
+                swimmerService.DeleteSwimmer(id);
+            }
+            catch (Exception ex)
+            {
+                return Content("\tERROR!\n\n" + ex.Message);
+            }
 
             return RedirectToAction("Index");
         }

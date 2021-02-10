@@ -32,6 +32,7 @@ namespace SwimmingWebApp.Controllers
             }
             catch ( Exception ex)
             {
+                return Content ("ERROR!\n" + ex.Message) ;
             }
          
             return RedirectToAction("Index");

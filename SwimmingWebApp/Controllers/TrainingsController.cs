@@ -8,13 +8,15 @@ namespace SwimmingWebApp.Controllers
     {
         public IActionResult Index()
         {
-            TrainingService trainingService = new TrainingService();
-            var trainings = trainingService.SelectTrainings();
+            TrainingViewService trainingService = new TrainingViewService();
+            var trainings = trainingService.SelectSwimmersTrainings();
 
             return View(trainings);
 
 
         }
+       
+
         public IActionResult Create()
         {
             return View();

@@ -1,12 +1,12 @@
-﻿@model IEnumerable<DTO.Models.CoachDTO>
-
+﻿@*@model IEnumerable<DTO.Models.CoachDTO>*@
+@using SwimmingWebApp.ViewModels;
+@model IndexViewModel
 @{
     ViewBag.Title = "Coaches";
 }
-@*<a asp-action="Create">Add coach</a>*@
+<a asp-action="Create">Add coach</a>
 <a asp-action="Delete">Delete coach</a>
 <a asp-action="Update">Update coach</a>
-
 @using (Html.BeginForm())
 {
     <p>
@@ -14,7 +14,7 @@
         <input type="submit" value="Search" />
     </p>
 }
-
+<h1>All Coaches</h1>
 <table class="table">
     <tr>
         <th>
@@ -29,10 +29,26 @@
         <th></th>
     </tr>
 
-
-    @*<tr><td>Name</td><td>Surname</td><td>Work Experience</td></tr>*@
-    @foreach (var item in Model)
+    @foreach (CoachDTO u in Model.Coaches)
     {
-        <tr><td>@item.FirstName</td><td>@item.LastName</td><td>@item.WorkExperience</td></tr>
+        <tr><td>@u.FirstName</td><td>@u.LastName</td><td>@u.WorkExperience</td></tr>
     }
 </table>
+@if (Model.PageViewModel.HasPreviousPage)
+{
+    <a asp-action="Index"
+       asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
+       class="btn btn-outline-dark">
+        <i class="glyphicon glyphicon-chevron-left"></i>
+        Back
+    </a>
+}
+@if (Model.PageViewModel.HasNextPage)
+{
+    <a asp-action="Index"
+       asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
+       class="btn btn-outline-dark">
+        Forward
+        <i class="glyphicon glyphicon-chevron-right"></i>
+    </a>
+}

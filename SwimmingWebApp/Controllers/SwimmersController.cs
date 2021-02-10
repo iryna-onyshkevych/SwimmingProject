@@ -1,6 +1,8 @@
 ﻿using ADO.BL.Services;
 using DTO.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Diagnostics;
 
 namespace SwimmingWebApp.Controllers
 {
@@ -24,8 +26,14 @@ namespace SwimmingWebApp.Controllers
         public IActionResult Create(SwimmerDTO swimmer)
         {
             SwimmerService swimmerService = new SwimmerService();
-            swimmerService.AddSwimmer(swimmer);
-
+            try
+            {
+                swimmerService.AddSwimmer(swimmer);
+            }
+            catch ( Exception ex)
+            {
+            }
+         
             return RedirectToAction("Index");
         }
        

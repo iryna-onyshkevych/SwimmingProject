@@ -6,8 +6,10 @@ namespace SwimmingConsoleApp
     {
         static void Main(string[] args)
         {
-            SwimmingMenu menu = new SwimmingMenu();
-            menu.Menu();
+            Class1 class1 = new Class1();
+            class1.Update();
+            //SwimmingMenu menu = new SwimmingMenu();
+            //menu.Menu();
            
         }
     }

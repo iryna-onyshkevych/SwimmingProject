@@ -1,23 +1,30 @@
 ﻿using ADO.BL.Services;
 using DTO.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using System;
 
 namespace SwimmingWebApp.Controllers
 {
     public class TrainingsController : Controller
     {
-        public IActionResult Index()
+        TrainingViewService repo;
+        public TrainingsController(TrainingViewService r)
         {
-            TrainingViewService trainingService = new TrainingViewService();
+            repo = r;
+        }
 
-            var trainings = trainingService.SelectSwimmersTrainings();
+        public ActionResult Index()
+        {
+            ViewData["Head"] = "Trainings";
+            //TrainingViewService trainingService = new TrainingViewService();
 
-            return View(trainings);
+            var trainings = repo.SelectSwimmersTrainings();
+            return View(trainings); 
 
 
         }
-       
+
 
         public IActionResult Create()
         {

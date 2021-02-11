@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "All trainings";
 }
+@ViewData["Head"] 
 <a asp-action="create">Add training</a>
 @*<a asp-action="Delete">Delete swimmer</a>*@
 @*<a asp-action="Update">Update coach</a>*@
@@ -9,7 +10,12 @@
     <tr><td>Swimmer Name</td><td>Swimmer Surname</td><td>Training Date</td><td>Style</td><td>Distance</td></tr>
     @foreach (var item in Model)
     {
-        <tr><td>@item.FirstName</td><td>@item.LastName</td>
-    <td>@item.TrainingDate</td><td>@item.Style</td><td>@item.Distance</td></tr>
+        <tr>
+            <td>@item.FirstName</td>
+            <td>@item.LastName</td>
+            <td>@item.TrainingDate</td>
+            <td>@item.Style</td>
+            <td>@item.Distance</td>
+        </tr>
     }
 </table>

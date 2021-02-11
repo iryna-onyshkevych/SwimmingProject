@@ -1,4 +1,5 @@
-﻿using ADO.BL.Services;
+﻿using ADO.BL.Interfaces;
+using ADO.BL.Services;
 using DTO.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -8,11 +9,16 @@ namespace SwimmingWebApp.Controllers
 {
     public class SwimmersController : Controller
     {
-        
-        public IActionResult Index()
+
+        ISwimmerService service;
+        public SwimmersController(ISwimmerService r)
         {
-            SwimmerService swimmerService = new SwimmerService();
-            var swimmers = swimmerService.SelectSwimmers();
+            service = r;
+        }
+        public ViewResult Index()
+        {
+            //SwimmerService swimmerService = new SwimmerService();
+            var swimmers = service.SelectSwimmers();
 
             return View(swimmers);
 

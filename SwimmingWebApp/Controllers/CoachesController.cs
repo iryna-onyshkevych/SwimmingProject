@@ -1,4 +1,5 @@
-﻿using ADO.BL.Services;
+﻿using ADO.BL.Interfaces;
+using ADO.BL.Services;
 using DTO.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -12,18 +13,22 @@ namespace SwimmingWebApp.Controllers
 {
     public class CoachesController : Controller
     {
-        public IConfiguration Configuration { get; }
+        //public IConfiguration Configuration { get; }
 
-        public CoachesController(IConfiguration configuration)
+        //public CoachesController(IConfiguration configuration)
+        //{
+        //    Configuration = configuration;
+        //}
+        ICoachService service;
+        public CoachesController(ICoachService r)
         {
-            Configuration = configuration;
+            service = r;
         }
 
-       
-       
-        public IActionResult Index(string sortOrder, string searchString,int page = 1)
+
+        public IActionResult Index(string sortOrder, string searchString, int page = 1)
         {
-            int pageSize = 5; 
+            int pageSize = 5;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             CoachService coachService = new CoachService();
@@ -49,8 +54,8 @@ namespace SwimmingWebApp.Controllers
                     coaches = coaches.OrderBy(s => s.LastName);
                     break;
             }
-          
-           
+
+
             var count = coaches.Count();
             var items = coaches.Skip((page - 1) * pageSize).Take(pageSize).ToList();
 
@@ -62,25 +67,25 @@ namespace SwimmingWebApp.Controllers
             };
             return View(viewModel);
         }
-      
+
         public IActionResult Create()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult Create(CoachDTO coach)
+        public ActionResult Create(CoachDTO coach)
         {
-            CoachService coachService = new CoachService();
+            //CoachService coachService = new CoachService();
             try
             {
-                coachService.AddCoach(coach);
+                service.AddCoach(coach);
             }
             catch (Exception ex)
             {
                 return Content("\tERROR!\n\n" + ex.Message);
             }
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Coaches","Index");
         }
         public IActionResult Update()
         {

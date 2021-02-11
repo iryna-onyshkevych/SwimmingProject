@@ -1,4 +1,5 @@
-﻿using DTO.Models;
+﻿using ADO.BL.Interfaces;
+using DTO.Models;
 using Swimming.Abstractions.Interfaces;
 using Swimming.ADO.DAL.Repositories;
 using System;
@@ -9,7 +10,7 @@ using System.Linq;
 
 namespace ADO.BL.Services
 {
-    public class CoachService
+    public class CoachService: ICoachService
     {
         string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
@@ -42,12 +43,21 @@ namespace ADO.BL.Services
                 swimContext.Open();
                 ICoachManager<Swimming.Abstractions.Models.Coach> coachManager = new CoachRepository(swimContext);
                 var coaches = coachManager.GetList();
-                var coachList = coaches.Select(x => new CoachDTO() { Id = x.Id, FirstName =x.FirstName,
-                LastName = x.LastName, WorkExperience = x.WorkExperience}).ToList();
-                return coachList;
+                var coachList = coaches.Select(x => new CoachDTO()
+                {
+                    Id = x.Id,
+                    FirstName = x.FirstName,
+                    LastName = x.LastName,
+                    WorkExperience = x.WorkExperience
+                }).ToList();
+                
+
+                    return coachList;
+                
             }
 
         }
+       
         public void UpdateCoach(CoachDTO coach)
         {
             Swimming.Abstractions.Models.Coach updatedCoach = new Swimming.Abstractions.Models.Coach { FirstName = coach.FirstName, LastName = coach.LastName, WorkExperience = Convert.ToInt32(coach.WorkExperience) };

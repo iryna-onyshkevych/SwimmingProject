@@ -24,6 +24,7 @@ namespace SwimmingWebApp
         {
             services.AddTransient<ICoachService, CoachService>();
             services.AddTransient<ISwimmerService, SwimmerService>();
+            services.AddTransient<ISwimStyleService, SwimStyleService>();
             services.AddTransient<ITrainingService, TrainingService>();
             services.AddTransient<ITrainingViewService, TrainingViewService>();
 

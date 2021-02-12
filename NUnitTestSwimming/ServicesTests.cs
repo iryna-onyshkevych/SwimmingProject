@@ -18,6 +18,8 @@ namespace NUnitTestSwimming
         [Test]
         public void SwimmerService_Result_NotNull()
         {
+            //arrange
+
             var serviceMock = new Mock<ISwimmerService>();
 
             var result = serviceMock.Setup(a => a.SelectSwimmers());
@@ -28,6 +30,8 @@ namespace NUnitTestSwimming
         [Test]
         public void CoachService_AddingCoach_NotNull()
         {
+            //arrange
+
             CoachDTO coach = new CoachDTO()
             {
                 FirstName = "new",
@@ -39,15 +43,6 @@ namespace NUnitTestSwimming
             var result = serviceMock.Setup(a => a.AddCoach(coach));
             Assert.IsNotNull(result);
 
-            //SwimmersController controller = new SwimmersController(serviceMock.Object);
-            //SwimmerDTO swimmer = new SwimmerDTO();
-            //var result = controller.Create(swimmer);
-
-            //var ex = Assert.Throws<InvalidOperationException>(() => result.());
-
-            //Program program = new Program();
-            //var ex = Assert.ThrowsException<Exception>(() => program.StringAppend("Michael", "Jackson"));
-            //Assert.AreSame(ex.Message, "Test Exception");
         }
 
     }

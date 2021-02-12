@@ -1,4 +1,5 @@
-﻿using ADO.BL.Services;
+﻿using ADO.BL.Interfaces;
+using ADO.BL.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,10 +10,15 @@ namespace SwimmingWebApp.Controllers
 {
     public class SwimStylesController : Controller
     {
+        private readonly ISwimStyleService service;
+        public SwimStylesController(ISwimStyleService r)
+        {
+            service = r;
+        }
+
         public IActionResult Index()
         {
-            SwimStyleService swimStyleService = new SwimStyleService();
-            var swimStyles = swimStyleService.SelectSwimStyles();
+            var swimStyles = service.SelectSwimStyles();
 
             return View(swimStyles);
         }

@@ -15,25 +15,7 @@ namespace SwimmingWebApp.Controllers
             service = r;
         }
 
-        //public IActionResult Index()
-        //{
-        //    //SwimmerService swimmerService = new SwimmerService();
-        //    //var swimmers = service.SelectSwimmers();
-
-        //    return View(dbop.GetSwimmer(1));
-
-
-        //}
-        //[HttpPost]
-        //public IActionResult Index(int currentPageIndex)
-        //{
-        //    //SwimmerService swimmerService = new SwimmerService();
-        //    //var swimmers = service.SelectSwimmers();
-
-        //    return View(dbop.GetSwimmer(currentPageIndex));
-
-
-        //}
+       
         [HttpGet]
         public IActionResult Index(int page = 1)
         {
@@ -50,7 +32,6 @@ namespace SwimmingWebApp.Controllers
         [HttpPost]
         public IActionResult Create(SwimmerDTO swimmer)
         {
-            //SwimmerService swimmerService = new SwimmerService();
             try
             {
                 service.AddSwimmer(swimmer);
@@ -58,7 +39,6 @@ namespace SwimmingWebApp.Controllers
             catch ( Exception ex)
             {
                 throw new InvalidOperationException("\tERROR!\n\n" + ex.Message);
-                //return Content ("\tERROR!\n\n" + ex.Message) ;
             }
          
             return RedirectToAction("Index");
@@ -73,7 +53,6 @@ namespace SwimmingWebApp.Controllers
         public IActionResult Delete(int id)
         {
 
-            //SwimmerService swimmerService = new SwimmerService();
             try
             {
                 service.DeleteSwimmer(id);

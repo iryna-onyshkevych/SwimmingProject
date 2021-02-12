@@ -14,31 +14,38 @@ namespace NUnitTestSwimming
 
         }
         [Test]
-        public void Attribute_AgeValidation_IsValid()
-        {
-            int age = 5;
+        [TestCase(30)]
+        [TestCase(5)]
 
+        public void Attribute_AgeValidation_IsValid(int age)
+        {
+            
             var result = AgeValidationAttribute.IsValidSwimmerAge(age);
 
             Assert.AreEqual(result, false);
         }
         [Test]
-        public void Attribute_DistanceValidation_IsValid()
-        {
-            int distance = 250;
+        [TestCase(250)]
+        [TestCase(400)]
 
+        public void Attribute_DistanceValidation_IsValid(int distance)
+        {
             var result = DistanceValidationAttribute.IsValidDistance(distance);
 
             Assert.AreEqual(result, true);
         }
         [Test]
-        public void Attribute_WorkExperienceValidation_IsValid()
-        {
-            int workExperience = 150;
+        [TestCase(150)]
+        [TestCase(100)]
 
-            var result = WorkExperienceValidationAttribute.IsValidCoachExperience(workExperience);
+        public void Attribute_WorkExperienceValidation_IsValid(int value)
+        {
+            
+
+            bool result = WorkExperienceValidationAttribute.IsValidCoachExperience(value);
 
             Assert.AreEqual(result, false);
+
         }
     }
 }

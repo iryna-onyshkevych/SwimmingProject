@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using DTO.Attributes;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 #nullable disable
@@ -19,7 +20,7 @@ namespace DTO.Models
         [Required(ErrorMessage = "Surname is invalid!")]
         public string LastName { get; set; }
         [Required(ErrorMessage = "Age is invalid!")]
-
+        [AgeValidationAttribute]
         public int Age { get; set; }
         [Required(ErrorMessage = "CoachId is invalid!")]
 

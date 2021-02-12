@@ -1,5 +1,5 @@
 ﻿using ADO.BL.Interfaces;
-using ADO.BL.Services;
+//using ADO.BL.Services;
 using DTO.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -9,18 +9,29 @@ namespace SwimmingWebApp.Controllers
 {
     public class SwimmersController : Controller
     {
-
-        ISwimmerService service;
+        ADO.BL.db dbop = new ADO.BL.db();
+        private readonly ISwimmerService service;
         public SwimmersController(ISwimmerService r)
         {
             service = r;
         }
-        public ViewResult Index()
+       
+        public IActionResult Index()
         {
             //SwimmerService swimmerService = new SwimmerService();
-            var swimmers = service.SelectSwimmers();
+            //var swimmers = service.SelectSwimmers();
 
-            return View(swimmers);
+            return View(dbop.GetSwimmer(1));
+
+
+        }
+        [HttpPost]
+        public IActionResult Index(int currentPageIndex)
+        {
+            //SwimmerService swimmerService = new SwimmerService();
+            //var swimmers = service.SelectSwimmers();
+
+            return View(dbop.GetSwimmer(currentPageIndex));
 
 
         }
@@ -31,14 +42,15 @@ namespace SwimmingWebApp.Controllers
         [HttpPost]
         public IActionResult Create(SwimmerDTO swimmer)
         {
-            SwimmerService swimmerService = new SwimmerService();
+            //SwimmerService swimmerService = new SwimmerService();
             try
             {
-                swimmerService.AddSwimmer(swimmer);
+                service.AddSwimmer(swimmer);
             }
             catch ( Exception ex)
             {
-                return Content ("\tERROR!\n\n" + ex.Message) ;
+                throw new InvalidOperationException("\tERROR!\n\n" + ex.Message);
+                //return Content ("\tERROR!\n\n" + ex.Message) ;
             }
          
             return RedirectToAction("Index");
@@ -53,10 +65,10 @@ namespace SwimmingWebApp.Controllers
         public IActionResult Delete(int id)
         {
 
-            SwimmerService swimmerService = new SwimmerService();
+            //SwimmerService swimmerService = new SwimmerService();
             try
             {
-                swimmerService.DeleteSwimmer(id);
+                service.DeleteSwimmer(id);
             }
             catch (Exception ex)
             {

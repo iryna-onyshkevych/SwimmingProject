@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using DTO.Attributes;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 #nullable disable
@@ -20,7 +21,10 @@ namespace DTO.Models
         [Required(ErrorMessage = "Last name is invalid!")]
 
         public string LastName { get; set; }
+        [WorkExperienceValidation]
+
         [Required(ErrorMessage = "Work experience is invalid!")]
+
 
         public int WorkExperience { get; set; }
 

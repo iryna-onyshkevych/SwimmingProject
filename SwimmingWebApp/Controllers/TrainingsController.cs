@@ -8,18 +8,18 @@ namespace SwimmingWebApp.Controllers
 {
     public class TrainingsController : Controller
     {
-        TrainingViewService repo;
-        public TrainingsController(TrainingViewService r)
-        {
-            repo = r;
-        }
-
+        //private readonly TrainingViewService repo;
+        //public TrainingsController(TrainingViewService r)
+        //{
+        //    repo = r;
+        //}
+        [HttpGet]
         public ActionResult Index()
         {
             ViewData["Head"] = "Trainings";
-            //TrainingViewService trainingService = new TrainingViewService();
+            TrainingViewService trainingService = new TrainingViewService();
 
-            var trainings = repo.SelectSwimmersTrainings();
+            var trainings = trainingService.SelectSwimmersTrainings();
             return View(trainings); 
 
 

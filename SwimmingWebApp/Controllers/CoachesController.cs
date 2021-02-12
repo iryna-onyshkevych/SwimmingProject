@@ -75,13 +75,16 @@ namespace SwimmingWebApp.Controllers
         [HttpPost]
         public ActionResult Create(CoachDTO coach)
         {
+            //service.AddCoach(coach);
             //CoachService coachService = new CoachService();
             try
             {
                 service.AddCoach(coach);
+
             }
             catch (Exception ex)
             {
+
                 return Content("\tERROR!\n\n" + ex.Message);
             }
 

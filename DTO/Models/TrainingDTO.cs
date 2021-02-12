@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO.Attributes;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 #nullable disable
@@ -21,7 +22,7 @@ namespace DTO.Models
         public DateTime TrainingDate { get; set; }
 
         [Required(ErrorMessage = "Distance is invalid!")]
-
+        [DistanceValidationAttribute]
         public int Distance { get; set; }
 
         public virtual SwimStyleDTO SwimStyle { get; set; }

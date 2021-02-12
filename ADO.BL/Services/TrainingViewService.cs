@@ -7,11 +7,11 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Text;
 using System.Linq;
-
+using ADO.BL.Interfaces;
 
 namespace ADO.BL.Services
 {
-    public class TrainingViewService
+    public class TrainingViewService: ITrainingViewService
     {
         string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
         public IEnumerable<TrainingsSwimmersSwimStyleDTO> SelectSwimmersTrainings()

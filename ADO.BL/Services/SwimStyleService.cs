@@ -2,12 +2,13 @@
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
+using ADO.BL.Interfaces;
 using DTO.Models;
 using Swimming.Abstractions.Interfaces;
 using Swimming.ADO.DAL.Repositories;
 namespace ADO.BL.Services
 {
-    public class SwimStyleService
+    public class SwimStyleService: ISwimStyleService
     {
         string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
         public IEnumerable<SwimStyleDTO> SelectSwimStyles()

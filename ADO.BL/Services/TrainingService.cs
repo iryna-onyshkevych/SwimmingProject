@@ -1,4 +1,5 @@
-﻿using DTO.Models;
+﻿using ADO.BL.Interfaces;
+using DTO.Models;
 using Swimming.Abstractions.Interfaces;
 using Swimming.ADO.DAL.Repositories;
 using System;
@@ -9,7 +10,7 @@ using System.Linq;
 
 namespace ADO.BL.Services
 {
-    public class TrainingService
+    public class TrainingService: ITrainingService
     {
         string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 

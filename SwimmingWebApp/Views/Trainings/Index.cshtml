@@ -1,21 +1,63 @@
-﻿@model IEnumerable<DTO.Models.TrainingsSwimmersSwimStyleDTO>
+﻿@*@model IEnumerable<DTO.Models.CoachDTO>*@
+@using SwimmingWebApp.ViewModels;
+@model IndexViewModel
 @{
-    ViewBag.Title = "All trainings";
+    ViewBag.Title = "Trainings";
 }
-@ViewData["Head"] 
-<a asp-action="create">Add training</a>
-@*<a asp-action="Delete">Delete swimmer</a>*@
-@*<a asp-action="Update">Update coach</a>*@
+<a asp-action="Create"  asp-controller="SwimmerTrainings">Add training</a>
 <table class="table">
-    <tr><td>Swimmer Name</td><td>Swimmer Surname</td><td>Training Date</td><td>Style</td><td>Distance</td></tr>
-    @foreach (var item in Model)
+    <tr><td>Id</td><td>First Name</td><td>Last Name</td><td>Date</td><td>Style</td><td>Distance</td></tr>
+    @foreach (var item in Model.Trainings)
     {
-        <tr>
-            <td>@item.FirstName</td>
-            <td>@item.LastName</td>
-            <td>@item.TrainingDate</td>
-            <td>@item.Style</td>
-            <td>@item.Distance</td>
-        </tr>
+<tr>
+    <td>@item.TrainingId</td>
+    <td>@item.FirstName</td>
+    <td>@item.LastName</td>
+    <td>@item.TrainingDate</td>
+    <td>@item.Style</td>
+    <td>@item.Distance</td>
+</tr>
     }
 </table>
+@if (Model.PageViewModel.HasPreviousPage)
+{
+    <a asp-action="Index"
+       asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
+       class="btn btn-outline-dark">
+        <i class="glyphicon glyphicon-chevron-left"></i>
+        Back
+    </a>
+}
+@if (Model.PageViewModel.HasNextPage)
+{
+    <a asp-action="Index"
+       asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
+       class="btn btn-outline-dark">
+        Forward
+        <i class="glyphicon glyphicon-chevron-right"></i>
+    </a>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

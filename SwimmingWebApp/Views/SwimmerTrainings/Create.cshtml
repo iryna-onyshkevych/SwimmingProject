@@ -2,17 +2,17 @@
 @{
     ViewBag.Title = "Add Training";
 }
-<form asp-action="create" asp-controller="Trainings">
+<form asp-action="Create" asp-controller="SwimmerTrainings">
     <div class="form-group">
         <label asp-for="SwimmerId" class="control-label">SwimmerId</label>
         <input type="text" asp-for="SwimmerId" class="form-control" />
-        <span asp-validation-for="SwimmerId"  class="text-info" />
+        <span asp-validation-for="SwimmerId" class="text-info" />
 
     </div>
     <div class="form-group">
         <label asp-for="SwimStyleId" class="control-label">SwimStyleId</label>
         <input type="text" asp-for="SwimStyleId" class="form-control" />
-        <span asp-validation-for="SwimStyleId"  class="text-info" />
+        <span asp-validation-for="SwimStyleId" class="text-info" />
 
     </div>
     <div class="form-group">
@@ -24,7 +24,7 @@
     <div class="form-group">
         <label asp-for="Distance" class="control-label">Distance</label>
         <input type="number" asp-for="Distance" class="form-control" />
-        <span asp-validation-for="Distance"  class="text-info" />
+        <span asp-validation-for="Distance" class="text-info" />
 
     </div>
     <div class="form-group">

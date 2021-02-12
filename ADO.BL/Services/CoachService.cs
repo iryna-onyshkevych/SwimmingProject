@@ -1,7 +1,9 @@
 ﻿using ADO.BL.Interfaces;
 using DTO.Models;
 using Swimming.Abstractions.Interfaces;
+using Swimming.Abstractions.Models;
 using Swimming.ADO.DAL.Repositories;
+using SwimmingWebApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -68,6 +70,47 @@ namespace ADO.BL.Services
 
                 coachManager.Update(Convert.ToInt32(coach.Id), updatedCoach);
             }
+        }
+        public IndexViewModel GetCoaches(int page = 1)
+        {
+            
+                using (SqlConnection swimContext = new SqlConnection(connectionString))
+                {
+                    swimContext.Open();
+
+                    ICoachManager<Coach> coachManager = new CoachRepository(swimContext);
+
+                    IEnumerable<Coach> coaches = coachManager.GetList();
+
+                    var count = coaches.Count();
+
+                    int pageSize = 4;
+
+                    var items = coaches.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+
+                    List<CoachDTO> coachViewModel= new List<CoachDTO>();
+                    foreach (Coach c in items)
+                    {
+                        coachViewModel.Add(new CoachDTO
+                        {
+                            Id = c.Id,
+                            FirstName = c.FirstName,
+                            LastName = c.LastName,
+                            WorkExperience = c.WorkExperience
+                        });
+                    }
+
+                    PageViewModel pageViewModel = new PageViewModel(count, page, pageSize);
+                    IndexViewModel viewModel = new IndexViewModel
+                    {
+                        PageViewModel = pageViewModel,
+                        Coaches = coachViewModel
+                    };
+
+                    return viewModel;
+                }
+            
+           
         }
     }
 }

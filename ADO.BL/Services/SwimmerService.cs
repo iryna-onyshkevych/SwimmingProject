@@ -1,7 +1,9 @@
 ﻿using ADO.BL.Interfaces;
 using DTO.Models;
 using Swimming.Abstractions.Interfaces;
+using Swimming.Abstractions.Models;
 using Swimming.ADO.DAL.Repositories;
+using SwimmingWebApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -58,9 +60,49 @@ namespace ADO.BL.Services
                
                 ISwimmerManager<Swimming.Abstractions.Models.Swimmer> swimmerManager = new SwimmerRepository(swimdb);
                 swimmerManager.Delete(Convert.ToInt32(id));
-                ICoachManager<Swimming.Abstractions.Models.Coach> coachManager = new CoachRepository(swimdb);
-                coachManager.Delete(Convert.ToInt32(id));
+                
             }
+        }
+        public IndexViewModel GetSwimmers(int page = 1)
+        {
+             using (SqlConnection swimContext = new SqlConnection(connectionString))
+                {
+                    swimContext.Open();
+
+                    ISwimmerManager<Swimmer> swimmerManager = new SwimmerRepository(swimContext);
+
+                    IEnumerable<Swimmer> swimmers = swimmerManager.GetList();
+
+                    var count = swimmers.Count();
+
+                    int pageSize = 4;
+
+                    var items = swimmers.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+
+                    List<SwimmerDTO> cswimmersViewModel = new List<SwimmerDTO>();
+                    foreach (Swimmer c in items)
+                    {
+                    cswimmersViewModel.Add(new SwimmerDTO
+                        {
+                            Id = c.Id,
+                            FirstName = c.FirstName,
+                            LastName = c.LastName,
+                            Age = c.Age,
+                            CoachId = c.CoachId,
+                        });
+                    }
+
+                    PageViewModel pageViewModel = new PageViewModel(count, page, pageSize);
+                    IndexViewModel viewModel = new IndexViewModel
+                    {
+                        PageViewModel = pageViewModel,
+                        Swimmers = cswimmersViewModel
+                    };
+
+                    return viewModel;
+                
+            }
+           
         }
     }
 }

@@ -9,32 +9,40 @@ namespace SwimmingWebApp.Controllers
 {
     public class SwimmersController : Controller
     {
-        ADO.BL.db dbop = new ADO.BL.db();
         private readonly ISwimmerService service;
         public SwimmersController(ISwimmerService r)
         {
             service = r;
         }
-       
-        public IActionResult Index()
+
+        //public IActionResult Index()
+        //{
+        //    //SwimmerService swimmerService = new SwimmerService();
+        //    //var swimmers = service.SelectSwimmers();
+
+        //    return View(dbop.GetSwimmer(1));
+
+
+        //}
+        //[HttpPost]
+        //public IActionResult Index(int currentPageIndex)
+        //{
+        //    //SwimmerService swimmerService = new SwimmerService();
+        //    //var swimmers = service.SelectSwimmers();
+
+        //    return View(dbop.GetSwimmer(currentPageIndex));
+
+
+        //}
+        [HttpGet]
+        public IActionResult Index(int page = 1)
         {
-            //SwimmerService swimmerService = new SwimmerService();
-            //var swimmers = service.SelectSwimmers();
+            var customers = service.GetSwimmers(page);
 
-            return View(dbop.GetSwimmer(1));
-
-
+            return View(customers);
         }
-        [HttpPost]
-        public IActionResult Index(int currentPageIndex)
-        {
-            //SwimmerService swimmerService = new SwimmerService();
-            //var swimmers = service.SelectSwimmers();
-
-            return View(dbop.GetSwimmer(currentPageIndex));
 
 
-        }
         public IActionResult Create()
         {
             return View();

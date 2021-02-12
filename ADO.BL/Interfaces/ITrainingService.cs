@@ -8,6 +8,5 @@ namespace ADO.BL.Interfaces
     public interface ITrainingService
     {
         void AddTraining(TrainingDTO training);
-        IEnumerable<TrainingDTO> SelectTrainings();
     }
 }

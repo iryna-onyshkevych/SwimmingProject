@@ -1,4 +1,5 @@
-﻿using ADO.BL.Services;
+﻿using ADO.BL.Interfaces;
+using ADO.BL.Services;
 using DTO.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -8,42 +9,21 @@ namespace SwimmingWebApp.Controllers
 {
     public class TrainingsController : Controller
     {
-        //private readonly TrainingViewService repo;
-        //public TrainingsController(TrainingViewService r)
-        //{
-        //    repo = r;
-        //}
+        private readonly ITrainingViewService service;
+        public TrainingsController(ITrainingViewService r)
+        {
+            service = r;
+        }
+      
+
         [HttpGet]
-        public ActionResult Index()
+        public IActionResult Index(int page = 1)
         {
-            ViewData["Head"] = "Trainings";
-            TrainingViewService trainingService = new TrainingViewService();
+            var customers = service.GetTrainings(page);
 
-            var trainings = trainingService.SelectSwimmersTrainings();
-            return View(trainings); 
-
-
+            return View(customers);
         }
 
-
-        public IActionResult Create()
-        {
-            return View();
-        }
-        [HttpPost]
-        public IActionResult Create(TrainingDTO training)
-        {
-            TrainingService trainingService = new TrainingService();
-            try
-            {
-                trainingService.AddTraining(training);
-            }
-            catch (Exception ex)
-            {
-                return Content("\tERROR!\n\n" + ex.Message);
-            }
-
-            return RedirectToAction("Index");
-        }
+    
     }
 }

@@ -1,56 +1,50 @@
-﻿@using ADO.BL
-@model SwimmingModel
+﻿@*@model IEnumerable<DTO.Models.CoachDTO>*@
+@using SwimmingWebApp.ViewModels;
+@model IndexViewModel
+@{
+    ViewBag.Title = "Swimmers";
+}
+<a asp-action="Create">Add swimmer</a>
+<a asp-action="Delete">Delete swimmer</a>
+<table class="table">
+    <tr><td>Id</td><td>First Name</td><td>Last Name</td><td>Age</td><td>Coach Id</td></tr>
+    @foreach (var item in Model.Swimmers)
+    {
+<tr>
+    <td>@item.Id</td>
+    <td>@item.FirstName</td>
+    <td>@item.LastName</td>
+    <td>@item.Age</td>
 
-<div class="row">
-    <div class="col-md-8">
-        <form asp-action="Index" asp-controller="Swimmers" method="post">
-            <table class="table table-responsive">
-                <tr>
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>Lastname</th>
-                    <th>Age</th>
-                    <th>Coach Id</th>
-                </tr>
-                @foreach(SwimmerDTO swimmer in Model.Swimmers )
-                {
-                    <tr>
+    <td>@item.CoachId</td>
 
-                        <td>@swimmer.Id</td>
-                        <td>@swimmer.FirstName</td>
-                        <td>@swimmer.LastName</td>
-                        <td>@swimmer.Age</td>
-                        <td>@swimmer.CoachId</td>
-                     </tr>
-                }
-            </table>
-            <br />
-            <table class="table table-responsive">
-                <tr>
-                    @for (int i = 1; i < Model.PageCount; i++)
-                    {
-                        <td>
-                            @if (i != Model.CurrentIndex)
-                            {
-                                <a href="javascript: PagerClick(@i);">@i</a>
-                            }
-                            else
-                            {
-                                <span>@i</span>
-                            }
-                        </td>
-                    }
+</tr>
+    }
+</table>
 
-                </tr>
-            </table>
-            <input type ="hidden" id="hfCurrentPageIndex" name="CurrentPageIndex"/>
-        </form>
-        <script>
-            function PagerClick(index) {
-                document.getElementById("hfCurrentPageIndex").value = index;
-                document.forms[0].submit();
-            }
-        </script>
-    </div>
-</div>
+@if (Model.PageViewModel.HasPreviousPage)
+{
+    <a asp-action="Index"
+       asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
+       class="btn btn-outline-dark">
+        <i class="glyphicon glyphicon-chevron-left"></i>
+        Back
+    </a>
+}
+@if (Model.PageViewModel.HasNextPage)
+{
+    <a asp-action="Index"
+       asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
+       class="btn btn-outline-dark">
+        Forward
+        <i class="glyphicon glyphicon-chevron-right"></i>
+    </a>
+}
+
+
+
+
+
+
+
 

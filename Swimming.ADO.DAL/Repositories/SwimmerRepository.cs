@@ -55,6 +55,7 @@ namespace Swimming.ADO.DAL.Repositories
                         FirstName = reader.GetString(1),
                         LastName = reader.GetString(2),
                         Age = reader.GetInt32(3),
+                        CoachId = reader.GetInt32(4)
 
                     };
                     swimmers.Add(swimmer);

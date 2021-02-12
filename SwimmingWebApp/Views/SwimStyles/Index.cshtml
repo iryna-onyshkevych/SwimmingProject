@@ -2,11 +2,9 @@
 @{
     ViewBag.Title = "All styles";
 }
-<!--<a asp-action="create">Add swimmer</a>
-<a asp-action="Delete">Delete swimmer</a>-->
-@*<a asp-action="Update">Update coach</a>*@
+<a>StyleName</a>
+
 <table class="table">
-    <tr><td>StyleName</td><</tr>
     @foreach (var item in Model)
     {
         <tr><td>@item.StyleName</td></tr>

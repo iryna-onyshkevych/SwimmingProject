@@ -12,6 +12,7 @@ namespace SwimmingConsoleApp
             {
                 Console.WriteLine("\nEnter '1' to show EF Menu\nEnter '2' to show ADO Menu");
                 menunumber = Console.ReadLine();
+
                 switch (menunumber)
                 {
                     case "1":
@@ -26,12 +27,8 @@ namespace SwimmingConsoleApp
                         menunumber = "default";
                         Console.WriteLine("Default case");
                         break;
-
                 }
-
             }
-
-
             while (menunumber != "default");
         }
     }

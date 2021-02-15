@@ -1,6 +1,5 @@
 ﻿using Swimming.Abstractions.Interfaces;
 using Swimming.Abstractions.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -14,6 +13,7 @@ namespace Swimming.EntityFramework.DAL.Repositories
         {
             _context = context;
         }
+
         public SwimStyle Add(SwimStyle swimStyle)
         {
             SwimStyle newSwimStyle = new SwimStyle
@@ -21,7 +21,6 @@ namespace Swimming.EntityFramework.DAL.Repositories
                 StyleName = swimStyle.StyleName,
 
             };
-
             _context.SwimStyles.Add(newSwimStyle);
             _context.SaveChanges();
             return newSwimStyle;
@@ -30,7 +29,6 @@ namespace Swimming.EntityFramework.DAL.Repositories
         public void Delete(int id)
         {
             var swimstyle = _context.SwimStyles.Single(x => x.Id == id);
-
             _context.SwimStyles.Remove(swimstyle);
             _context.SaveChanges();
         }
@@ -44,13 +42,9 @@ namespace Swimming.EntityFramework.DAL.Repositories
         public SwimStyle Update(int id, SwimStyle swimStyle)
         {
             var swimStyleToUpdate = _context.SwimStyles.Single(x => x.Id == id);
-
             swimStyleToUpdate.StyleName = swimStyle.StyleName;
-
-
             _context.SwimStyles.Update(swimStyleToUpdate);
             _context.SaveChanges();
-
             return swimStyleToUpdate;
         }
     }

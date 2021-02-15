@@ -1,11 +1,9 @@
 ﻿using DTO.Models;
 using Swimming.Abstractions.Interfaces;
 using Swimming.ADO.DAL.Repositories;
-using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Text;
 using System.Linq;
 using ADO.BL.Interfaces;
 using SwimmingWebApp.ViewModels;
@@ -19,10 +17,11 @@ namespace ADO.BL.Services
         public IEnumerable<TrainingsSwimmersSwimStyleDTO> SelectSwimmersTrainings()
         {
             using (SqlConnection swimContext = new SqlConnection(connectionString)) { 
-            
+
                 swimContext.Open();
-                ITrainingsSwimmersSwimStyleManager<Swimming.Abstractions.Models.TrainingsSwimmersSwimStyle> tariningManager = new TrainingSwimmerSwimStyleRepository(swimContext);
+                ITrainingsSwimmersSwimStyleManager<TrainingsSwimmersSwimStyle> tariningManager = new TrainingSwimmerSwimStyleRepository(swimContext);
                 var trainings = tariningManager.GetView();
+
                 var trainingList = trainings.Select(x => new TrainingsSwimmersSwimStyleDTO()
                 {
 
@@ -35,26 +34,20 @@ namespace ADO.BL.Services
                 }).ToList();
                 return trainingList;
             }
-
         }
+
         public IndexViewModel GetTrainings(int page = 1)
         {
-            
                 using (SqlConnection swimContext = new SqlConnection(connectionString))
                 {
                     swimContext.Open();
-
                     ITrainingsSwimmersSwimStyleManager<TrainingsSwimmersSwimStyle> tariningManager = new TrainingSwimmerSwimStyleRepository(swimContext);
-
                     IEnumerable<TrainingsSwimmersSwimStyle> trainings = tariningManager.GetView();
-
                     var count = trainings.Count();
-
                     int pageSize = 4;
-
                     var items = trainings.Skip((page - 1) * pageSize).Take(pageSize).ToList();
-
                     List<TrainingsSwimmersSwimStyleDTO> trainingViewModel = new List<TrainingsSwimmersSwimStyleDTO>();
+
                     foreach (TrainingsSwimmersSwimStyle c in items)
                     {
                         trainingViewModel.Add(new TrainingsSwimmersSwimStyleDTO
@@ -76,9 +69,8 @@ namespace ADO.BL.Services
                     };
 
                     return viewModel;
-                }
-            
-           
+
+                }  
         }
     }
 }

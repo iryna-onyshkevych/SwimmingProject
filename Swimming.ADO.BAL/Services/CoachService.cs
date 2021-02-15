@@ -11,6 +11,7 @@ namespace Swimming.ADO.BL.Services
     public class CoachService
     {
         string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+
         public bool IsAllAlphabetic(string value)
         {
             foreach (char c in value)
@@ -18,27 +19,29 @@ namespace Swimming.ADO.BL.Services
                 if (!char.IsLetter(c))
                     return false;
             }
-
             return true;
         }
+
         public void AddCoach()
         {
             Console.Write("Enter Coach name:");
             string name = Console.ReadLine();
+
             while (!IsAllAlphabetic(name))
             {
                 Console.WriteLine("Incorrect Name! Try again");
                 name = Console.ReadLine();
-
             }
+
             Console.Write("Enter Coach surname:");
             string surname = Console.ReadLine();
+
             while (!IsAllAlphabetic(surname))
             {
                 Console.WriteLine("Incorrect Surname! Try again");
                 surname = Console.ReadLine();
-
             }
+
             Console.Write("Enter Coach work experience:");
             string workExperience = Console.ReadLine();
             int tryint;
@@ -56,20 +59,16 @@ namespace Swimming.ADO.BL.Services
                 {
                     swimContext.Open();
                     ICoachManager<Coach> coachManager = new CoachRepository(swimContext);
-
                     coachManager.Add(coach);
                     Console.WriteLine("Coach is added");
-
                 }
-
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine(ex.Message);
             }
-
         }
+
         public void DeleteCoach()
         {
             try
@@ -83,28 +82,26 @@ namespace Swimming.ADO.BL.Services
                     Console.WriteLine("Incorrect id! Try again ");
                     id = Console.ReadLine();
                 }
+
                 using (SqlConnection swimdb = new SqlConnection(connectionString))
                 {
                     swimdb.Open();
                     ICoachManager<Coach> coachManager = new CoachRepository(swimdb);
                     coachManager.Delete(Convert.ToInt32(id));
                     Console.WriteLine("Coach is deleted");
-
-
                 }
-
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
         }
+
         public void SelectCoaches()
         {
             try
             {
                 Console.Write("Coaches:\n");
-
                 Console.WriteLine("\tCoach Id \tFirstName \tSecondName\tWorkExperience");
 
                 using (SqlConnection swimContext = new SqlConnection(connectionString))
@@ -112,20 +109,18 @@ namespace Swimming.ADO.BL.Services
                     swimContext.Open();
                     ICoachManager<Coach> coachManager = new CoachRepository(swimContext);
                     var coaches = coachManager.GetList();
-
                     foreach (Coach c in coaches)
                     {
                         Console.WriteLine($"{c.Id,15}{c.FirstName,15} {c.LastName,17} {c.WorkExperience,15}");
                     }
-
                 }
-
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
         }
+
         public void UpdateCoach()
         {
             Console.WriteLine("Enter Coach id:");
@@ -137,22 +132,25 @@ namespace Swimming.ADO.BL.Services
                 Console.WriteLine("Incorrect id! Try again ");
                 coachId = Console.ReadLine();
             }
+
             Console.Write("Enter Coach name:");
             string newName = Console.ReadLine();
+
             while (!IsAllAlphabetic(newName))
             {
                 Console.WriteLine("Incorrect Name! Try again");
                 newName = Console.ReadLine();
-
             }
+
             Console.Write("Enter Coach surname:");
             string newSurname = Console.ReadLine();
+
             while (!IsAllAlphabetic(newSurname))
             {
                 Console.WriteLine("Incorrect Surname! Try again");
                 newSurname = Console.ReadLine();
-
             }
+
             Console.Write("Enter Coach work experience:");
             string newWorkExperience = Console.ReadLine();
 
@@ -161,6 +159,7 @@ namespace Swimming.ADO.BL.Services
                 Console.WriteLine("Incorrect Work Experience! Try again ");
                 newWorkExperience = Console.ReadLine();
             }
+
             try
             {
                 Coach coach = new Coach { FirstName = newName, LastName = newSurname, WorkExperience = Convert.ToInt32(newWorkExperience) };
@@ -168,12 +167,9 @@ namespace Swimming.ADO.BL.Services
                 {
                     swimContext.Open();
                     ICoachManager<Coach> coachManager = new CoachRepository(swimContext);
-
                     coachManager.Update(Convert.ToInt32(coachId), coach);
                     Console.WriteLine("Coach is updated");
-
                 }
-
             }
             catch (Exception ex)
             {

@@ -1,6 +1,5 @@
 ﻿using Swimming.Abstractions.Interfaces;
 using Swimming.Abstractions.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -17,7 +16,6 @@ namespace Swimming.EntityFramework.DAL.Repositories
 
         public IEnumerable<TrainingsSwimmersSwimStyle> GetView()
         {
-
             IEnumerable<TrainingsSwimmersSwimStyle> listOfTrainings = _context.TrainingsSwimmersSwimStyles.ToList();
             return listOfTrainings;
         }

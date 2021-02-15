@@ -1,7 +1,5 @@
 ﻿using Swimming.Abstractions.Attributes;
 using System;
-using System.Collections.Generic;
-#nullable disable
 
 namespace Swimming.Abstractions.Models
 {
@@ -13,7 +11,6 @@ namespace Swimming.Abstractions.Models
         public DateTime TrainingDate { get; set; }
 
         [DistanceValidation]
-
         public int Distance { get; set; }
         public string Style { get; set; }
     }

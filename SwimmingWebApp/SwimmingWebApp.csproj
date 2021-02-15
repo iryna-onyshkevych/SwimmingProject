@@ -29,8 +29,8 @@
   <ItemGroup>
     <Compile Update="app.Designer.cs">
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <AutoGen>True</AutoGen>
       <DependentUpon>app.config</DependentUpon>
+      <AutoGen>True</AutoGen>
     </Compile>
   </ItemGroup>
 

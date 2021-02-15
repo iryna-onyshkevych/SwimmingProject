@@ -16,23 +16,19 @@ namespace Swimming.ADO.BL.Services
             try
             {
                 Console.Write("Swimming Styles:\n");
-
                 Console.WriteLine("\tId \tStyle Name ");
+
                 using (SqlConnection swimContext = new SqlConnection(connectionString))
                 {
                     swimContext.Open();
                     ISwimStyleManager<SwimStyle> coachManager = new SwimStyleRepository(swimContext);
                     var coaches = coachManager.GetList();
-
                     foreach (SwimStyle c in coaches)
                     {
                         Console.WriteLine($"{c.Id,10} {c.StyleName,15}");
                     }
-
                 }
-
             }
-
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);

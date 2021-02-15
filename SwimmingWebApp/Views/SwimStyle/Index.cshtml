@@ -1,0 +1,17 @@
+﻿@model IEnumerable<DTO.Models.SwimStyleDTO>
+@{
+    ViewBag.Title = "All styles";
+}
+<a asp-action="Create">Add swimming style</a>
+<a asp-action="Delete">Delete swimming style</a>
+<a asp-action="Update">Update swimming style</a>
+
+
+<table class="table">
+    <tr><td>Id</td><td>Style Name</td></tr>
+
+    @foreach (var item in Model)
+    {
+        <tr><td>@item.Id</td><td>@item.StyleName</td></tr>
+    }
+</table>

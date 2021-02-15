@@ -1,8 +1,6 @@
 ﻿using DTO.Models;
 using SwimmingWebApp.ViewModels;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace ADO.BL.Interfaces
 {
@@ -10,7 +8,8 @@ namespace ADO.BL.Interfaces
     {
         IEnumerable<SwimmerDTO> SelectSwimmers();
         void AddSwimmer(SwimmerDTO swimmer);
-    
+        void UpdateSwimmer(SwimmerDTO coach);
+
         void DeleteSwimmer(int id);
         IndexViewModel GetSwimmers(int page = 1);
     }

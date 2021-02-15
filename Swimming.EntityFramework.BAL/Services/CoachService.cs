@@ -4,12 +4,10 @@ using Swimming.Abstractions.Models;
 using Swimming.EntityFramework.DAL.Repositories;
 using System;
 
-
 namespace Swimming.EntityFramework.BL.Services
 {
     public class CoachService
     {
-
         public bool IsAllAlphabetic(string value)
         {
             foreach (char c in value)
@@ -17,7 +15,6 @@ namespace Swimming.EntityFramework.BL.Services
                 if (!char.IsLetter(c))
                     return false;
             }
-
             return true;
         }
 
@@ -25,48 +22,48 @@ namespace Swimming.EntityFramework.BL.Services
         {
             Console.Write("Enter Coach name:");
             string name = Console.ReadLine();
+
             while (!IsAllAlphabetic(name))
             {
                 Console.WriteLine("Incorrect Name! Try again");
                 name = Console.ReadLine();
-
             }
+
             Console.Write("Enter Coach surname:");
             string surname = Console.ReadLine();
+
             while (!IsAllAlphabetic(surname))
             {
                 Console.WriteLine("Incorrect Surname! Try again");
                 surname = Console.ReadLine();
-
             }
+
             Console.Write("Enter Coach work experience:");
             string workExperience = Console.ReadLine();
             int tryint;
-
 
             while ((!int.TryParse(workExperience, out tryint)) || (!WorkExperienceValidationAttribute.IsValidCoachExperience(Convert.ToInt32(workExperience))))
             {
                 Console.WriteLine("Incorrect Work Experience! Try again ");
                 workExperience = Console.ReadLine();
             }
+
             try
             {
                 Coach coach = new Coach { FirstName = name, LastName = surname, WorkExperience = Convert.ToInt32(workExperience) };
                 using (swimmingContext swimdb = new swimmingContext())
                 {
                     ICoachManager<Coach> coachManager = new CoachRepository(swimdb);
-
                     coachManager.Add(coach);
                     Console.WriteLine("Coach is added");
-
                 }
-
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
         }
+
         public void DeleteCoach()
         {
             try
@@ -80,10 +77,10 @@ namespace Swimming.EntityFramework.BL.Services
                     Console.WriteLine("Incorrect id! Try again ");
                     id = Console.ReadLine();
                 }
+
                 using (swimmingContext swimdb = new swimmingContext())
                 {
                     ICoachManager<Coach> coachManager = new CoachRepository(swimdb);
-
                     coachManager.Delete(Convert.ToInt32(id));
                     Console.WriteLine("Coach is deleted");
                 }
@@ -93,6 +90,7 @@ namespace Swimming.EntityFramework.BL.Services
                 Console.WriteLine(ex.Message);
             }
         }
+
         public void UpdateCoach()
         {
             Console.WriteLine("Enter Coach id:");
@@ -104,22 +102,25 @@ namespace Swimming.EntityFramework.BL.Services
                 Console.WriteLine("Incorrect id! Try again ");
                 coachId = Console.ReadLine();
             }
+
             Console.Write("Enter Coach name:");
             string newName = Console.ReadLine();
+
             while (!IsAllAlphabetic(newName))
             {
                 Console.WriteLine("Incorrect Name! Try again");
                 newName = Console.ReadLine();
-
             }
+
             Console.Write("Enter Coach surname:");
             string newSurname = Console.ReadLine();
+
             while (!IsAllAlphabetic(newSurname))
             {
                 Console.WriteLine("Incorrect Surname! Try again");
                 newSurname = Console.ReadLine();
-
             }
+
             Console.Write("Enter Coach work experience:");
             string newWorkExperience = Console.ReadLine();
 
@@ -128,44 +129,39 @@ namespace Swimming.EntityFramework.BL.Services
                 Console.WriteLine("Incorrect Work Experience! Try again ");
                 newWorkExperience = Console.ReadLine();
             }
+
             try
             {
                 Coach coach = new Coach { FirstName = newName, LastName = newSurname, WorkExperience = Convert.ToInt32(newWorkExperience) };
                 using (swimmingContext swimdb = new swimmingContext())
                 {
                     ICoachManager<Coach> coachManager = new CoachRepository(swimdb);
-
                     coachManager.Update(Convert.ToInt32(coachId), coach);
                     Console.WriteLine("Coach is updated");
-
                 }
-
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
         }
+
         public void SelectCoaches()
         {
             try
             {
                 Console.Write("Coaches:\n");
-
                 Console.WriteLine("\tCoach Id \tFirstName \tSecondName\tWorkExperience");
+
                 using (swimmingContext swimdb = new swimmingContext())
                 {
                     ICoachManager<Coach> coachManager = new CoachRepository(swimdb);
-
                     var coaches = coachManager.GetList();
-
                     foreach (Coach c in coaches)
                     {
                         Console.WriteLine($"{c.Id,15}{c.FirstName,15} {c.LastName,17} {c.WorkExperience,15}");
                     }
-
                 }
-
             }
             catch (Exception ex)
             {

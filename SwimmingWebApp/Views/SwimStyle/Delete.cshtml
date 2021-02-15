@@ -1,0 +1,23 @@
+﻿@model DTO.Models.SwimStyleDTO
+@{
+    ViewBag.Title = "Delete Swimming Style";
+}
+
+<form asp-action="Delete" asp-controller="SwimStyle">
+
+    <div class="form-group">
+        <label asp-for="Id" class="control-label">Id</label>
+        <input type="text" asp-for="Id" class="form-control" />
+        <span asp-validation-for="Id" class="text-info" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Submit" class="btn btn-default" />
+    </div>
+
+</form>
+
+@section scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

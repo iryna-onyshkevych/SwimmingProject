@@ -14,6 +14,7 @@ namespace Swimming.EntityFramework.DAL.Repositories
         {
             _context = context;
         }
+
         public Coach Add(Coach coach)
         {
             Coach newCoach = new Coach
@@ -26,13 +27,11 @@ namespace Swimming.EntityFramework.DAL.Repositories
             _context.Coaches.Add(newCoach);
             _context.SaveChanges();
             return newCoach;
-
         }
 
         public void Delete(int id)
         {
             var customer = _context.Coaches.Single(x => x.Id == id);
-
             _context.Coaches.Remove(customer);
             _context.SaveChanges();
         }
@@ -43,20 +42,15 @@ namespace Swimming.EntityFramework.DAL.Repositories
             return listOfCustomers;
         }
 
-
         public Coach Update(int id, Coach coach)
         {
             var coachToUpdate = _context.Coaches.Single(x => x.Id == id);
-
             coachToUpdate.FirstName = coach.FirstName;
             coachToUpdate.LastName = coach.LastName;
             coachToUpdate.WorkExperience = coach.WorkExperience;
-
             _context.Coaches.Update(coachToUpdate);
             _context.SaveChanges();
-
             return coachToUpdate;
         }
     }
-
 }

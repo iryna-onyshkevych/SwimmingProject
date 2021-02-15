@@ -1,8 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
-
-#nullable disable
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace DTO.Models
 {
@@ -16,7 +12,6 @@ namespace DTO.Models
             : base(options)
         {
         }
-
         public virtual DbSet<CoachDTO> Coaches { get; set; }
         public virtual DbSet<SwimStyleDTO> SwimStyles { get; set; }
         public virtual DbSet<SwimmerDTO> Swimmers { get; set; }
@@ -111,8 +106,6 @@ namespace DTO.Models
 
             OnModelCreatingPartial(modelBuilder);
         }
-
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
-      
     }
 }

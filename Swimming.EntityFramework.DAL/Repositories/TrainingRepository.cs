@@ -14,6 +14,7 @@ namespace Swimming.EntityFramework.DAL.Repositories
         {
             _context = context;
         }
+
         public Training Add(Training training)
         {
             Training newTraining = new Training
@@ -24,7 +25,6 @@ namespace Swimming.EntityFramework.DAL.Repositories
                 Distance = training.Distance
 
             };
-
             _context.Trainings.Add(newTraining);
             _context.SaveChanges();
             return newTraining;
@@ -33,7 +33,6 @@ namespace Swimming.EntityFramework.DAL.Repositories
         public void Delete(int id)
         {
             var training = _context.Trainings.Single(x => x.Id == id);
-
             _context.Trainings.Remove(training);
             _context.SaveChanges();
         }
@@ -47,13 +46,9 @@ namespace Swimming.EntityFramework.DAL.Repositories
         public Training Update(int id, Training training)
         {
             var trainingToUpdate = _context.Trainings.Single(x => x.Id == id);
-
             trainingToUpdate.Distance = training.Distance;
-
-
             _context.Trainings.Update(trainingToUpdate);
             _context.SaveChanges();
-
             return trainingToUpdate;
         }
     }

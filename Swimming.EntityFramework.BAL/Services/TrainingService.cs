@@ -3,6 +3,7 @@ using Swimming.Abstractions.Interfaces;
 using Swimming.Abstractions.Models;
 using Swimming.EntityFramework.DAL.Repositories;
 using System;
+
 namespace Swimming.EntityFramework.BL.Services
 {
     public class TrainingService
@@ -14,31 +15,33 @@ namespace Swimming.EntityFramework.BL.Services
                 if (!char.IsLetter(c))
                     return false;
             }
-
             return true;
         }
+
         public void AddTraining()
         {
-
             int tryint;
-
-
             Console.Write("Enter Swimmer Id:");
             string swimmertrainingId = Console.ReadLine();
+
             while (!int.TryParse(swimmertrainingId, out tryint))
             {
                 Console.WriteLine("Incorrect Id! Try again ");
                 swimmertrainingId = Console.ReadLine();
             }
+
             Console.Write("Enter Swim Style Id:");
             string swimStyleId = Console.ReadLine();
+
             while (!int.TryParse(swimStyleId, out tryint))
             {
                 Console.WriteLine("Incorrect Id! Try again ");
                 swimStyleId = Console.ReadLine();
             }
+
             string trainingDate = Console.ReadLine();
             DateTime temp;
+
             while (!DateTime.TryParse(trainingDate, out temp))
             {
                 Console.WriteLine("Incorrect Date! Try again ");
@@ -46,11 +49,13 @@ namespace Swimming.EntityFramework.BL.Services
             }
 
             string distance = Console.ReadLine();
+
             while (!int.TryParse(distance, out tryint))
             {
                 Console.WriteLine("Incorrect Distance! Try again ");
                 distance = Console.ReadLine();
             }
+
             try
             {
                 Training training = new Training
@@ -64,19 +69,17 @@ namespace Swimming.EntityFramework.BL.Services
                 using (swimmingContext swimdb = new swimmingContext())
                 {
                     ITrainingManager<Training> trainingManager = new TrainingRepository(swimdb);
-
                     trainingManager.Add(training);
                     Console.WriteLine("Training is added");
-
                 }
-
             }
+
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-
         }
+
         public void UpdateDistance()
         {
             Console.WriteLine("Enter Training id:");
@@ -88,8 +91,10 @@ namespace Swimming.EntityFramework.BL.Services
                 Console.WriteLine("Incorrect id! Try again ");
                 trainingId = Console.ReadLine();
             }
+
             Console.Write("Enter new distance:");
             string newDistance = Console.ReadLine();
+
             while ((!int.TryParse(newDistance, out tryint)) || (!DistanceValidationAttribute.IsValidDistance(Convert.ToInt32(newDistance))))
             {
                 Console.WriteLine("Incorrect distance! Try again ");
@@ -102,13 +107,11 @@ namespace Swimming.EntityFramework.BL.Services
                 using (swimmingContext swimdb = new swimmingContext())
                 {
                     ITrainingManager<Training> trainingManager = new TrainingRepository(swimdb);
-
                     trainingManager.Update(Convert.ToInt32(trainingId), training);
                     Console.WriteLine("Distance is updated");
-
                 }
-
             }
+
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);

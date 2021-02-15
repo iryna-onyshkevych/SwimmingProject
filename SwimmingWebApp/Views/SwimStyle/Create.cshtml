@@ -1,0 +1,22 @@
+﻿@model DTO.Models.SwimStyleDTO
+@{
+    ViewBag.Title = "Add Swimming Style";
+}
+
+<form asp-action="Create" asp-controller="SwimStyle">
+    <div class="form-group">
+        <label asp-for="StyleName" class="control-label">Style name</label>
+        <input type="text" asp-for="StyleName" class="form-control" />
+        <span asp-validation-for="StyleName" class="text-info" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Submit" class="btn btn-default" />
+    </div>
+
+</form>
+
+@section scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

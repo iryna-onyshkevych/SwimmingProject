@@ -1,0 +1,35 @@
+﻿@model DTO.Models.CoachDTO
+@{
+    ViewBag.Title = "Addi Coach";
+}
+<form asp-action="create" asp-controller="Coach">
+
+    <div class="form-group">
+        <label asp-for="FirstName" class="control-label">Name</label>
+        <input type="text" asp-for="FirstName" class="form-control" />
+        <span asp-validation-for="FirstName" class="text-info" />
+
+    </div>
+
+    <div class="form-group">
+        <label asp-for="LastName" class="control-label">Surname</label>
+        <input type="text" asp-for="LastName" class="form-control" />
+        <span asp-validation-for="LastName" class="text-info" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="WorkExperience" class="control-label">Work Experience</label>
+        <input type="number" asp-for="WorkExperience" class="form-control" />
+        <span asp-validation-for="WorkExperience" class="text-info" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Submit" class="btn btn-default" />
+    </div>
+
+</form>
+
+@section scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

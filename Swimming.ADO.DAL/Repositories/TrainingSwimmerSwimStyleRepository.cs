@@ -1,6 +1,5 @@
 ﻿using Swimming.Abstractions.Interfaces;
 using Swimming.Abstractions.Models;
-using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
@@ -17,15 +16,13 @@ namespace Swimming.ADO.DAL.Repositories
 
         public IEnumerable<TrainingsSwimmersSwimStyle> GetView()
         {
-
             string sqlExpression4 = "SELECT * FROM TrainingsSwimmersSwimStyles";
-
             SqlCommand command = new SqlCommand(sqlExpression4, _context);
             SqlDataReader reader = command.ExecuteReader();
             List<TrainingsSwimmersSwimStyle> trainings = new List<TrainingsSwimmersSwimStyle>();
+
             if (reader.HasRows)
             {
-
                 while (reader.Read())
                 {
                     TrainingsSwimmersSwimStyle training = new TrainingsSwimmersSwimStyle()
@@ -38,14 +35,13 @@ namespace Swimming.ADO.DAL.Repositories
                         Distance = reader.GetInt32(4),
                         Style = reader.GetString(5)
                     };
+
                     trainings.Add(training);
                 }
 
                 reader.Close();
-
-
-
             }
+
             IEnumerable<TrainingsSwimmersSwimStyle> listOfTrainings = trainings;
             return listOfTrainings;
         }

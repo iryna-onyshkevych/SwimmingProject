@@ -72,10 +72,39 @@ namespace Swimming.ADO.DAL.Repositories
         {
             SqlConnection sql = _context.CreateSqlConnection();
             sql.Open();
-            string sqlExpression2 = ($"UPDATE Trainings SET Distance = {training.Distance}, SwimmerId = {training.SwimmerId}," +
-                $" SwimStyleId = {training.SwimStyleId}, TrainingDate = '{training.TrainingDate}'  WHERE Id={id}");
+            string sqlExpression2 = ($"UPDATE Trainings SET SwimmerId = {training.SwimmerId}," +
+                $" SwimStyleId = {training.SwimStyleId}, TrainingDate = '{training.TrainingDate}', Distance = {training.Distance}  WHERE Id={id}");
             SqlCommand command = new SqlCommand(sqlExpression2, sql);
             command.ExecuteNonQuery();
+            sql.Close();
+            return training;
+        }
+        public Training GetTraining(int id)
+        {
+            string sqlExpression = $"SELECT * FROM Trainings WHERE Id = {id}";
+
+            Training training = new Training();
+
+            SqlConnection sql = _context.CreateSqlConnection();
+            sql.Open();
+
+            SqlCommand command = new SqlCommand(sqlExpression, sql);
+            SqlDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    training = new Training
+                    {
+                        Id = reader.GetInt32(0),
+                        SwimmerId = reader.GetInt32(1),
+                        SwimStyleId = reader.GetInt32(2),
+                        TrainingDate = reader.GetDateTime(3),
+                        Distance = reader.GetInt32(4)
+                    };
+                }
+            }
+
             sql.Close();
             return training;
         }

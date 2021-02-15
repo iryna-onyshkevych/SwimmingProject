@@ -61,5 +61,15 @@ namespace ADO.BL.Services
                 swimStyleManager.Update(Convert.ToInt32(swimStyle.Id), updatedSwimStyle);
             
         }
+        public SwimStyleDTO GetSwimStyle(int id)
+        {
+
+            ISwimStyleManager<SwimStyle> swimStyleManager = new SwimStyleRepository(_context);
+            var swimStyle = swimStyleManager.GetSwimStyle(id);
+            SwimStyleDTO selectedSwimStyle = new SwimStyleDTO { Id = Convert.ToInt32(swimStyle.Id), StyleName = swimStyle.StyleName };
+
+            return selectedSwimStyle;
+
+        }
     }
 }

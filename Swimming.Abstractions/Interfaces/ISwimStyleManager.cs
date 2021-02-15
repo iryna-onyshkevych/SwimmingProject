@@ -8,5 +8,7 @@ namespace Swimming.Abstractions.Interfaces
         void Delete(int id);
         IEnumerable<SwimStyle> GetList();
         SwimStyle Update(int id, SwimStyle entity);
+        SwimStyle GetSwimStyle(int id);
+
     }
 }

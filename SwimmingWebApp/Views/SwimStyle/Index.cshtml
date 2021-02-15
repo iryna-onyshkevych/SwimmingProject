@@ -12,6 +12,15 @@
 
     @foreach (var item in Model)
     {
-        <tr><td>@item.Id</td><td>@item.StyleName</td></tr>
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.StyleName</td>
+            <td>
+                <a asp-action="Details" asp-controller="SwimStyle" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Edit" asp-controller="SwimStyle" asp-route-id="@item.Id">Update</a> |
+                <a asp-action="Delete" asp-controller="SwimStyle" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
     }
+
 </table>

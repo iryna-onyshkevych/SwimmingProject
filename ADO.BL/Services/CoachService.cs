@@ -97,7 +97,7 @@ namespace ADO.BL.Services
 
             ICoachManager<Coach> coachManager = new CoachRepository(_context);
             var coach = coachManager.GetCoach(id);
-            CoachDTO selectedCoach = new CoachDTO { FirstName = coach.FirstName, LastName = coach.LastName, WorkExperience = Convert.ToInt32(coach.WorkExperience) };
+            CoachDTO selectedCoach = new CoachDTO { Id = Convert.ToInt32(coach.Id), FirstName = coach.FirstName, LastName = coach.LastName, WorkExperience = Convert.ToInt32(coach.WorkExperience) };
 
             return selectedCoach;
 

@@ -1,0 +1,17 @@
+﻿@model DTO.Models.SwimStyleDTO
+@{
+    ViewBag.Title = "Editing SwimStyle";
+}
+<form asp-action="Edit" asp-controller="SwimStyle" asp-route-clientid="@Model.Id">
+
+    <div class="form-group">
+        <label asp-for="StyleName" class="control-label">Style Name</label>
+        <input type="text" asp-for="StyleName" class="form-control" />
+        <span asp-validation-for="StyleName" class="text-info" />
+    </div>
+
+
+    <div class="form-group">
+        <input type="submit" value="Submit" class="btn btn-default" />
+    </div>
+</form>

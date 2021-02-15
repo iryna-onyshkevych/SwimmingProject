@@ -10,5 +10,7 @@ namespace Swimming.Abstractions.Interfaces
         IEnumerable<Swimmer> GetList();
         Swimmer Update(int id, Swimmer entity);
         IEnumerable<Swimmer> GetListByAge(int mimimalAge);
+        Swimmer GetSwimmer(int id);
+
     }
 }

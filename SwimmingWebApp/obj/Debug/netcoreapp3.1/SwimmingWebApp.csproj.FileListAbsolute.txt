@@ -195,3 +195,12 @@ C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWeb
 C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Coach\Details.cshtml.g.cs
 C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Coach\DeleteCoach.cshtml.g.cs
 C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Coach\Edit.cshtml.g.cs
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWebApp\obj\Debug\netcoreapp3.1\Razor\Views\SwimmerTraining\DeleteTraining.cshtml.g.cs
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWebApp\obj\Debug\netcoreapp3.1\Razor\Views\SwimmerTraining\Edit.cshtml.g.cs
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Swimmer\DeleteSwimmer.cshtml.g.cs
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Swimmer\Details.cshtml.g.cs
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Swimmer\Edit.cshtml.g.cs
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWebApp\obj\Debug\netcoreapp3.1\Razor\Views\SwimStyle\DeleteSwimStyle.cshtml.g.cs
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWebApp\obj\Debug\netcoreapp3.1\Razor\Views\SwimStyle\Details.cshtml.g.cs
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWebApp\obj\Debug\netcoreapp3.1\Razor\Views\SwimStyle\Edit.cshtml.g.cs
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Training\Details.cshtml.g.cs

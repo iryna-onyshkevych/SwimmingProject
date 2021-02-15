@@ -1,0 +1,17 @@
+﻿@model DTO.Models.SwimmerDTO
+@{
+    ViewBag.Title = Model.FirstName;
+}
+<h2>Swimmer @Model.FirstName @Model.LastName</h2>
+<div>
+    <dl class="dl-horizontal">
+        <dt>Id</dt>
+        <dd>@Model.Id</dd>
+
+        <dt>Work Experience</dt>
+        <dd>@Model.Age</dd>
+
+        <dt>Coach Id</dt>
+        <dd>@Model.CoachId</dd>
+    </dl>
+</div>

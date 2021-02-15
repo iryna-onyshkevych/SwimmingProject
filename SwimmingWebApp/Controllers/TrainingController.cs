@@ -21,5 +21,15 @@ namespace SwimmingWebApp.Controllers
 
             return View(customers);
         }
+        public IActionResult Details(int id)
+        {
+            if (id != null)
+            {
+                var training = service.GetViewTraining(id);
+
+                return View(training);
+            }
+            return NotFound();
+        }
     }
 }

@@ -1,0 +1,30 @@
+﻿@model DTO.Models.TrainingDTO
+@{
+    ViewBag.Title = "Deleting Training";
+}
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>Id</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+
+        <dt>Distance</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Distance)
+        </dd>
+        <dt>Training Date</dt>
+        <dd>
+            @Html.DisplayFor(model => model.TrainingDate)
+        </dd>
+    </dl>
+
+    <div>
+        <form asp-controller="SwimmerTraining" asp-action="Delete" method="post">
+            <div class="form-group">
+                <input type="submit" class="btn btn-default" value="Delete" />
+            </div>
+        </form>
+    </div>
+</div>

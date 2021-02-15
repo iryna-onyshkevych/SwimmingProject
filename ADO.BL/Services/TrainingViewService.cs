@@ -9,6 +9,7 @@ using ADO.BL.Interfaces;
 using SwimmingWebApp.ViewModels;
 using Swimming.Abstractions.Models;
 using Swimming.ADO.DAL.Repositories.Connection;
+using System;
 
 namespace ADO.BL.Services
 {
@@ -72,6 +73,24 @@ namespace ADO.BL.Services
                     return viewModel;
 
                 
+        }
+        public TrainingsSwimmersSwimStyleDTO GetViewTraining(int id)
+        {
+
+            ITrainingsSwimmersSwimStyleManager<TrainingsSwimmersSwimStyle> tariningManager = new TrainingSwimmerSwimStyleRepository(_context);
+            var training = tariningManager.GetViewTraining(id);
+            TrainingsSwimmersSwimStyleDTO selectedTraining = new TrainingsSwimmersSwimStyleDTO
+            {
+                TrainingId = Convert.ToInt32(training.TrainingId),
+                FirstName = training.FirstName,
+                LastName = training.LastName,
+                Distance = Convert.ToInt32(training.Distance),
+                TrainingDate = Convert.ToDateTime(training.TrainingDate),
+                Style = training.Style
+            };
+
+            return selectedTraining;
+
         }
     }
 }

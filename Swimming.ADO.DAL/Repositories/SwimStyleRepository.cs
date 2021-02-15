@@ -74,5 +74,31 @@ namespace Swimming.ADO.DAL.Repositories
             sql.Close();
             return swimStyle;
         }
+        public SwimStyle GetSwimStyle(int id)
+        {
+            string sqlExpression = $"SELECT * FROM SwimStyles WHERE Id = {id}";
+
+            SwimStyle swimStyle = new SwimStyle();
+
+            SqlConnection sql = _context.CreateSqlConnection();
+            sql.Open();
+
+            SqlCommand command = new SqlCommand(sqlExpression, sql);
+            SqlDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    swimStyle = new SwimStyle
+                    {
+                        Id = reader.GetInt32(0),
+                        StyleName = reader.GetString(1)
+                    };
+                }
+            }
+
+            sql.Close();
+            return swimStyle;
+        }
     }
 }

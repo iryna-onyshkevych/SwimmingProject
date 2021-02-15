@@ -1,9 +1,15 @@
-﻿using System;
+﻿using Swimming.ADO.DAL.Repositories.Connection;
+using System;
 
 namespace SwimmingConsoleApp
 {
     public class SwimmingMenu
     {
+        private readonly IConnection _context;
+        public SwimmingMenu(IConnection context)
+        {
+            _context = context;
+        }
         public void Menu()
         {
             string menunumber = "";
@@ -20,7 +26,7 @@ namespace SwimmingConsoleApp
                         efMenu.Menu();
                         break;
                     case "2":
-                        ADOMenu adoMenu = new ADOMenu();
+                        ADOMenu adoMenu = new ADOMenu(_context);
                         adoMenu.Menu();
                         break;
                     default:

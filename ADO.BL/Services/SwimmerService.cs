@@ -99,5 +99,15 @@ namespace ADO.BL.Services
                 swimmerManager.Update(Convert.ToInt32(swimmer.Id), updatedSwimmer);
             
         }
+        public SwimmerDTO GetSwimmer(int id)
+        {
+
+            ISwimmerManager<Swimmer> swimmerManager = new SwimmerRepository(_context);
+            var swimmer = swimmerManager.GetSwimmer(id);
+            SwimmerDTO selectedSwimmer = new SwimmerDTO { Id = swimmer.Id, FirstName = swimmer.FirstName, LastName = swimmer.LastName, Age = Convert.ToInt32(swimmer.Age), CoachId = Convert.ToInt32(swimmer.CoachId) };
+
+            return selectedSwimmer;
+
+        }
     }
 }

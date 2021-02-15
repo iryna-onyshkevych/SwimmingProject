@@ -1,0 +1,15 @@
+﻿@model DTO.Models.SwimStyleDTO
+@{
+    ViewBag.Title = Model.StyleName;
+}
+<h2>Swimming Style @Model.StyleName </h2>
+<div>
+    <dl class="dl-horizontal">
+        <dt>Id</dt>
+        <dd>@Model.Id</dd>
+
+        <dt>Style Name</dt>
+        <dd>@Model.StyleName</dd>
+
+    </dl>
+</div>

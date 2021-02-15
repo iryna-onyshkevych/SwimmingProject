@@ -9,5 +9,7 @@ namespace Swimming.Abstractions.Interfaces
         void Delete(int id);
         IEnumerable<Training> GetList();
         Training Update(int id, Training entity);
+        Training GetTraining(int id);
+
     }
 }

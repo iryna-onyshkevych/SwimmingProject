@@ -7,6 +7,6 @@ namespace ADO.BL.Interfaces
         void AddTraining(TrainingDTO training);
         void DeleteTraining(int id);
         void UpdateTraining(TrainingDTO training);
-
+        TrainingDTO GetTraining(int id);
     }
 }

@@ -71,5 +71,21 @@ namespace ADO.BL.Services
                 trainingManager.Update(Convert.ToInt32(training.Id), updatedTraining);
             
         }
+        public TrainingDTO GetTraining(int id)
+        {
+
+            ITrainingManager<Training> trainingManager = new TrainingRepository(_context);
+            var training = trainingManager.GetTraining(id);
+            TrainingDTO selectedTraining = new TrainingDTO {
+                Id = Convert.ToInt32(training.Id),
+                SwimmerId = Convert.ToInt32(training.SwimmerId),
+                SwimStyleId = Convert.ToInt32(training.SwimStyleId),
+                Distance = Convert.ToInt32(training.Distance),
+                TrainingDate = Convert.ToDateTime(training.TrainingDate)
+            };
+
+            return selectedTraining;
+
+        }
     }
 }

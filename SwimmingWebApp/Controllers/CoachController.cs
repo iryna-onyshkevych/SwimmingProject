@@ -39,7 +39,7 @@ namespace SwimmingWebApp.Controllers
                 return Content("\tERROR!\n\n" + ex.Message);
             }
 
-            return RedirectToAction("Coaches","Index");
+            return RedirectToAction("Index");
         }
 
         public IActionResult Update()

@@ -5,13 +5,17 @@ using Swimming.Abstractions.Models;
 using Swimming.ADO.DAL.Repositories;
 using System.Configuration;
 using System.Data.SqlClient;
+using Swimming.ADO.DAL.Repositories.Connection;
 
 namespace Swimming.ADO.BL.Services
 {
     public class TrainingService
     {
-        string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-
+        private readonly IConnection _context;
+        public TrainingService(IConnection context)
+        {
+            _context = context;
+        }
         public bool IsAllAlphabetic(string value)
         {
             foreach (char c in value)
@@ -70,13 +74,11 @@ namespace Swimming.ADO.BL.Services
                     Distance = Convert.ToInt32(distance)
                 };
 
-                using (SqlConnection swimContext = new SqlConnection(connectionString))
-                {
-                    swimContext.Open();
-                    ITrainingManager<Training> trainingManager = new TrainingRepository(swimContext);
+                
+                    ITrainingManager<Training> trainingManager = new TrainingRepository(_context);
                     trainingManager.Add(training);
                     Console.WriteLine("Training is added");
-                }
+                
             }
             catch (Exception ex)
             {
@@ -109,13 +111,11 @@ namespace Swimming.ADO.BL.Services
             {
                 Training training = new Training { Distance = Convert.ToInt32(newDistance) };
 
-                using (SqlConnection swimContext = new SqlConnection(connectionString))
-                {
-                    swimContext.Open();
-                    ITrainingManager<Training> trainingManager = new TrainingRepository(swimContext);
+               
+                    ITrainingManager<Training> trainingManager = new TrainingRepository(_context);
                     trainingManager.Update(Convert.ToInt32(trainingId), training);
                     Console.WriteLine("Distance is updated");
-                }
+                
             }
             catch (Exception ex)
             {

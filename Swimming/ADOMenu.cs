@@ -1,4 +1,5 @@
 ﻿using Swimming.ADO.BL.Services;
+using Swimming.ADO.DAL.Repositories.Connection;
 using System;
 
 namespace SwimmingConsoleApp
@@ -6,10 +7,11 @@ namespace SwimmingConsoleApp
     public class ADOMenu
     {
         string menunumber = "";
-
+        private readonly IConnection _context;
+       
         public void Menu()
         {
-            CoachService coachService = new CoachService();
+            CoachService coachService = new CoachService(_context);
             SwimmerService swimmerService = new SwimmerService();
             TrainingService trainingService = new TrainingService();
             TrainingSwimmerSwimStyleService trainingSwimmerSwimStyleService = new TrainingSwimmerSwimStyleService();

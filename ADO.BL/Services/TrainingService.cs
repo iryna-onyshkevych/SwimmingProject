@@ -3,6 +3,7 @@ using DTO.Models;
 using Swimming.Abstractions.Interfaces;
 using Swimming.Abstractions.Models;
 using Swimming.ADO.DAL.Repositories;
+using Swimming.ADO.DAL.Repositories.Connection;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -13,7 +14,11 @@ namespace ADO.BL.Services
 {
     public class TrainingService: ITrainingService
     {
-        string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        private readonly IConnection _context;
+        public TrainingService(IConnection context)
+        {
+            _context = context;
+        }
         public void AddTraining(TrainingDTO training)
         {
             Training newTraining = new Training
@@ -24,20 +29,16 @@ namespace ADO.BL.Services
                 Distance = Convert.ToInt32(training.Distance)
             };
 
-            using (SqlConnection swimContext = new SqlConnection(connectionString))
-            {
-                swimContext.Open();
-                ITrainingManager<Training> trainingManager = new TrainingRepository(swimContext);
+           
+                ITrainingManager<Training> trainingManager = new TrainingRepository(_context);
                 trainingManager.Add(newTraining);
-            }
+            
         }
 
         public IEnumerable<TrainingDTO> SelectTrainings()
         {
-            using (SqlConnection swimContext = new SqlConnection(connectionString))
-            {
-                swimContext.Open();
-                ITrainingManager<Training> trainingManager = new TrainingRepository(swimContext);
+           
+                ITrainingManager<Training> trainingManager = new TrainingRepository(_context);
                 var trainings = trainingManager.GetList();
 
                 var trainingList = trainings.Select(x => new TrainingDTO()
@@ -49,17 +50,15 @@ namespace ADO.BL.Services
 
                 }).ToList();
                 return trainingList;
-            }
+            
         }
 
         public void DeleteTraining(int id)
         {
-            using (SqlConnection swimdb = new SqlConnection(connectionString))
-            {
-                swimdb.Open();
-                ITrainingManager<Training> trainingManager = new TrainingRepository(swimdb);
+            
+                ITrainingManager<Training> trainingManager = new TrainingRepository(_context);
                 trainingManager.Delete(Convert.ToInt32(id));
-            }
+            
         }
 
         public void UpdateTraining(TrainingDTO training)
@@ -67,12 +66,10 @@ namespace ADO.BL.Services
             Training updatedTraining = new Training {  Id = Convert.ToInt32(training.Id), SwimmerId = Convert.ToInt32(training.SwimmerId), SwimStyleId = Convert.ToInt32(training.SwimStyleId), 
              Distance = Convert.ToInt32(training.Distance),  TrainingDate = Convert.ToDateTime(training.TrainingDate)};
 
-            using (SqlConnection swimContext = new SqlConnection(connectionString))
-            {
-                swimContext.Open();
-                ITrainingManager<Training> trainingManager = new TrainingRepository(swimContext);
+            
+                ITrainingManager<Training> trainingManager = new TrainingRepository(_context);
                 trainingManager.Update(Convert.ToInt32(training.Id), updatedTraining);
-            }
+            
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Swimming.Abstractions.Interfaces;
 using Swimming.Abstractions.Models;
+using Swimming.ADO.DAL.Repositories.Connection;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
@@ -7,33 +8,39 @@ namespace Swimming.ADO.DAL.Repositories
 {
     public class TrainingRepository : ITrainingManager<Training>
     {
-        private readonly SqlConnection _context;
-
-        public TrainingRepository(SqlConnection context)
+        private readonly IConnection _context;
+        public TrainingRepository(IConnection context)
         {
             _context = context;
         }
-
         public void Delete(int id)
         {
+            SqlConnection sql = _context.CreateSqlConnection();
+            sql.Open();
             string sqlExpression3 = ($"DELETE FROM Trainings WHERE Id = {id}");
-            SqlCommand command = new SqlCommand(sqlExpression3, _context);
+            SqlCommand command = new SqlCommand(sqlExpression3, sql);
             command.ExecuteNonQuery();
+            sql.Close();
         }
 
         public Training Add(Training training)
         {
+            SqlConnection sql = _context.CreateSqlConnection();
+            sql.Open();
             string sqlExpression1 = ($"INSERT INTO Trainings (SwimmerId,SwimStyleId,TrainingDate,Distance) VALUES ({ training.SwimmerId},  " +
                 $"{training.SwimStyleId},'{training.TrainingDate}',{training.Distance})");
-            SqlCommand command = new SqlCommand(sqlExpression1, _context);
+            SqlCommand command = new SqlCommand(sqlExpression1, sql);
             command.ExecuteNonQuery();
+            sql.Close();
             return training;
         }
 
         public IEnumerable<Training> GetList()
         {
+            SqlConnection sql = _context.CreateSqlConnection();
+            sql.Open();
             string sqlExpression4 = "SELECT * FROM Trainings";
-            SqlCommand command = new SqlCommand(sqlExpression4, _context);
+            SqlCommand command = new SqlCommand(sqlExpression4, sql);
             SqlDataReader reader = command.ExecuteReader();
             List<Training> trainings = new List<Training>();
 
@@ -56,17 +63,20 @@ namespace Swimming.ADO.DAL.Repositories
 
                 reader.Close();
             }
-
+            sql.Close();
             IEnumerable<Training> listOfTrainings = trainings;
             return listOfTrainings;
         }
 
         public Training Update(int id, Training training)
         {
+            SqlConnection sql = _context.CreateSqlConnection();
+            sql.Open();
             string sqlExpression2 = ($"UPDATE Trainings SET Distance = {training.Distance}, SwimmerId = {training.SwimmerId}," +
                 $" SwimStyleId = {training.SwimStyleId}, TrainingDate = '{training.TrainingDate}'  WHERE Id={id}");
-            SqlCommand command = new SqlCommand(sqlExpression2, _context);
+            SqlCommand command = new SqlCommand(sqlExpression2, sql);
             command.ExecuteNonQuery();
+            sql.Close();
             return training;
         }
     }

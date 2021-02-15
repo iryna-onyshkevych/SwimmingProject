@@ -99,7 +99,6 @@ C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWeb
 C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWebApp\bin\Debug\netcoreapp3.1\Swimming.ADO.DAL.dll
 C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWebApp\bin\Debug\netcoreapp3.1\ADO.BL.pdb
 C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWebApp\bin\Debug\netcoreapp3.1\Swimming.Abstractions.pdb
-C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWebApp\bin\Debug\netcoreapp3.1\Swimming.Abstractions.dll.config
 C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWebApp\bin\Debug\netcoreapp3.1\Swimming.ADO.DAL.pdb
 C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWebApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWebApp\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
@@ -175,7 +174,6 @@ C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWeb
 C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWebApp\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWebApp\bin\Debug\netcoreapp3.1\DTO.dll
 C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWebApp\bin\Debug\netcoreapp3.1\DTO.pdb
-C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWebApp\bin\Debug\netcoreapp3.1\SwimmingWebApp.dll.config
 C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Swimmer\Create.cshtml.g.cs
 C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Swimmer\Delete.cshtml.g.cs
 C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Swimmer\Index.cshtml.g.cs
@@ -192,3 +190,5 @@ C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWeb
 C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWebApp\obj\Debug\netcoreapp3.1\Razor\Views\SwimStyle\Create.cshtml.g.cs
 C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWebApp\obj\Debug\netcoreapp3.1\Razor\Views\SwimStyle\Delete.cshtml.g.cs
 C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWebApp\obj\Debug\netcoreapp3.1\Razor\Views\SwimStyle\Update.cshtml.g.cs
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWebApp\bin\Debug\netcoreapp3.1\Swimming.ADO.BL.dll
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\SwimmingWebApp\bin\Debug\netcoreapp3.1\Swimming.ADO.BL.pdb

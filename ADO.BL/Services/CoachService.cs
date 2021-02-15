@@ -3,6 +3,7 @@ using DTO.Models;
 using Swimming.Abstractions.Interfaces;
 using Swimming.Abstractions.Models;
 using Swimming.ADO.DAL.Repositories;
+using Swimming.ADO.DAL.Repositories.Connection;
 using SwimmingWebApp.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -14,36 +15,32 @@ namespace ADO.BL.Services
 {
     public class CoachService: ICoachService
     {
-        string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-
+        private readonly IConnection _context;
+        public CoachService(IConnection context)
+        {
+            _context = context;
+        }
         public void AddCoach(CoachDTO coach)
         {
             Coach newCoach = new Coach { FirstName = coach.FirstName, LastName = coach.LastName, WorkExperience = Convert.ToInt32(coach.WorkExperience) };
-            
-            using (SqlConnection swimContext = new SqlConnection(connectionString))
-            {
-                swimContext.Open();
-                ICoachManager<Coach> coachManager = new CoachRepository(swimContext);
+           
+                ICoachManager<Coach> coachManager = new CoachRepository(_context);
                 coachManager.Add(newCoach);
-            }
+            
         }
 
         public void DeleteCoach(int id)
         {
-            using (SqlConnection swimdb = new SqlConnection(connectionString))
-            {
-                swimdb.Open();
-                ICoachManager<Coach> coachManager = new CoachRepository(swimdb);
+           
+                ICoachManager<Coach> coachManager = new CoachRepository(_context);
                 coachManager.Delete(Convert.ToInt32(id));
-            }
+            
         }
 
         public IEnumerable<CoachDTO> SelectCoaches()
         {
-            using (SqlConnection swimContext = new SqlConnection(connectionString))
-            {
-                swimContext.Open();
-                ICoachManager<Coach> coachManager = new CoachRepository(swimContext);
+            
+                ICoachManager<Coach> coachManager = new CoachRepository(_context);
                 var coaches = coachManager.GetList();
 
                 var coachList = coaches.Select(x => new CoachDTO()
@@ -55,27 +52,23 @@ namespace ADO.BL.Services
                 }).ToList();
 
                 return coachList;                
-            }
+            
         }
 
         public void UpdateCoach(CoachDTO coach)
         {
             Coach updatedCoach = new Coach { FirstName = coach.FirstName, LastName = coach.LastName, WorkExperience = Convert.ToInt32(coach.WorkExperience) };
             
-            using (SqlConnection swimContext = new SqlConnection(connectionString))
-            {
-                swimContext.Open();
-                ICoachManager<Coach> coachManager = new CoachRepository(swimContext);
+            
+                ICoachManager<Coach> coachManager = new CoachRepository(_context);
                 coachManager.Update(Convert.ToInt32(coach.Id), updatedCoach);
-            }
+            
         }
 
         public IndexViewModel GetCoaches(int page = 1)
         {
-                using (SqlConnection swimContext = new SqlConnection(connectionString))
-                {
-                    swimContext.Open();
-                    ICoachManager<Coach> coachManager = new CoachRepository(swimContext);
+              
+                    ICoachManager<Coach> coachManager = new CoachRepository(_context);
                     IEnumerable<Coach> coaches = coachManager.GetList();
                     var count = coaches.Count();
                     int pageSize = 4;
@@ -101,7 +94,7 @@ namespace ADO.BL.Services
                     };
 
                     return viewModel;
-                }
+                
         }
     }
 }

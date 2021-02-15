@@ -2657,6 +2657,21 @@
           "bin/placeholder/Swimming.Abstractions.dll": {}
         }
       },
+      "Swimming.ADO.BL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Swimming.ADO.DAL": "1.0.0",
+          "Swimming.Abstractions": "1.0.0",
+          "System.Configuration.ConfigurationManager": "5.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Swimming.ADO.BL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Swimming.ADO.BL.dll": {}
+        }
+      },
       "Swimming.ADO.DAL/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -2679,7 +2694,8 @@
           "DTO": "1.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.2",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.4"
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.4",
+          "Swimming.ADO.BL": "1.0.0"
         },
         "compile": {
           "bin/placeholder/SwimmingWebApp.dll": {}
@@ -8861,6 +8877,11 @@
       "type": "project",
       "path": "../Swimming.Abstractions/Swimming.Abstractions.csproj",
       "msbuildProject": "../Swimming.Abstractions/Swimming.Abstractions.csproj"
+    },
+    "Swimming.ADO.BL/1.0.0": {
+      "type": "project",
+      "path": "../Swimming.ADO.BAL/Swimming.ADO.BL.csproj",
+      "msbuildProject": "../Swimming.ADO.BAL/Swimming.ADO.BL.csproj"
     },
     "Swimming.ADO.DAL/1.0.0": {
       "type": "project",

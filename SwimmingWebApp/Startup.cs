@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Swimming.ADO.DAL.Repositories.Connection;
 
 namespace SwimmingWebApp
 {
@@ -27,7 +28,7 @@ namespace SwimmingWebApp
             services.AddTransient<ISwimStyleService, SwimStyleService>();
             services.AddTransient<ITrainingService, TrainingService>();
             services.AddTransient<ITrainingViewService, TrainingViewService>();
-
+            services.AddTransient<IConnection, Connection>();
             services.AddControllersWithViews();
 
         }

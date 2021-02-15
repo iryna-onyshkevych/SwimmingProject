@@ -2066,6 +2066,16 @@
           "Swimming.Abstractions.dll": {}
         }
       },
+      "Swimming.ADO.BL/1.0.0": {
+        "dependencies": {
+          "Swimming.ADO.DAL": "1.0.0",
+          "Swimming.Abstractions": "1.0.0",
+          "System.Configuration.ConfigurationManager": "5.0.0"
+        },
+        "runtime": {
+          "Swimming.ADO.BL.dll": {}
+        }
+      },
       "Swimming.ADO.DAL/1.0.0": {
         "dependencies": {
           "Swimming.Abstractions": "1.0.0",
@@ -2081,7 +2091,8 @@
           "DTO": "1.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.2",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.4"
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.4",
+          "Swimming.ADO.BL": "1.0.0"
         },
         "runtime": {
           "SwimmingWebApp.dll": {}
@@ -3135,6 +3146,11 @@
       "sha512": ""
     },
     "Swimming.Abstractions/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Swimming.ADO.BL/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

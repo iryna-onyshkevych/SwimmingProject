@@ -1,5 +1,6 @@
 ﻿using Swimming.Abstractions.Interfaces;
 using Swimming.Abstractions.Models;
+using Swimming.ADO.DAL.Repositories.Connection;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
@@ -7,33 +8,42 @@ namespace Swimming.ADO.DAL.Repositories
 {
     public class CoachRepository:ICoachManager<Coach>
     {
-        private readonly SqlConnection _context;
-
-        public CoachRepository(SqlConnection context)
+        //private readonly SqlConnection _context;
+        private readonly IConnection _context;
+        public CoachRepository(IConnection context)
         {
             _context = context;
         }
-
+        
         public void Delete(int id)
         {
             string sqlExpression3 = ($"DELETE FROM Coaches WHERE Id = {id}");
-            SqlCommand command = new SqlCommand(sqlExpression3, _context);
+            SqlConnection sql = _context.CreateSqlConnection();
+            sql.Open();
+            SqlCommand command = new SqlCommand(sqlExpression3, sql);
             command.ExecuteNonQuery();
+            sql.Close();
+
         }
 
         public Coach Add(Coach coach)
         {
+            SqlConnection sql = _context.CreateSqlConnection();
+            sql.Open();
             string sqlExpression1 = ($"INSERT INTO Coaches (FirstName,LastName, WorkExperience) VALUES ('{coach.FirstName}','{coach.LastName}',{coach.WorkExperience})");
-            SqlCommand command = new SqlCommand(sqlExpression1, _context);
+            SqlCommand command = new SqlCommand(sqlExpression1, sql);
             command.ExecuteNonQuery();
+            sql.Close();
+
             return coach;
         }
 
         public IEnumerable<Coach> GetList()
         {
-
+            SqlConnection sql = _context.CreateSqlConnection();
+            sql.Open();
             string sqlExpression4 = "SELECT * FROM Coaches";
-            SqlCommand command = new SqlCommand(sqlExpression4, _context);
+            SqlCommand command = new SqlCommand(sqlExpression4, sql);
             SqlDataReader reader = command.ExecuteReader();
             List<Coach> coaches = new List<Coach>();
 
@@ -52,6 +62,7 @@ namespace Swimming.ADO.DAL.Repositories
                 }
                 reader.Close();
             }
+            sql.Close();
 
             IEnumerable<Coach> listOfCustomers = coaches;
             return listOfCustomers;
@@ -59,10 +70,14 @@ namespace Swimming.ADO.DAL.Repositories
 
         public Coach Update(int id, Coach coach)
         {
+            SqlConnection sql = _context.CreateSqlConnection();
+            sql.Open();
             string sqlExpression2 = ($"UPDATE Coaches SET FirstName ='{coach.FirstName}',LastName ='{coach.LastName}'," +
                 $"WorkExperience ={coach.WorkExperience}  WHERE Id={id}");
-            SqlCommand command = new SqlCommand(sqlExpression2, _context);
+            SqlCommand command = new SqlCommand(sqlExpression2, sql);
             command.ExecuteNonQuery();
+            sql.Close();
+
             return coach;
         }
     }

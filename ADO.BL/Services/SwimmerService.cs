@@ -3,6 +3,7 @@ using DTO.Models;
 using Swimming.Abstractions.Interfaces;
 using Swimming.Abstractions.Models;
 using Swimming.ADO.DAL.Repositories;
+using Swimming.ADO.DAL.Repositories.Connection;
 using SwimmingWebApp.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -14,14 +15,16 @@ namespace ADO.BL.Services
 {
     public class SwimmerService : ISwimmerService
     {
-        string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        private readonly IConnection _context;
+        public SwimmerService(IConnection context)
+        {
+            _context = context;
+        }
 
         public IEnumerable<SwimmerDTO> SelectSwimmers()
         {
-            using (SqlConnection swimContext = new SqlConnection(connectionString))
-            {
-                swimContext.Open();
-                ISwimmerManager<Swimmer> swimmerManager = new SwimmerRepository(swimContext);
+            
+                ISwimmerManager<Swimmer> swimmerManager = new SwimmerRepository(_context);
                 var swimmers = swimmerManager.GetList();
 
                 var swimmerList = swimmers.Select(x => new SwimmerDTO()
@@ -34,37 +37,31 @@ namespace ADO.BL.Services
                 }).ToList();
 
                 return swimmerList;
-            }
+            
         }
 
         public void AddSwimmer(SwimmerDTO swimmer)
         {
             Swimmer newSwimmer = new Swimmer { FirstName = swimmer.FirstName, LastName = swimmer.LastName, Age = Convert.ToInt32(swimmer.Age), CoachId = Convert.ToInt32(swimmer.CoachId) };
                 
-            using (SqlConnection swimContext = new SqlConnection(connectionString))
-            {
-                    swimContext.Open();
-                    ISwimmerManager<Swimmer> swimmerManager = new SwimmerRepository(swimContext);
+            
+                    ISwimmerManager<Swimmer> swimmerManager = new SwimmerRepository(_context);
                     swimmerManager.Add(newSwimmer);
-            }
+            
         }
 
         public void DeleteSwimmer(int id)
         {
-            using (SqlConnection swimdb = new SqlConnection(connectionString))
-            {
-                swimdb.Open();
-                ISwimmerManager<Swimmer> swimmerManager = new SwimmerRepository(swimdb);
+            
+                ISwimmerManager<Swimmer> swimmerManager = new SwimmerRepository(_context);
                 swimmerManager.Delete(Convert.ToInt32(id));
-            }
+            
         }
 
         public IndexViewModel GetSwimmers(int page = 1)
         {
-             using (SqlConnection swimContext = new SqlConnection(connectionString))
-                {
-                    swimContext.Open();
-                    ISwimmerManager<Swimmer> swimmerManager = new SwimmerRepository(swimContext);
+             
+                    ISwimmerManager<Swimmer> swimmerManager = new SwimmerRepository(_context);
                     IEnumerable<Swimmer> swimmers = swimmerManager.GetList();
                     var count = swimmers.Count();
                     int pageSize = 4;
@@ -91,19 +88,16 @@ namespace ADO.BL.Services
                     };
 
                     return viewModel;
-             }
+             
         }
 
         public void UpdateSwimmer(SwimmerDTO swimmer)
         {
             Swimmer updatedSwimmer = new Swimmer { FirstName = swimmer.FirstName, LastName = swimmer.LastName, Age = Convert.ToInt32(swimmer.Age), CoachId = Convert.ToInt32(swimmer.CoachId) };
 
-            using (SqlConnection swimContext = new SqlConnection(connectionString))
-            {
-                swimContext.Open();
-                ISwimmerManager<Swimmer> swimmerManager = new SwimmerRepository(swimContext);
+                ISwimmerManager<Swimmer> swimmerManager = new SwimmerRepository(_context);
                 swimmerManager.Update(Convert.ToInt32(swimmer.Id), updatedSwimmer);
-            }
+            
         }
     }
 }

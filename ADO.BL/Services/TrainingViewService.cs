@@ -8,18 +8,21 @@ using System.Linq;
 using ADO.BL.Interfaces;
 using SwimmingWebApp.ViewModels;
 using Swimming.Abstractions.Models;
+using Swimming.ADO.DAL.Repositories.Connection;
 
 namespace ADO.BL.Services
 {
     public class TrainingViewService: ITrainingViewService
     {
-        string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        private readonly IConnection _context;
+        public TrainingViewService(IConnection context)
+        {
+            _context = context;
+        }
         public IEnumerable<TrainingsSwimmersSwimStyleDTO> SelectSwimmersTrainings()
         {
-            using (SqlConnection swimContext = new SqlConnection(connectionString)) { 
-
-                swimContext.Open();
-                ITrainingsSwimmersSwimStyleManager<TrainingsSwimmersSwimStyle> tariningManager = new TrainingSwimmerSwimStyleRepository(swimContext);
+           
+                ITrainingsSwimmersSwimStyleManager<TrainingsSwimmersSwimStyle> tariningManager = new TrainingSwimmerSwimStyleRepository(_context);
                 var trainings = tariningManager.GetView();
 
                 var trainingList = trainings.Select(x => new TrainingsSwimmersSwimStyleDTO()
@@ -33,15 +36,13 @@ namespace ADO.BL.Services
                     Style  = x.Style
                 }).ToList();
                 return trainingList;
-            }
+            
         }
 
         public IndexViewModel GetTrainings(int page = 1)
         {
-                using (SqlConnection swimContext = new SqlConnection(connectionString))
-                {
-                    swimContext.Open();
-                    ITrainingsSwimmersSwimStyleManager<TrainingsSwimmersSwimStyle> tariningManager = new TrainingSwimmerSwimStyleRepository(swimContext);
+                
+                    ITrainingsSwimmersSwimStyleManager<TrainingsSwimmersSwimStyle> tariningManager = new TrainingSwimmerSwimStyleRepository(_context);
                     IEnumerable<TrainingsSwimmersSwimStyle> trainings = tariningManager.GetView();
                     var count = trainings.Count();
                     int pageSize = 4;
@@ -70,7 +71,7 @@ namespace ADO.BL.Services
 
                     return viewModel;
 
-                }  
+                
         }
     }
 }

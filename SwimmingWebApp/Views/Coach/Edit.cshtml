@@ -1,14 +1,13 @@
 ﻿@model DTO.Models.CoachDTO
 @{
-    ViewBag.Title = "Adding Coach";
+    ViewBag.Title = "Editing Coach";
 }
-<form asp-action="create" asp-controller="Coach">
-
+<form asp-action="Edit" asp-controller="Coach" asp-route-clientid="@Model.Id">
+    
     <div class="form-group">
         <label asp-for="FirstName" class="control-label">Name</label>
         <input type="text" asp-for="FirstName" class="form-control" />
         <span asp-validation-for="FirstName" class="text-info" />
-
     </div>
 
     <div class="form-group">
@@ -26,10 +25,4 @@
     <div class="form-group">
         <input type="submit" value="Submit" class="btn btn-default" />
     </div>
-
 </form>
-
-@section scripts{
-    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-}

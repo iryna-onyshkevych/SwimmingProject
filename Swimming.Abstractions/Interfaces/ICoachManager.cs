@@ -8,5 +8,6 @@ namespace Swimming.Abstractions.Interfaces
         void Delete(int id);
         IEnumerable<Coach> GetList();
         Coach Update(int id, Coach entity);
+        Coach GetCoach(int id);
     }
 }

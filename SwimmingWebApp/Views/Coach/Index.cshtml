@@ -19,8 +19,13 @@
             <td>@item.FirstName</td>
             <td>@item.LastName</td>
             <td>@item.WorkExperience</td>
-          
-        </tr>
+
+        
+        <td>
+            <a asp-action="Details" asp-controller="Coach" asp-route-id="@item.Id">Details</a> |
+            <a asp-action="Edit" asp-controller="Coach" asp-route-id="@item.Id">Update</a> |
+            <a asp-action="Delete" asp-controller="Coach" asp-route-id="@item.Id">Delete</a>
+        </td></tr>
     }
 
 </table>

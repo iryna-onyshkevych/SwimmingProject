@@ -80,5 +80,33 @@ namespace Swimming.ADO.DAL.Repositories
 
             return coach;
         }
+        public Coach GetCoach(int id)
+        {
+            string sqlExpression = $"SELECT * FROM Coaches WHERE Id = {id}";
+
+            Coach coach = new Coach();
+
+            SqlConnection sql = _context.CreateSqlConnection();
+            sql.Open();
+
+            SqlCommand command = new SqlCommand(sqlExpression, sql);
+            SqlDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    coach = new Coach
+                    {
+                        Id = reader.GetInt32(0),
+                        FirstName = reader.GetString(1),
+                        LastName = reader.GetString(2),
+                        WorkExperience = reader.GetInt32(3)
+                    };
+                }
+            }
+
+            sql.Close();
+            return coach;
+        }
     }
 }

@@ -11,5 +11,7 @@ namespace ADO.BL.Interfaces
         IEnumerable<CoachDTO> SelectCoaches();
         void UpdateCoach(CoachDTO coach);
         IndexViewModel GetCoaches(int page = 1);
+        CoachDTO GetCoach(int id);
+
     }
 }

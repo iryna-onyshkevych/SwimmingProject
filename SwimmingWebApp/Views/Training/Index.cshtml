@@ -13,14 +13,19 @@
     <tr><td>Id</td><td>First Name</td><td>Last Name</td><td>Date</td><td>Style</td><td>Distance</td></tr>
     @foreach (var item in Model.Trainings)
     {
-        <tr>
-            <td>@item.TrainingId</td>
-            <td>@item.FirstName</td>
-            <td>@item.LastName</td>
-            <td>@item.TrainingDate</td>
-            <td>@item.Style</td>
-            <td>@item.Distance</td>
-        </tr>
+<tr>
+    <td>@item.TrainingId</td>
+    <td>@item.FirstName</td>
+    <td>@item.LastName</td>
+    <td>@item.TrainingDate</td>
+    <td>@item.Style</td>
+    <td>@item.Distance</td>
+    <td>
+        <a asp-action="Details" asp-controller="SwimmerTraining" asp-route-id="@item.TrainingId">Details</a> |
+        <a asp-action="Edit" asp-controller="SwimmerTraining" asp-route-id="@item.TrainingId">Update</a> |
+        <a asp-action="Delete" asp-controller="SwimmerTraining" asp-route-id="@item.TrainingId">Delete</a>
+    </td>
+</tr>
     }
 </table>
 

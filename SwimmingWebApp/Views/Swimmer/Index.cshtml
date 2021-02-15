@@ -19,7 +19,12 @@
 
             <td>@item.CoachId</td>
 
-        </tr>
+       
+        <td>
+            <a asp-action="Details" asp-controller="Swimmer" asp-route-id="@item.Id">Details</a> |
+            <a asp-action="Edit" asp-controller="Swimmer" asp-route-id="@item.Id">Update</a> |
+            <a asp-action="Delete" asp-controller="Swimmer" asp-route-id="@item.Id">Delete</a>
+        </td></tr>
     }
 </table>
 

@@ -81,5 +81,58 @@ namespace SwimmingWebApp.Controllers
 
             return RedirectToAction("Index");
         }
+        public IActionResult Details(int id)
+        {
+            if (id != null)
+            {
+                var coach = service.GetCoach(id);
+
+                return View(coach);
+            }
+            return NotFound();
+        }
+
+        [HttpGet]
+        [ActionName("Delete")]
+        public IActionResult ConfirmDelete(int id)
+        {
+            if (id != null)
+            {
+
+                var coach = service.GetCoach(id);
+
+                return View(coach);
+            }
+            return NotFound();
+        }
+
+        [HttpPost]
+        public IActionResult DeleteCoach(int id)
+        {
+            if (id != null)
+            {
+                service.DeleteCoach(id);
+
+                return RedirectToAction("Index");
+
+            }
+            return NotFound();
+        }
+        public IActionResult Edit(int id)
+        {
+            if (id != null)
+            {
+                CoachDTO coach = service.GetCoach(id);
+                return View(coach);
+            }
+            return NotFound();
+        }
+
+        [HttpPost]
+        public IActionResult Edit(CoachDTO coach)
+        {
+            service.UpdateCoach(coach);
+            return RedirectToAction("Index");
+        }
     }
 }

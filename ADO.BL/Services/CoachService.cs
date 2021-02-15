@@ -58,8 +58,6 @@ namespace ADO.BL.Services
         public void UpdateCoach(CoachDTO coach)
         {
             Coach updatedCoach = new Coach { FirstName = coach.FirstName, LastName = coach.LastName, WorkExperience = Convert.ToInt32(coach.WorkExperience) };
-            
-            
                 ICoachManager<Coach> coachManager = new CoachRepository(_context);
                 coachManager.Update(Convert.ToInt32(coach.Id), updatedCoach);
             
@@ -67,7 +65,6 @@ namespace ADO.BL.Services
 
         public IndexViewModel GetCoaches(int page = 1)
         {
-              
                     ICoachManager<Coach> coachManager = new CoachRepository(_context);
                     IEnumerable<Coach> coaches = coachManager.GetList();
                     var count = coaches.Count();
@@ -93,8 +90,18 @@ namespace ADO.BL.Services
                         Coaches = coachViewModel
                     };
 
-                    return viewModel;
-                
+                    return viewModel; 
         }
+        public CoachDTO GetCoach(int id)
+        {
+
+            ICoachManager<Coach> coachManager = new CoachRepository(_context);
+            var coach = coachManager.GetCoach(id);
+            CoachDTO selectedCoach = new CoachDTO { FirstName = coach.FirstName, LastName = coach.LastName, WorkExperience = Convert.ToInt32(coach.WorkExperience) };
+
+            return selectedCoach;
+
+        }
+
     }
 }

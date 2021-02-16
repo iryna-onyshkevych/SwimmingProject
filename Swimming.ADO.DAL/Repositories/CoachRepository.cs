@@ -8,8 +8,8 @@ namespace Swimming.ADO.DAL.Repositories
 {
     public class CoachRepository:ICoachManager<Coach>
     {
-        //private readonly SqlConnection _context;
         private readonly IConnection _context;
+
         public CoachRepository(IConnection context)
         {
             _context = context;
@@ -23,7 +23,6 @@ namespace Swimming.ADO.DAL.Repositories
             SqlCommand command = new SqlCommand(sqlExpression3, sql);
             command.ExecuteNonQuery();
             sql.Close();
-
         }
 
         public Coach Add(Coach coach)
@@ -34,7 +33,6 @@ namespace Swimming.ADO.DAL.Repositories
             SqlCommand command = new SqlCommand(sqlExpression1, sql);
             command.ExecuteNonQuery();
             sql.Close();
-
             return coach;
         }
 
@@ -77,18 +75,15 @@ namespace Swimming.ADO.DAL.Repositories
             SqlCommand command = new SqlCommand(sqlExpression2, sql);
             command.ExecuteNonQuery();
             sql.Close();
-
             return coach;
         }
+
         public Coach GetCoach(int id)
         {
             string sqlExpression = $"SELECT * FROM Coaches WHERE Id = {id}";
-
             Coach coach = new Coach();
-
             SqlConnection sql = _context.CreateSqlConnection();
             sql.Open();
-
             SqlCommand command = new SqlCommand(sqlExpression, sql);
             SqlDataReader reader = command.ExecuteReader();
             if (reader.HasRows)
@@ -104,7 +99,6 @@ namespace Swimming.ADO.DAL.Repositories
                     };
                 }
             }
-
             sql.Close();
             return coach;
         }

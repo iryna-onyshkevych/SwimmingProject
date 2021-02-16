@@ -63,5 +63,30 @@ namespace Swimming.EntityFramework.DAL.Repositories
             _context.SaveChanges();
             return swimmerToUpdate;
         }
+        public Swimmer GetSwimmer(int id)
+        {
+            string sqlExpression = $"SELECT * FROM Swimmers WHERE Id = {id}";
+            Swimmer swimmer = new Swimmer();
+            //SqlConnection sql = _context.CreateSqlConnection();
+            //sql.Open();
+            //SqlCommand command = new SqlCommand(sqlExpression, sql);
+            //SqlDataReader reader = command.ExecuteReader();
+            //if (reader.HasRows)
+            //{
+            //    while (reader.Read())
+            //    {
+            //        swimmer = new Swimmer
+            //        {
+            //            Id = reader.GetInt32(0),
+            //            FirstName = reader.GetString(1),
+            //            LastName = reader.GetString(2),
+            //            Age = reader.GetInt32(3),
+            //            CoachId = reader.GetInt32(4)
+            //        };
+            //    }
+            //}
+            //sql.Close();
+            return swimmer;
+        }
     }
 }

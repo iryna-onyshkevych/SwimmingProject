@@ -4,9 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
 using SwimmingWebApp.Controllers;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace NUnitTestSwimming.ControllerTests
 {
@@ -78,9 +75,6 @@ namespace NUnitTestSwimming.ControllerTests
 
             //assert
             Assert.That(result, viewResult);
-
-            //assert
-            //Assert.IsInstanceOf<ViewResult>(result);
         }
     }
 }

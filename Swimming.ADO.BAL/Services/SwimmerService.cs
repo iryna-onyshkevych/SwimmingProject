@@ -4,8 +4,6 @@ using Swimming.Abstractions.Models;
 using Swimming.ADO.DAL.Repositories;
 using Swimming.ADO.DAL.Repositories.Connection;
 using System;
-using System.Configuration;
-using System.Data.SqlClient;
 
 namespace Swimming.ADO.BL.Services
 {
@@ -68,11 +66,9 @@ namespace Swimming.ADO.BL.Services
             try
             {
                 Swimmer swimmer = new Swimmer { FirstName = swimmerName, LastName = swimmerSurname, Age = Convert.ToInt32(age), CoachId = Convert.ToInt32(swimmerCoachId) };
-                
-                    ISwimmerManager<Swimmer> swimmerManager = new SwimmerRepository(_context);
-                    swimmerManager.Add(swimmer);
-                    Console.WriteLine("Swimmer is added");
-                
+                ISwimmerManager<Swimmer> swimmerManager = new SwimmerRepository(_context);
+                swimmerManager.Add(swimmer);
+                Console.WriteLine("Swimmer is added");
             }
             catch (Exception ex)
             {
@@ -94,11 +90,9 @@ namespace Swimming.ADO.BL.Services
                     id = Console.ReadLine();
                 }
 
-               
-                    ISwimmerManager<Swimmer> swimmerManager = new SwimmerRepository(_context);
-                    swimmerManager.Delete(Convert.ToInt32(id));
-                    Console.WriteLine("Swimmer is deleted");
-                
+                ISwimmerManager<Swimmer> swimmerManager = new SwimmerRepository(_context);
+                swimmerManager.Delete(Convert.ToInt32(id));
+                Console.WriteLine("Swimmer is deleted");
             }
             catch (Exception ex)
             {
@@ -112,14 +106,12 @@ namespace Swimming.ADO.BL.Services
             {
                 Console.Write("Swimmers:\n");
                 Console.WriteLine("\t\tId \tFirstName \tSecondName\t\tAge");
-
-                    ISwimmerManager<Swimmer> swimmerManager = new SwimmerRepository(_context);
-                    var swimmers = swimmerManager.GetList();
-                    foreach (Swimmer c in swimmers)
-                    {
-                        Console.WriteLine($"{c.Id,15}{c.FirstName,15} {c.LastName,17} {c.Age,15}");
-                    }
-                
+                ISwimmerManager<Swimmer> swimmerManager = new SwimmerRepository(_context);
+                var swimmers = swimmerManager.GetList();
+                foreach (Swimmer c in swimmers)
+                {
+                    Console.WriteLine($"{c.Id,15}{c.FirstName,15} {c.LastName,17} {c.Age,15}");
+                }
             }
             catch (Exception ex)
             {
@@ -143,15 +135,12 @@ namespace Swimming.ADO.BL.Services
             {
                 Console.Write("Swimmers:\n");
                 Console.WriteLine("\t\tId \tFirstName \tSecondName\t\tAge");
-
-                
-                    ISwimmerManager<Swimmer> swimmerManager = new SwimmerRepository(_context);
-                    var swimmers = swimmerManager.GetListByAge(Convert.ToInt32(age));
-                    foreach (Swimmer c in swimmers)
-                    {
-                        Console.WriteLine($"{c.Id,15}{c.FirstName,15} {c.LastName,17} {c.Age,15}");
-                    }
-                
+                ISwimmerManager<Swimmer> swimmerManager = new SwimmerRepository(_context);
+                var swimmers = swimmerManager.GetListByAge(Convert.ToInt32(age));
+                foreach (Swimmer c in swimmers)
+                {
+                    Console.WriteLine($"{c.Id,15}{c.FirstName,15} {c.LastName,17} {c.Age,15}");
+                }
             }
             catch (Exception ex)
             {

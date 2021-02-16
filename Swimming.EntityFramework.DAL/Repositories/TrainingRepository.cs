@@ -51,5 +51,30 @@ namespace Swimming.EntityFramework.DAL.Repositories
             _context.SaveChanges();
             return trainingToUpdate;
         }
+        public Training GetTraining(int id)
+        {
+            string sqlExpression = $"SELECT * FROM Trainings WHERE Id = {id}";
+            Training training = new Training();
+            //SqlConnection sql = _context.CreateSqlConnection();
+            //sql.Open();
+            //SqlCommand command = new SqlCommand(sqlExpression, sql);
+            //SqlDataReader reader = command.ExecuteReader();
+            //if (reader.HasRows)
+            //{
+            //    while (reader.Read())
+            //    {
+            //        training = new Training
+            //        {
+            //            Id = reader.GetInt32(0),
+            //            SwimmerId = reader.GetInt32(1),
+            //            SwimStyleId = reader.GetInt32(2),
+            //            TrainingDate = reader.GetDateTime(3),
+            //            Distance = reader.GetInt32(4)
+            //        };
+            //    }
+            //}
+            //sql.Close();
+            return training;
+        }
     }
 }

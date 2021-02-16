@@ -33,6 +33,7 @@ namespace SwimmingWebApp.Controllers
 
             return RedirectToAction("Index", "Training");
         }
+
         public IActionResult Delete()
         {
             return View();
@@ -52,6 +53,7 @@ namespace SwimmingWebApp.Controllers
 
             return RedirectToAction("Index", "Training");
         }
+
         public IActionResult Update()
         {
             return View();
@@ -71,16 +73,6 @@ namespace SwimmingWebApp.Controllers
 
             return RedirectToAction("Index", "Training");
         }
-        //public IActionResult Details(int id)
-        //{
-        //    if (id != null)
-        //    {
-        //        var training = service.GetTraining(id);
-
-        //        return View(training);
-        //    }
-        //    return NotFound();
-        //}
 
         [HttpGet]
         [ActionName("Delete")]
@@ -108,6 +100,7 @@ namespace SwimmingWebApp.Controllers
             }
             return NotFound();
         }
+
         public IActionResult Edit(int id)
         {
             if (id != null)
@@ -123,7 +116,6 @@ namespace SwimmingWebApp.Controllers
         {
             service.UpdateTraining(training);
             return RedirectToAction("Index", "Training");
-
         }
     }
 }

@@ -5,8 +5,6 @@ using Moq;
 using NUnit.Framework;
 using SwimmingWebApp.Controllers;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace NUnitTestSwimming.ControllerTests
 {

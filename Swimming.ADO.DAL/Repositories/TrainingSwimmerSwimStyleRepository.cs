@@ -9,6 +9,7 @@ namespace Swimming.ADO.DAL.Repositories
     public class TrainingSwimmerSwimStyleRepository : ITrainingsSwimmersSwimStyleManager<TrainingsSwimmersSwimStyle>
     {
         private readonly IConnection _context;
+
         public TrainingSwimmerSwimStyleRepository(IConnection context)
         {
             _context = context;
@@ -37,10 +38,8 @@ namespace Swimming.ADO.DAL.Repositories
                         Distance = reader.GetInt32(4),
                         Style = reader.GetString(5)
                     };
-
                     trainings.Add(training);
                 }
-
                 reader.Close();
             }
             sql.Close();
@@ -50,12 +49,9 @@ namespace Swimming.ADO.DAL.Repositories
         public TrainingsSwimmersSwimStyle GetViewTraining(int id)
         {
             string sqlExpression = $"SELECT * FROM TrainingsSwimmersSwimStyles WHERE TrainingId = {id}";
-
             TrainingsSwimmersSwimStyle training = new TrainingsSwimmersSwimStyle();
-
             SqlConnection sql = _context.CreateSqlConnection();
             sql.Open();
-
             SqlCommand command = new SqlCommand(sqlExpression, sql);
             SqlDataReader reader = command.ExecuteReader();
             if (reader.HasRows)
@@ -73,7 +69,6 @@ namespace Swimming.ADO.DAL.Repositories
                     };
                 }
             }
-
             sql.Close();
             return training;
         }

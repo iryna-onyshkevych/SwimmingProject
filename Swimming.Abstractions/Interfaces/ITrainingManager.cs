@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Swimming.Abstractions.Interfaces
 {
@@ -10,6 +9,5 @@ namespace Swimming.Abstractions.Interfaces
         IEnumerable<Training> GetList();
         Training Update(int id, Training entity);
         Training GetTraining(int id);
-
     }
 }

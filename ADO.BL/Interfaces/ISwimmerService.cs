@@ -9,7 +9,6 @@ namespace ADO.BL.Interfaces
         IEnumerable<SwimmerDTO> SelectSwimmers();
         void AddSwimmer(SwimmerDTO swimmer);
         void UpdateSwimmer(SwimmerDTO coach);
-
         void DeleteSwimmer(int id);
         IndexViewModel GetSwimmers(int page = 1);
         SwimmerDTO GetSwimmer(int id);

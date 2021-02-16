@@ -61,6 +61,7 @@ namespace SwimmingWebApp.Controllers
 
             return RedirectToAction("Index");
         }
+
         public IActionResult Update()
         {
             return View();
@@ -134,5 +135,4 @@ namespace SwimmingWebApp.Controllers
             return RedirectToAction("Index");
         }
     }
-
 }

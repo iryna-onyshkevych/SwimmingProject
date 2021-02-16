@@ -9,6 +9,5 @@ namespace ADO.BL.Interfaces
         IEnumerable<TrainingsSwimmersSwimStyleDTO> SelectSwimmersTrainings();
         IndexViewModel GetTrainings(int page = 1);
         TrainingsSwimmersSwimStyleDTO GetViewTraining(int id);
-
     }
 }

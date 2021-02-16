@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Swimming.Abstractions.Interfaces
 {
@@ -11,6 +10,5 @@ namespace Swimming.Abstractions.Interfaces
         Swimmer Update(int id, Swimmer entity);
         IEnumerable<Swimmer> GetListByAge(int mimimalAge);
         Swimmer GetSwimmer(int id);
-
     }
 }

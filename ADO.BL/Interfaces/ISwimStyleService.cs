@@ -10,6 +10,5 @@ namespace ADO.BL.Interfaces
         void DeleteSwimStyle (int id);
         void UpdateSwimStyle(SwimStyleDTO swimStyle);
         SwimStyleDTO GetSwimStyle(int id);
-
     }
 }

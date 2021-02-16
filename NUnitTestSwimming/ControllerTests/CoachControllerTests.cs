@@ -4,9 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
 using SwimmingWebApp.Controllers;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace NUnitTestSwimming.ControllerTests
 {
@@ -25,27 +22,6 @@ namespace NUnitTestSwimming.ControllerTests
 
             Assert.IsNotNull(result);
         }
-
-        //[Test]
-        //public void CoachController_Verifying_WorkExperience()
-        //{
-        //    //arrange
-
-        //    CoachDTO coach = new CoachDTO()
-        //    {
-        //        FirstName = "new",
-        //        LastName = "coach",
-        //        WorkExperience = 75
-
-        //    };
-        //    var serviceMock = new Mock<ICoachService>();
-        //    serviceMock.Setup(a => a.AddCoach(coach));
-        //    CoachController controller = new CoachController(serviceMock.Object);
-
-        //    var result = controller.Create(coach);
-
-        //    serviceMock.Verify(t => t.AddCoach(It.Is<CoachDTO>(t => (t.WorkExperience < 80) && (t.WorkExperience >= 0))));
-        //}
 
         [Test]
         public void CoachController_Verify_AddingCalledOnce()

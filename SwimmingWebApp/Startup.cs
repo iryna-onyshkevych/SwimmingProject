@@ -1,12 +1,14 @@
 using ADO.BL.Interfaces;
 using ADO.BL.Services;
+using DTO.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Swimming.Abstractions.Interfaces;
+using Swimming.Abstractions.Models;
+using Swimming.ADO.DAL.Repositories;
 using Swimming.ADO.DAL.Repositories.Connection;
 
 namespace SwimmingWebApp
@@ -16,6 +18,7 @@ namespace SwimmingWebApp
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
         }
 
         public IConfiguration Configuration { get; }
@@ -29,8 +32,8 @@ namespace SwimmingWebApp
             services.AddTransient<ITrainingService, TrainingService>();
             services.AddTransient<ITrainingViewService, TrainingViewService>();
             services.AddTransient<IConnection, Connection>();
+            services.AddTransient <ICoachManager<Coach>, CoachRepository>();
             services.AddControllersWithViews();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

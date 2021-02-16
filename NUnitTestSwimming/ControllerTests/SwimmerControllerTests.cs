@@ -4,15 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
 using SwimmingWebApp.Controllers;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace NUnitTestSwimming.ControllerTests
 {
     public class SwimmerControllerTests
     {
-
         [Test]
         public void SwimmerContoller_InstanceofViewResult()
         {
@@ -25,10 +21,6 @@ namespace NUnitTestSwimming.ControllerTests
             var result = controller.Index();
             var viewResult = Is.TypeOf<ViewResult>();
             Assert.That(result, viewResult);
-
-            //assert
-            //Assert.IsInstanceOf<ViewResult>(result);
-
         }
 
         [Test]
@@ -81,8 +73,6 @@ namespace NUnitTestSwimming.ControllerTests
             var result = controller.Create(swimmer);
 
             serviceMock.Verify(m => m.AddSwimmer(swimmer), Times.Once);
-
         }
-
     }
 }

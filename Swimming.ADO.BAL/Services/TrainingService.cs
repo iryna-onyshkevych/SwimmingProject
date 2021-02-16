@@ -3,8 +3,6 @@ using Swimming.Abstractions.Attributes;
 using Swimming.Abstractions.Interfaces;
 using Swimming.Abstractions.Models;
 using Swimming.ADO.DAL.Repositories;
-using System.Configuration;
-using System.Data.SqlClient;
 using Swimming.ADO.DAL.Repositories.Connection;
 
 namespace Swimming.ADO.BL.Services
@@ -12,6 +10,7 @@ namespace Swimming.ADO.BL.Services
     public class TrainingService
     {
         private readonly IConnection _context;
+
         public TrainingService(IConnection context)
         {
             _context = context;
@@ -74,11 +73,9 @@ namespace Swimming.ADO.BL.Services
                     Distance = Convert.ToInt32(distance)
                 };
 
-                
-                    ITrainingManager<Training> trainingManager = new TrainingRepository(_context);
-                    trainingManager.Add(training);
-                    Console.WriteLine("Training is added");
-                
+                ITrainingManager<Training> trainingManager = new TrainingRepository(_context);
+                trainingManager.Add(training);
+                Console.WriteLine("Training is added");
             }
             catch (Exception ex)
             {
@@ -110,12 +107,9 @@ namespace Swimming.ADO.BL.Services
             try
             {
                 Training training = new Training { Distance = Convert.ToInt32(newDistance) };
-
-               
-                    ITrainingManager<Training> trainingManager = new TrainingRepository(_context);
-                    trainingManager.Update(Convert.ToInt32(trainingId), training);
-                    Console.WriteLine("Distance is updated");
-                
+                ITrainingManager<Training> trainingManager = new TrainingRepository(_context);
+                trainingManager.Update(Convert.ToInt32(trainingId), training);
+                Console.WriteLine("Distance is updated");
             }
             catch (Exception ex)
             {

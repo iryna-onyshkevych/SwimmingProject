@@ -9,10 +9,12 @@ namespace Swimming.ADO.DAL.Repositories
     public class TrainingRepository : ITrainingManager<Training>
     {
         private readonly IConnection _context;
+
         public TrainingRepository(IConnection context)
         {
             _context = context;
         }
+
         public void Delete(int id)
         {
             SqlConnection sql = _context.CreateSqlConnection();
@@ -55,12 +57,9 @@ namespace Swimming.ADO.DAL.Repositories
                         SwimStyleId = reader.GetInt32(2),
                         TrainingDate = reader.GetDateTime(3),
                         Distance = reader.GetInt32(4)
-
                     };
-
                     trainings.Add(training);
                 }
-
                 reader.Close();
             }
             sql.Close();
@@ -79,15 +78,13 @@ namespace Swimming.ADO.DAL.Repositories
             sql.Close();
             return training;
         }
+
         public Training GetTraining(int id)
         {
             string sqlExpression = $"SELECT * FROM Trainings WHERE Id = {id}";
-
             Training training = new Training();
-
             SqlConnection sql = _context.CreateSqlConnection();
             sql.Open();
-
             SqlCommand command = new SqlCommand(sqlExpression, sql);
             SqlDataReader reader = command.ExecuteReader();
             if (reader.HasRows)
@@ -104,7 +101,6 @@ namespace Swimming.ADO.DAL.Repositories
                     };
                 }
             }
-
             sql.Close();
             return training;
         }

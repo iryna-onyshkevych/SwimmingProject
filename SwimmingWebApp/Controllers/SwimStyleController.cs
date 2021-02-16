@@ -89,7 +89,6 @@ namespace SwimmingWebApp.Controllers
             if (id != null)
             {
                 var swimStyle = service.GetSwimStyle(id);
-
                 return View(swimStyle);
             }
             return NotFound();
@@ -101,9 +100,7 @@ namespace SwimmingWebApp.Controllers
         {
             if (id != null)
             {
-
                 var swimStyle = service.GetSwimStyle(id);
-
                 return View(swimStyle);
             }
             return NotFound();
@@ -115,12 +112,11 @@ namespace SwimmingWebApp.Controllers
             if (id != null)
             {
                 service.DeleteSwimStyle(id);
-
                 return RedirectToAction("Index");
-
             }
             return NotFound();
         }
+
         public IActionResult Edit(int id)
         {
             if (id != null)

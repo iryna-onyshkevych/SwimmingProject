@@ -9,6 +9,7 @@ namespace Swimming.ADO.DAL.Repositories
     public class SwimmerRepository : ISwimmerManager<Swimmer>
     {
         private readonly IConnection _context;
+
         public SwimmerRepository(IConnection context)
         {
             _context = context;
@@ -31,8 +32,8 @@ namespace Swimming.ADO.DAL.Repositories
             string sqlExpression1 = ($"INSERT INTO Swimmers (FirstName,LastName, Age,CoachId) VALUES ('{swimmer.FirstName}','{swimmer.LastName}',{swimmer.Age},{swimmer.CoachId})");
             SqlCommand command = new SqlCommand(sqlExpression1, sql);
             command.ExecuteNonQuery();
-            return swimmer;
             sql.Close();
+            return swimmer;
         }
 
         public IEnumerable<Swimmer> GetList()
@@ -55,12 +56,9 @@ namespace Swimming.ADO.DAL.Repositories
                         LastName = reader.GetString(2),
                         Age = reader.GetInt32(3),
                         CoachId = reader.GetInt32(4)
-
                     };
-
                     swimmers.Add(swimmer);
                 }
-
                 reader.Close();
             }
             sql.Close();
@@ -77,16 +75,13 @@ namespace Swimming.ADO.DAL.Repositories
             List<Swimmer> swimmers = new List<Swimmer>();
             SqlCommand command = new SqlCommand(sqlExpression, sql);
             command.CommandType = System.Data.CommandType.StoredProcedure;
-
             SqlParameter nameParam = new SqlParameter
             {
                 ParameterName = "@age",
                 Value = mimimalAge
             };
-
             command.Parameters.Add(nameParam);
             var reader = command.ExecuteReader();
-
             if (reader.HasRows)
             {
                 while (reader.Read())
@@ -96,14 +91,12 @@ namespace Swimming.ADO.DAL.Repositories
                         Id = reader.GetInt32(0),
                         FirstName = reader.GetString(1),
                         LastName = reader.GetString(2),
-                        Age = reader.GetInt32(3),
-
+                        Age = reader.GetInt32(3)
                     };
                     swimmers.Add(swimmer);
                 }
                 reader.Close();
             }
-
             sql.Close();
             IEnumerable<Swimmer> listOfSwimmers = swimmers;
             return listOfSwimmers;
@@ -123,12 +116,9 @@ namespace Swimming.ADO.DAL.Repositories
         public Swimmer GetSwimmer(int id)
         {
             string sqlExpression = $"SELECT * FROM Swimmers WHERE Id = {id}";
-
             Swimmer swimmer = new Swimmer();
-
             SqlConnection sql = _context.CreateSqlConnection();
             sql.Open();
-
             SqlCommand command = new SqlCommand(sqlExpression, sql);
             SqlDataReader reader = command.ExecuteReader();
             if (reader.HasRows)
@@ -145,7 +135,6 @@ namespace Swimming.ADO.DAL.Repositories
                     };
                 }
             }
-
             sql.Close();
             return swimmer;
         }

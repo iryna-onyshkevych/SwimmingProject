@@ -4,19 +4,18 @@ using Swimming.Abstractions.Models;
 using Swimming.ADO.DAL.Repositories;
 using Swimming.ADO.DAL.Repositories.Connection;
 using System;
-using System.Configuration;
-using System.Data.SqlClient;
 
 namespace Swimming.ADO.BL.Services
 {
     public class CoachService
     {
-        //string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-        private readonly IConnection _context;
-        public CoachService(IConnection context)
+        private readonly ICoachManager<Coach> _context;
+
+        public CoachService(ICoachManager<Coach> coachManager)
         {
-            _context = context;
+            _context = coachManager;
         }
+
         public bool IsAllAlphabetic(string value)
         {
             foreach (char c in value)
@@ -60,11 +59,8 @@ namespace Swimming.ADO.BL.Services
             try
             {
                 Coach coach = new Coach { FirstName = name, LastName = surname, WorkExperience = Convert.ToInt32(workExperience) };
-               
-                    ICoachManager<Coach> coachManager = new CoachRepository(_context);
-                    coachManager.Add(coach);
-                    Console.WriteLine("Coach is added");
-                
+                _context.Add(coach);
+                Console.WriteLine("Coach is added");
             }
             catch (Exception ex)
             {
@@ -85,12 +81,8 @@ namespace Swimming.ADO.BL.Services
                     Console.WriteLine("Incorrect id! Try again ");
                     id = Console.ReadLine();
                 }
-
-               
-                    ICoachManager<Coach> coachManager = new CoachRepository(_context);
-                    coachManager.Delete(Convert.ToInt32(id));
-                    Console.WriteLine("Coach is deleted");
-                
+                _context.Delete(Convert.ToInt32(id));
+                Console.WriteLine("Coach is deleted");
             }
             catch (Exception ex)
             {
@@ -104,15 +96,11 @@ namespace Swimming.ADO.BL.Services
             {
                 Console.Write("Coaches:\n");
                 Console.WriteLine("\tCoach Id \tFirstName \tSecondName\tWorkExperience");
-
-              
-                    ICoachManager<Coach> coachManager = new CoachRepository(_context);
-                    var coaches = coachManager.GetList();
-                    foreach (Coach c in coaches)
-                    {
-                        Console.WriteLine($"{c.Id,15}{c.FirstName,15} {c.LastName,17} {c.WorkExperience,15}");
-                    }
-                
+                var coaches = _context.GetList();
+                foreach (Coach c in coaches)
+                {
+                    Console.WriteLine($"{c.Id,15}{c.FirstName,15} {c.LastName,17} {c.WorkExperience,15}");
+                }
             }
             catch (Exception ex)
             {
@@ -162,11 +150,8 @@ namespace Swimming.ADO.BL.Services
             try
             {
                 Coach coach = new Coach { FirstName = newName, LastName = newSurname, WorkExperience = Convert.ToInt32(newWorkExperience) };
-                
-                    ICoachManager<Coach> coachManager = new CoachRepository(_context);
-                    coachManager.Update(Convert.ToInt32(coachId), coach);
-                    Console.WriteLine("Coach is updated");
-                
+                _context.Update(Convert.ToInt32(coachId), coach);
+                Console.WriteLine("Coach is updated"); 
             }
             catch (Exception ex)
             {

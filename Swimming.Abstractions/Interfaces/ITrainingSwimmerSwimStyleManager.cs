@@ -6,6 +6,5 @@ namespace Swimming.Abstractions.Interfaces
     {
         IEnumerable<TrainingsSwimmersSwimStyle> GetView();
         TrainingsSwimmersSwimStyle GetViewTraining(int id);
-
     }
 }

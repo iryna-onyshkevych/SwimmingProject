@@ -9,6 +9,5 @@ namespace Swimming.Abstractions.Interfaces
         IEnumerable<SwimStyle> GetList();
         SwimStyle Update(int id, SwimStyle entity);
         SwimStyle GetSwimStyle(int id);
-
     }
 }

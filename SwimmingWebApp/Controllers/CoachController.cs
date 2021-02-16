@@ -17,16 +17,15 @@ namespace SwimmingWebApp.Controllers
         [HttpGet]
         public IActionResult Index(int page = 1)
         {
-            var customers = service.GetCoaches(page);
-
-            return View(customers);
+            var coaches = service.GetCoaches(page);
+            return View(coaches);
         }
 
         public IActionResult Create()
         {
             return View();
         }
-
+       
         [HttpPost]
         public ActionResult Create(CoachDTO coach)
         {
@@ -38,7 +37,7 @@ namespace SwimmingWebApp.Controllers
             {
                 return Content("\tERROR!\n\n" + ex.Message);
             }
-
+            //service.AddCoach(coach);
             return RedirectToAction("Index");
         }
 
@@ -58,7 +57,6 @@ namespace SwimmingWebApp.Controllers
             {
                 return Content("\tERROR!\n\n" + ex.Message);
             }
-
             return RedirectToAction("Index");
         }
 
@@ -81,6 +79,7 @@ namespace SwimmingWebApp.Controllers
 
             return RedirectToAction("Index");
         }
+
         public IActionResult Details(int id)
         {
             if (id != null)

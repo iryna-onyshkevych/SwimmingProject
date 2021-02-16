@@ -9,10 +9,12 @@ namespace Swimming.ADO.DAL.Repositories
     public class SwimStyleRepository : ISwimStyleManager<SwimStyle>
     {
         private readonly IConnection _context;
+
         public SwimStyleRepository(IConnection context)
         {
             _context = context;
         }
+
         public void Delete(int id)
         {
             SqlConnection sql = _context.CreateSqlConnection();
@@ -52,13 +54,10 @@ namespace Swimming.ADO.DAL.Repositories
                         Id = reader.GetInt32(0),
                         StyleName = reader.GetString(1)
                     };
-
                     swimStyles.Add(swimStyle);
                 }
-
                 reader.Close();
             }
-
             sql.Close();
             IEnumerable<SwimStyle> listOfSwimStyles = swimStyles;
             return listOfSwimStyles;
@@ -77,12 +76,9 @@ namespace Swimming.ADO.DAL.Repositories
         public SwimStyle GetSwimStyle(int id)
         {
             string sqlExpression = $"SELECT * FROM SwimStyles WHERE Id = {id}";
-
             SwimStyle swimStyle = new SwimStyle();
-
             SqlConnection sql = _context.CreateSqlConnection();
             sql.Open();
-
             SqlCommand command = new SqlCommand(sqlExpression, sql);
             SqlDataReader reader = command.ExecuteReader();
             if (reader.HasRows)
@@ -96,7 +92,6 @@ namespace Swimming.ADO.DAL.Repositories
                     };
                 }
             }
-
             sql.Close();
             return swimStyle;
         }

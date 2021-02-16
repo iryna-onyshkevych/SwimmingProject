@@ -2,6 +2,7 @@
 using DTO.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using X.PagedList;
 
 namespace SwimmingWebApp.Controllers
 {
@@ -15,12 +16,16 @@ namespace SwimmingWebApp.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index(int page = 1)
+        public IActionResult Index(int? page)
         {
-            var coaches = service.GetCoaches(page);
-            return View(coaches);
-        }
+            var products = service.SelectCoaches(); //returns IQueryable<Product> representing an unknown number of products. a thousand maybe?
 
+            var pageNumber = page ?? 1; // if no page was specified in the querystring, default to the first page (1)
+            var onePageOfProducts = products.ToPagedList(pageNumber, 4); // will only contain 25 products max because of the pageSize
+
+            ViewBag.OnePageOfProducts = onePageOfProducts;
+            return View();
+        }
         public IActionResult Create()
         {
             return View();
@@ -95,28 +100,29 @@ namespace SwimmingWebApp.Controllers
         [ActionName("Delete")]
         public IActionResult ConfirmDelete(int id)
         {
+          
             if (id != null)
             {
 
                 var coach = service.GetCoach(id);
 
-                return View(coach);
+                return PartialView(coach);
             }
             return NotFound();
         }
 
-        [HttpPost]
-        public IActionResult DeleteCoach(int id)
-        {
-            if (id != null)
-            {
-                service.DeleteCoach(id);
+        //[HttpPost]
+        //public IActionResult DeleteCoach(int id)
+        //{
+        //    if (id != null)
+        //    {
+        //        service.DeleteCoach(id);
 
-                return RedirectToAction("Index");
+        //        return RedirectToAction("Index");
 
-            }
-            return NotFound();
-        }
+        //    }
+        //    return NotFound();
+        //}
         public IActionResult Edit(int id)
         {
             if (id != null)

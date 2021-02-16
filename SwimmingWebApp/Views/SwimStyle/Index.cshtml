@@ -1,26 +1,77 @@
 ﻿@model IEnumerable<DTO.Models.SwimStyleDTO>
 @{
-    ViewBag.Title = "All styles";
-}
-<a asp-action="Create">Add swimming style</a>
-<a asp-action="Delete">Delete swimming style</a>
-<a asp-action="Update">Update swimming style</a>
+    ViewBag.Title = "Product Listing";
+    var pagedList = (IPagedList)ViewBag.OnePageOfProducts;
 
+}
+@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+@using X.PagedList.Mvc.Core.Common;
+
+<!-- import the included stylesheet for some (very basic) default styling -->
+<link href="/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<div id="modDialog" class="modal fade">
+    <div id="dialogContent" class="modal-dialog"></div>
+</div>
+<a asp-action="Create" class="btn btn-outline-info">Create</a>
+<a asp-action="Update" class="btn btn-outline-info">Edit</a>
 
 <table class="table">
-    <tr><td>Id</td><td>Style Name</td></tr>
 
-    @foreach (var item in Model)
+    <tr><td>Id</td><td>Style Name</td><td> Actions</td></tr>
+
+    @foreach (var item in ViewBag.OnePageOfProducts)
     {
         <tr>
             <td>@item.Id</td>
             <td>@item.StyleName</td>
+
             <td>
-                <a asp-action="Details" asp-controller="SwimStyle" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Edit" asp-controller="SwimStyle" asp-route-id="@item.Id">Update</a> |
-                <a asp-action="Delete" asp-controller="SwimStyle" asp-route-id="@item.Id">Delete</a>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "compItem" })
+
             </td>
         </tr>
     }
 
 </table>
+<!-- loop through each of your products and display it however you want. we're just printing the name here -->
+@*<h2>List of Products</h2>
+    <ul>
+        @foreach (var product in ViewBag.OnePageOfProducts)
+        {
+            <li>@product.FirstName</li>
+        }
+    </ul>*@
+Pages
+
+<!-- output a paging control that lets the user navigation to the previous page, next page, etc -->
+@Html.PagedListPager((IPagedList)ViewBag.OnePageOfProducts, page => Url.Action("Index", new { page }), new PagedListRenderOptions
+{
+    LiElementClasses = new string[] { "page-item" },
+    PageClasses = new string[] { "page-link" }
+})
+
+@section scripts
+{
+    <script type="text/javascript">
+
+        $(function () {
+            $.ajaxSetup({ cache: false });
+            $(".compItem").click(function (e) {
+
+                e.preventDefault();
+                $.get(this.href, function (data) {
+                    $('#dialogContent').html(data);
+                    $('#modDialog').modal('show');
+                });
+            });
+        })
+    </script>
+}
+
+
+
+
+

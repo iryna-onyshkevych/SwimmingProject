@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using X.PagedList;
 
 namespace SwimmingWebApp.Controllers
 {
@@ -18,6 +19,63 @@ namespace SwimmingWebApp.Controllers
             service = r;
         }
 
+        [HttpGet]
+        public IActionResult Index(int? page)
+        {
+            var products = service.SelectSwimStyles(); //returns IQueryable<Product> representing an unknown number of products. a thousand maybe?
+
+            var pageNumber = page ?? 1; // if no page was specified in the querystring, default to the first page (1)
+            var onePageOfProducts = products.ToPagedList(pageNumber, 4); // will only contain 25 products max because of the pageSize
+
+            ViewBag.OnePageOfProducts = onePageOfProducts;
+            return View();
+        }
+        //public ViewResult Index(string sortOrder, string currentFilter, string searchString, int? page)
+        //{
+        //    ViewBag.CurrentSort = sortOrder;
+        //    ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+        //    ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+
+        //    if (searchString != null)
+        //    {
+        //        page = 1;
+        //    }
+        //    else
+        //    {
+        //        searchString = currentFilter;
+        //    }
+
+        //    ViewBag.CurrentFilter = searchString;
+
+        //    //var students = from s in db.Students
+        //    //               select s;
+        //    var students = service.SelectSwimStyles();
+
+        //    if (!String.IsNullOrEmpty(searchString))
+        //    {
+        //        students = students.Where(s => s.StyleName.Contains(searchString)
+        //                              );
+        //    }
+        //    switch (sortOrder)
+        //    {
+        //        case "name_desc":
+        //            students = students.OrderByDescending(s => s.StyleName);
+        //            break;
+        //        case "Date":
+        //            students = students.OrderBy(s => s.StyleName);
+        //            break;
+        //        case "date_desc":
+        //            students = students.OrderByDescending(s => s.StyleName);
+        //            break;
+        //        default:  // Name ascending 
+        //            students = students.OrderBy(s => s.StyleName    );
+        //            break;
+        //    }
+
+        //    int pageSize = 3;
+        //    int pageNumber = (page ?? 1);
+        //    return View(students.ToPagedList(pageNumber, pageSize));
+        //}
         public IActionResult Index()
         {
             var swimStyles = service.SelectSwimStyles();
@@ -101,21 +159,13 @@ namespace SwimmingWebApp.Controllers
             if (id != null)
             {
                 var swimStyle = service.GetSwimStyle(id);
-                return View(swimStyle);
+                return PartialView(swimStyle);
             }
             return NotFound();
         }
 
         [HttpPost]
-        public IActionResult DeleteCoach(int id)
-        {
-            if (id != null)
-            {
-                service.DeleteSwimStyle(id);
-                return RedirectToAction("Index");
-            }
-            return NotFound();
-        }
+       
 
         public IActionResult Edit(int id)
         {

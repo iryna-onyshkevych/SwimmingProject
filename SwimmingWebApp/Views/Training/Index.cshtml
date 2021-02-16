@@ -1,53 +1,73 @@
-﻿@using SwimmingWebApp.ViewModels;
-@model IndexViewModel
-@{
-    ViewBag.Title = "Trainings";
+﻿@{
+    ViewBag.Title = "Product Listing";
+    var pagedList = (IPagedList)ViewBag.OnePageOfProducts;
+
 }
+@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+@using X.PagedList.Mvc.Core.Common;
 
-<a asp-action="Create" asp-controller="SwimmerTraining">Add training</a>
-<a asp-action="Delete" asp-controller="SwimmerTraining">Delete training</a>
-<a asp-action="Update" asp-controller="SwimmerTraining">Update training</a>
+<link href="/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<div id="modDialog" class="modal fade">
+    <div id="dialogContent" class="modal-dialog"></div>
+</div>
 
+<a asp-action="Create" class="btn btn-outline-info">Create</a>
+<a asp-action="Update" class="btn btn-outline-info">Edit</a>
 
 <table class="table">
-    <tr><td>Id</td><td>First Name</td><td>Last Name</td><td>Date</td><td>Style</td><td>Distance</td></tr>
-    @foreach (var item in Model.Trainings)
+
+    <tr><td>Id</td><td>First Name</td><td>Last Name</td><td>Date</td><td>Style</td><td>Distance</td><td>Actions</td></tr>
+
+    @foreach (var item in ViewBag.OnePageOfProducts)
     {
-<tr>
-    <td>@item.TrainingId</td>
-    <td>@item.FirstName</td>
-    <td>@item.LastName</td>
-    <td>@item.TrainingDate</td>
-    <td>@item.Style</td>
-    <td>@item.Distance</td>
-    <td>
-        <a asp-action="Details" asp-controller="Training" asp-route-id="@item.TrainingId">Details</a> |
-        <a asp-action="Edit" asp-controller="SwimmerTraining" asp-route-id="@item.TrainingId">Update</a> |
-        <a asp-action="Delete" asp-controller="SwimmerTraining" asp-route-id="@item.TrainingId">Delete</a>
-    </td>
-</tr>
+        <tr>
+            <td>@item.TrainingId</td>
+            <td>@item.FirstName</td>
+            <td>@item.LastName</td>
+            <td>@item.TrainingDate</td>
+            <td>@item.Style</td>
+            <td>@item.Distance</td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.TrainingId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.TrainingId }) |
+                @Html.ActionLink("Delete", "Delete", "SwimmerTraining", new { id = item.TrainingId }, new { @class = "compItem" })
+
+            </td>
+        </tr>
     }
+
 </table>
 
-@if (Model.PageViewModel.HasPreviousPage)
+@Html.PagedListPager((IPagedList)ViewBag.OnePageOfProducts, page => Url.Action("Index", new { page }), new PagedListRenderOptions
 {
-    <a asp-action="Index"
-       asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
-       class="btn btn-outline-dark">
-        <i class="glyphicon glyphicon-chevron-left"></i>
-        Back
-    </a>
+    LiElementClasses = new string[] { "page-item" },
+    PageClasses = new string[] { "page-link" }
+})
+
+@section scripts
+{
+    <script type="text/javascript">
+
+        $(function () {
+            $.ajaxSetup({ cache: false });
+            $(".compItem").click(function (e) {
+
+                e.preventDefault();
+                $.get(this.href, function (data) {
+                    $('#dialogContent').html(data);
+                    $('#modDialog').modal('show');
+                });
+            });
+        })
+    </script>
 }
 
-@if (Model.PageViewModel.HasNextPage)
-{
-    <a asp-action="Index"
-       asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
-       class="btn btn-outline-dark">
-        Forward
-        <i class="glyphicon glyphicon-chevron-right"></i>
-    </a>
-}
+
+
+
+
 
 
 

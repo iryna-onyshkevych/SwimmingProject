@@ -4,7 +4,6 @@ using Swimming.ADO.DAL.Repositories;
 using System.Collections.Generic;
 using System.Linq;
 using ADO.BL.Interfaces;
-using SwimmingWebApp.ViewModels;
 using Swimming.Abstractions.Models;
 using Swimming.ADO.DAL.Repositories.Connection;
 using System;
@@ -38,38 +37,7 @@ namespace ADO.BL.Services
             return trainingList;
         }
 
-        public IndexViewModel GetTrainings(int page = 1)
-        {
-            ITrainingsSwimmersSwimStyleManager<TrainingsSwimmersSwimStyle> tariningManager = new TrainingSwimmerSwimStyleRepository(_context);
-            IEnumerable<TrainingsSwimmersSwimStyle> trainings = tariningManager.GetView();
-            var count = trainings.Count();
-            int pageSize = 4;
-            var items = trainings.Skip((page - 1) * pageSize).Take(pageSize).ToList();
-            List<TrainingsSwimmersSwimStyleDTO> trainingViewModel = new List<TrainingsSwimmersSwimStyleDTO>();
-
-            foreach (TrainingsSwimmersSwimStyle c in items)
-            {
-                trainingViewModel.Add(new TrainingsSwimmersSwimStyleDTO
-                {
-                    TrainingId = c.TrainingId,
-                    FirstName = c.FirstName,
-                    LastName = c.LastName,
-                    TrainingDate = c.TrainingDate,
-                    Style = c.Style,
-                    Distance = c.Distance
-                });
-            }
-
-            PageViewModel pageViewModel = new PageViewModel(count, page, pageSize);
-            IndexViewModel viewModel = new IndexViewModel
-            {
-                PageViewModel = pageViewModel,
-                Trainings = trainingViewModel
-            };
-
-            return viewModel;   
-        }
-
+       
         public TrainingsSwimmersSwimStyleDTO GetViewTraining(int id)
         {
             ITrainingsSwimmersSwimStyleManager<TrainingsSwimmersSwimStyle> tariningManager = new TrainingSwimmerSwimStyleRepository(_context);

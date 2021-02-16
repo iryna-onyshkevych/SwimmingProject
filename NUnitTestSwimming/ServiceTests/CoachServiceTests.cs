@@ -25,7 +25,11 @@ namespace NUnitTestSwimming.ServiceTests
 
             };
             var serviceMock = new Mock<ICoachService>();
+
+            //act
             var result = serviceMock.Setup(a => a.AddCoach(coach));
+
+            //assert 
             Assert.IsNotNull(result);
         }
 
@@ -33,12 +37,15 @@ namespace NUnitTestSwimming.ServiceTests
         public void CoachService_DeletingCoach_ShouldNotNull()
         {
             //arrange
-
             int id = 1;
             var serviceMock = new Mock<ICoachService>();
+
+            //act
             var result = serviceMock.Setup(a => a.DeleteCoach(id));
+
+            //assert
             Assert.IsNotNull(result);
-            Assert.IsNull(result);
+            //Assert.IsNull(result);
         }
 
         [Test]
@@ -59,7 +66,7 @@ namespace NUnitTestSwimming.ServiceTests
 
             //assert
             serviceMock.Verify(m => m.AddCoach(coach), Times.Once);
-            serviceMock.Verify(m => m.AddCoach(coach), Times.Exactly(3));
+            //serviceMock.Verify(m => m.AddCoach(coach), Times.Exactly(3));
         }
         [Test]
         public void SelectCoaches_AreEqual()
@@ -75,7 +82,17 @@ namespace NUnitTestSwimming.ServiceTests
             Assert.IsNotNull(result);
             Assert.AreEqual(result, coach);
         }
-        
+
+        [Test]
+        public void CoachDTO_Create_TypeCheck()
+        {
+            //arrange
+            string typeName = "CoachDTO";
+            // act
+            CoachDTO coach = new CoachDTO();
+            //assert
+            Assert.AreEqual(typeName, coach.GetType().Name);
+        }
 
         [Test]
         public void GetCoachesShouldReturnList()
@@ -106,17 +123,6 @@ namespace NUnitTestSwimming.ServiceTests
             Assert.AreEqual(jsonString, jsonString2);
         }
 
-        [Test]
-        public void CoachDTO_Create_TypeCheck()
-        {
-            // arrange
-            string expected = "CoachDTO";
-            // act
-            CoachDTO coach = new CoachDTO();
-            //assert
-            Assert.IsNotNull(coach);
-            Assert.AreEqual(expected, coach.GetType().Name);
-        }
-
+        
     }
 }

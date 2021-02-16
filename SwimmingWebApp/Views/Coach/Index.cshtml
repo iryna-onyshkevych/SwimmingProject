@@ -1,18 +1,23 @@
-﻿@using SwimmingWebApp.ViewModels;
-@model IndexViewModel
-@{
-    ViewBag.Title = "Coaches";
+﻿@{
+    ViewBag.Title = "Product Listing";
+    var pagedList = (IPagedList)ViewBag.OnePageOfProducts;
+
 }
+@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+@using X.PagedList.Mvc.Core.Common;
 
-<a asp-action="Create">Add coach</a>
-<a asp-action="Delete">Delete coach</a>
-<a asp-action="Update">Update coach</a>
-
+<link href="/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<div id="modDialog" class="modal fade">
+    <div id="dialogContent" class="modal-dialog"></div>
+</div>
+<a asp-action="Create" class="btn btn-outline-info">Create</a>
+<a asp-action="Update" class="btn btn-outline-info">Edit</a>
 <table class="table">
 
-    <tr><td>Id</td><td>First Name</td><td>Last Name</td><td>Work Experience</td></tr>
+    <tr><td>Id</td><td>First Name</td><td>Last Name</td><td>Work Experience</td><td>Actions</td></tr>
 
-    @foreach (var item in Model.Coaches)
+    @foreach (var item in ViewBag.OnePageOfProducts)
     {
         <tr>
             <td>@item.Id</td>
@@ -20,32 +25,37 @@
             <td>@item.LastName</td>
             <td>@item.WorkExperience</td>
 
-        
-        <td>
-            <a asp-action="Details" asp-controller="Coach" asp-route-id="@item.Id">Details</a> |
-            <a asp-action="Edit" asp-controller="Coach" asp-route-id="@item.Id">Update</a> |
-            <a asp-action="Delete" asp-controller="Coach" asp-route-id="@item.Id">Delete</a>
-        </td></tr>
+ <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id } ) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "compItem" })
+
+            </td>
+        </tr>
     }
 
 </table>
 
-    @if (Model.PageViewModel.HasPreviousPage)
-    {
-        <a asp-action="Index"
-           asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
-           class="btn btn-outline-dark">
-            <i class="glyphicon glyphicon-chevron-left"></i>
-            Back
-        </a>
-    }
+@Html.PagedListPager((IPagedList)ViewBag.OnePageOfProducts, page => Url.Action("Index", new { page }), new PagedListRenderOptions
+{
+    LiElementClasses = new string[] { "page-item" },
+    PageClasses = new string[] { "page-link" }
+})
 
-    @if (Model.PageViewModel.HasNextPage)
-    {
-        <a asp-action="Index"
-           asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
-           class="btn btn-outline-dark">
-            Forward
-            <i class="glyphicon glyphicon-chevron-right"></i>
-        </a>
-    }
+@section scripts
+{
+    <script type="text/javascript">
+
+        $(function () {
+            $.ajaxSetup({ cache: false });
+            $(".compItem").click(function (e) {
+
+                e.preventDefault();
+                $.get(this.href, function (data) {
+                    $('#dialogContent').html(data);
+                    $('#modDialog').modal('show');
+                });
+            });
+        })
+    </script>
+}

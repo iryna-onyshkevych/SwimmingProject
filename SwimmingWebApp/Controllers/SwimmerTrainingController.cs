@@ -83,23 +83,13 @@ namespace SwimmingWebApp.Controllers
 
                 var training = service.GetTraining(id);
 
-                return View(training);
+                return PartialView(training);
             }
             return NotFound();
         }
 
-        [HttpPost]
-        public IActionResult DeleteTraining(int id)
-        {
-            if (id != null)
-            {
-                service.DeleteTraining(id);
-
-                return RedirectToAction("Index");
-
-            }
-            return NotFound();
-        }
+        
+        
 
         public IActionResult Edit(int id)
         {

@@ -2,6 +2,7 @@
 using DTO.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using X.PagedList;
 
 namespace SwimmingWebApp.Controllers
 {
@@ -14,12 +15,17 @@ namespace SwimmingWebApp.Controllers
             service = r;
         }
        
+        
         [HttpGet]
-        public IActionResult Index(int page = 1)
+        public IActionResult Index(int? page)
         {
-            var customers = service.GetSwimmers(page);
+            var products = service.SelectSwimmers(); //returns IQueryable<Product> representing an unknown number of products. a thousand maybe?
 
-            return View(customers);
+            var pageNumber = page ?? 1; // if no page was specified in the querystring, default to the first page (1)
+            var onePageOfProducts = products.ToPagedList(pageNumber, 4); // will only contain 25 products max because of the pageSize
+
+            ViewBag.OnePageOfProducts = onePageOfProducts;
+            return View();
         }
 
         public IActionResult Create()
@@ -101,23 +107,12 @@ namespace SwimmingWebApp.Controllers
 
                 var swimmer = service.GetSwimmer(id);
 
-                return View(swimmer);
+                return PartialView(swimmer);
             }
             return NotFound();
         }
 
-        [HttpPost]
-        public IActionResult DeleteCoach(int id)
-        {
-            if (id != null)
-            {
-                service.DeleteSwimmer(id);
-
-                return RedirectToAction("Index");
-
-            }
-            return NotFound();
-        }
+       
         public IActionResult Edit(int id)
         {
             if (id != null)

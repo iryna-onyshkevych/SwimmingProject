@@ -5,7 +5,7 @@
 
     <div class="modal-content">
         <div class="modal-header">
-            <h4>Delete SwimStyle</h4>
+            <h4>Are you sure?</h4>
             <button class="close" data-dismiss="modal" area-hidden="true">X</button>
         </div>
         <div class="modal-body">
@@ -19,11 +19,6 @@
                 <dd>
                     @Html.DisplayFor(model => model.StyleName)
                 </dd>
-
-
-
-
-
                 <form asp-controller="SwimStyle" asp-action="Delete" method="post">
                     <div class="form-group">
                         <input type="submit" class="btn btn-info" value="Delete" />

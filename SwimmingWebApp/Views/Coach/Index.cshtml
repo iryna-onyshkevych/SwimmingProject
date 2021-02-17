@@ -1,6 +1,6 @@
 ﻿@{
-    ViewBag.Title = "Product Listing";
-    var pagedList = (IPagedList)ViewBag.OnePageOfProducts;
+    ViewBag.Title = "Coach Listing";
+    var pagedList = (IPagedList)ViewBag.OnePageOfCoaches;
 
 }
 @using X.PagedList.Mvc.Core;
@@ -17,7 +17,7 @@
 
     <tr><td>Id</td><td>First Name</td><td>Last Name</td><td>Work Experience</td><td>Actions</td></tr>
 
-    @foreach (var item in ViewBag.OnePageOfProducts)
+    @foreach (var item in ViewBag.OnePageOfCoaches)
     {
         <tr>
             <td>@item.Id</td>
@@ -28,7 +28,7 @@
  <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id } ) |
                 @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "compItem" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "coachItem" })
 
             </td>
         </tr>
@@ -36,7 +36,7 @@
 
 </table>
 
-@Html.PagedListPager((IPagedList)ViewBag.OnePageOfProducts, page => Url.Action("Index", new { page }), new PagedListRenderOptions
+@Html.PagedListPager((IPagedList)ViewBag.OnePageOfCoaches, page => Url.Action("Index", new { page }), new PagedListRenderOptions
 {
     LiElementClasses = new string[] { "page-item" },
     PageClasses = new string[] { "page-link" }
@@ -48,7 +48,7 @@
 
         $(function () {
             $.ajaxSetup({ cache: false });
-            $(".compItem").click(function (e) {
+            $(".coachItem").click(function (e) {
 
                 e.preventDefault();
                 $.get(this.href, function (data) {

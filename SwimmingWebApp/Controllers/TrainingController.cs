@@ -18,29 +18,17 @@ namespace SwimmingWebApp.Controllers
         [HttpGet]
         public IActionResult Index(int? page)
         {
-            var products = service.SelectSwimmersTrainings(); //returns IQueryable<Product> representing an unknown number of products. a thousand maybe?
-
-            var pageNumber = page ?? 1; // if no page was specified in the querystring, default to the first page (1)
-            var onePageOfProducts = products.ToPagedList(pageNumber, 4); // will only contain 25 products max because of the pageSize
-
-            ViewBag.OnePageOfProducts = onePageOfProducts;
+            var trainings = service.SelectSwimmersTrainings(); 
+            var pageNumber = page ?? 1; 
+            var onePageOfTrainings = trainings.ToPagedList(pageNumber, 4); 
+            ViewBag.OnePageOfTrainings = onePageOfTrainings;
             return View();
         }
-        //[HttpGet]
-        //public IActionResult Index(int page = 1)
-        //{
-        //    var customers = service.GetTrainings(page);
-        //    return View(customers);
-        //}
-
+        
         public IActionResult Details(int id)
         {
-            if (id != null)
-            {
-                var training = service.GetViewTraining(id);
-                return View(training);
-            }
-            return NotFound();
+            var training = service.GetViewTraining(id);
+            return View(training);
         }
     }
 }

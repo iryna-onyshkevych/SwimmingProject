@@ -1,6 +1,6 @@
 ﻿@{
-    ViewBag.Title = "Product Listing";
-    var pagedList = (IPagedList)ViewBag.OnePageOfProducts;
+    ViewBag.Title = "Training Listing";
+    var pagedList = (IPagedList)ViewBag.OnePageOfTrainings;
 
 }
 @using X.PagedList.Mvc.Core;
@@ -19,7 +19,7 @@
 
     <tr><td>Id</td><td>First Name</td><td>Last Name</td><td>Date</td><td>Style</td><td>Distance</td><td>Actions</td></tr>
 
-    @foreach (var item in ViewBag.OnePageOfProducts)
+    @foreach (var item in ViewBag.OnePageOfTrainings)
     {
         <tr>
             <td>@item.TrainingId</td>
@@ -40,7 +40,7 @@
 
 </table>
 
-@Html.PagedListPager((IPagedList)ViewBag.OnePageOfProducts, page => Url.Action("Index", new { page }), new PagedListRenderOptions
+@Html.PagedListPager((IPagedList)ViewBag.OnePageOfTrainings, page => Url.Action("Index", new { page }), new PagedListRenderOptions
 {
     LiElementClasses = new string[] { "page-item" },
     PageClasses = new string[] { "page-link" }

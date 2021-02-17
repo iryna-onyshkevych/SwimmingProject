@@ -34,11 +34,6 @@ namespace SwimmingWebApp.Controllers
             return RedirectToAction("Index", "Training");
         }
 
-        public IActionResult Delete()
-        {
-            return View();
-        }
-
         [HttpPost]
         public IActionResult Delete(int id)
         {
@@ -78,27 +73,14 @@ namespace SwimmingWebApp.Controllers
         [ActionName("Delete")]
         public IActionResult ConfirmDelete(int id)
         {
-            if (id != null)
-            {
-
-                var training = service.GetTraining(id);
-
-                return PartialView(training);
-            }
-            return NotFound();
+            var training = service.GetTraining(id);
+            return PartialView(training);
         }
-
-        
-        
 
         public IActionResult Edit(int id)
         {
-            if (id != null)
-            {
-                TrainingDTO training = service.GetTraining(id);
-                return View(training);
-            }
-            return NotFound();
+            TrainingDTO training = service.GetTraining(id);
+            return View(training);
         }
 
         [HttpPost]

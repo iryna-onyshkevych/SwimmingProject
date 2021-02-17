@@ -1,23 +1,28 @@
 ﻿@model DTO.Models.SwimmerDTO
 @{
-    ViewBag.Title = "Delete Coach";
+    ViewBag.Title = "Delete Swimmer";
 }
 
 <div class="modal-content">
     <div class="modal-header">
+        <h4>Are you sure?</h4>
         <button class="close" data-dismiss="modal" area-hidden="true">X</button>
-        <h4>Delete Swimmer</h4>
     </div>
     <div class="modal-body">
         <dl class="dl-horizontal">
-            <dt>Name</dt>
+            <dt>First Name</dt>
             <dd>
                 @Html.DisplayFor(model => model.FirstName)
             </dd>
 
-            <dt>Work Experience</dt>
+            <dt>Last Name</dt>
             <dd>
                 @Html.DisplayFor(model => model.LastName)
+            </dd>
+
+            <dt>Age</dt>
+            <dd>
+                @Html.DisplayFor(model => model.Age)
             </dd>
 
             <form asp-controller="Swimmer" asp-action="Delete" method="post">

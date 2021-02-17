@@ -1,18 +1,18 @@
 ﻿@model IEnumerable<DTO.Models.SwimStyleDTO>
 @{
-    ViewBag.Title = "Product Listing";
-    var pagedList = (IPagedList)ViewBag.OnePageOfProducts;
+    ViewBag.Title = "SwimStyles";
+    var pagedList = (IPagedList)ViewBag.OnePageOfSwimStyles;
 
 }
 @using X.PagedList.Mvc.Core;
 @using X.PagedList;
 @using X.PagedList.Mvc.Core.Common;
 
-<!-- import the included stylesheet for some (very basic) default styling -->
 <link href="/Content/PagedList.css" rel="stylesheet" type="text/css" />
 <div id="modDialog" class="modal fade">
     <div id="dialogContent" class="modal-dialog"></div>
 </div>
+
 <a asp-action="Create" class="btn btn-outline-info">Create</a>
 <a asp-action="Update" class="btn btn-outline-info">Edit</a>
 
@@ -20,7 +20,7 @@
 
     <tr><td>Id</td><td>Style Name</td><td> Actions</td></tr>
 
-    @foreach (var item in ViewBag.OnePageOfProducts)
+    @foreach (var item in ViewBag.OnePageOfSwimStyles)
     {
         <tr>
             <td>@item.Id</td>
@@ -29,25 +29,15 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
                 @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "compItem" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "swimItem" })
 
             </td>
         </tr>
     }
 
 </table>
-<!-- loop through each of your products and display it however you want. we're just printing the name here -->
-@*<h2>List of Products</h2>
-    <ul>
-        @foreach (var product in ViewBag.OnePageOfProducts)
-        {
-            <li>@product.FirstName</li>
-        }
-    </ul>*@
-Pages
 
-<!-- output a paging control that lets the user navigation to the previous page, next page, etc -->
-@Html.PagedListPager((IPagedList)ViewBag.OnePageOfProducts, page => Url.Action("Index", new { page }), new PagedListRenderOptions
+@Html.PagedListPager((IPagedList)ViewBag.OnePageOfSwimStyles, page => Url.Action("Index", new { page }), new PagedListRenderOptions
 {
     LiElementClasses = new string[] { "page-item" },
     PageClasses = new string[] { "page-link" }
@@ -59,7 +49,7 @@ Pages
 
         $(function () {
             $.ajaxSetup({ cache: false });
-            $(".compItem").click(function (e) {
+            $(".swimItem").click(function (e) {
 
                 e.preventDefault();
                 $.get(this.href, function (data) {

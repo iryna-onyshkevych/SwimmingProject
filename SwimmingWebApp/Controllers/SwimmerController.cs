@@ -14,17 +14,14 @@ namespace SwimmingWebApp.Controllers
         {
             service = r;
         }
-       
         
         [HttpGet]
         public IActionResult Index(int? page)
         {
-            var products = service.SelectSwimmers(); //returns IQueryable<Product> representing an unknown number of products. a thousand maybe?
-
-            var pageNumber = page ?? 1; // if no page was specified in the querystring, default to the first page (1)
-            var onePageOfProducts = products.ToPagedList(pageNumber, 4); // will only contain 25 products max because of the pageSize
-
-            ViewBag.OnePageOfProducts = onePageOfProducts;
+            var swimmers = service.SelectSwimmers();
+            var pageNumber = page ?? 1; 
+            var onePageOfSwimmers = swimmers.ToPagedList(pageNumber, 4);
+            ViewBag.OnePageOfSwimmers = onePageOfSwimmers;
             return View();
         }
 
@@ -46,11 +43,6 @@ namespace SwimmingWebApp.Controllers
             }
          
             return RedirectToAction("Index");
-        }
-       
-        public IActionResult Delete()
-        {
-            return View();
         }
 
         [HttpPost]
@@ -87,40 +79,26 @@ namespace SwimmingWebApp.Controllers
 
             return RedirectToAction("Index");
         }
+        
         public IActionResult Details(int id)
         {
-            if (id != null)
-            {
-                var swimmer = service.GetSwimmer(id);
-
-                return View(swimmer);
-            }
-            return NotFound();
+            var swimmer = service.GetSwimmer(id);
+            return View(swimmer);
         }
 
         [HttpGet]
         [ActionName("Delete")]
         public IActionResult ConfirmDelete(int id)
         {
-            if (id != null)
-            {
-
-                var swimmer = service.GetSwimmer(id);
-
-                return PartialView(swimmer);
-            }
-            return NotFound();
+            var swimmer = service.GetSwimmer(id);
+            return PartialView(swimmer);
         }
 
        
         public IActionResult Edit(int id)
         {
-            if (id != null)
-            {
-                SwimmerDTO swimmer = service.GetSwimmer(id);
-                return View(swimmer);
-            }
-            return NotFound();
+            SwimmerDTO swimmer = service.GetSwimmer(id);
+            return View(swimmer);
         }
 
         [HttpPost]

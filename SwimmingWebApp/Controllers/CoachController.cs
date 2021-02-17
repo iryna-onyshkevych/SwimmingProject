@@ -18,14 +18,13 @@ namespace SwimmingWebApp.Controllers
         [HttpGet]
         public IActionResult Index(int? page)
         {
-            var products = service.SelectCoaches(); //returns IQueryable<Product> representing an unknown number of products. a thousand maybe?
-
-            var pageNumber = page ?? 1; // if no page was specified in the querystring, default to the first page (1)
-            var onePageOfProducts = products.ToPagedList(pageNumber, 4); // will only contain 25 products max because of the pageSize
-
-            ViewBag.OnePageOfProducts = onePageOfProducts;
+            var coaches = service.SelectCoaches(); 
+            var pageNumber = page ?? 1; 
+            var onePageOfCoaches = coaches.ToPagedList(pageNumber, 4); 
+            ViewBag.OnePageOfCoaches = onePageOfCoaches;
             return View();
         }
+
         public IActionResult Create()
         {
             return View();
@@ -42,7 +41,6 @@ namespace SwimmingWebApp.Controllers
             {
                 return Content("\tERROR!\n\n" + ex.Message);
             }
-            //service.AddCoach(coach);
             return RedirectToAction("Index");
         }
 
@@ -64,12 +62,7 @@ namespace SwimmingWebApp.Controllers
             }
             return RedirectToAction("Index");
         }
-
-        public IActionResult Delete()
-        {
-            return View();
-        }
-
+    
         [HttpPost]
         public IActionResult Delete(int id)
         {
@@ -87,50 +80,22 @@ namespace SwimmingWebApp.Controllers
 
         public IActionResult Details(int id)
         {
-            if (id != null)
-            {
-                var coach = service.GetCoach(id);
-
-                return View(coach);
-            }
-            return NotFound();
+            var coach = service.GetCoach(id);
+            return View(coach);
         }
 
         [HttpGet]
         [ActionName("Delete")]
         public IActionResult ConfirmDelete(int id)
         {
-          
-            if (id != null)
-            {
-
-                var coach = service.GetCoach(id);
-
-                return PartialView(coach);
-            }
-            return NotFound();
+            var coach = service.GetCoach(id);
+            return PartialView(coach);
         }
 
-        //[HttpPost]
-        //public IActionResult DeleteCoach(int id)
-        //{
-        //    if (id != null)
-        //    {
-        //        service.DeleteCoach(id);
-
-        //        return RedirectToAction("Index");
-
-        //    }
-        //    return NotFound();
-        //}
         public IActionResult Edit(int id)
         {
-            if (id != null)
-            {
-                CoachDTO coach = service.GetCoach(id);
-                return View(coach);
-            }
-            return NotFound();
+            CoachDTO coach = service.GetCoach(id);
+            return View(coach);
         }
 
         [HttpPost]

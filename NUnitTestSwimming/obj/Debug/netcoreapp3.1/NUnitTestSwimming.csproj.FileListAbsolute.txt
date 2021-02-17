@@ -242,3 +242,10 @@ C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\NUnitTestSw
 C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\NUnitTestSwimming\bin\Debug\netcoreapp3.1\Moq.dll
 C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\NUnitTestSwimming\bin\Debug\netcoreapp3.1\Swimming.ADO.BL.dll
 C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\NUnitTestSwimming\bin\Debug\netcoreapp3.1\Swimming.ADO.BL.pdb
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\NUnitTestSwimming\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\NUnitTestSwimming\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\NUnitTestSwimming\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\NUnitTestSwimming\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\NUnitTestSwimming\bin\Debug\netcoreapp3.1\X.PagedList.dll
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\NUnitTestSwimming\bin\Debug\netcoreapp3.1\X.PagedList.Mvc.Core.dll
+C:\Users\irini\OneDrive\Робочий стіл\SwimmingApp\Swimming\NUnitTestSwimming\bin\Debug\netcoreapp3.1\X.PagedList.Web.Common.dll

@@ -3,7 +3,7 @@
     ViewBag.Title = "Editing Coach";
 }
 <form asp-action="Edit" asp-controller="Coach" asp-route-clientid="@Model.Id">
-    
+
     <div class="form-group">
         <label asp-for="FirstName" class="control-label">Name</label>
         <input type="text" asp-for="FirstName" class="form-control" />
@@ -26,3 +26,7 @@
         <input type="submit" value="Submit" class="btn btn-info" />
     </div>
 </form>
+@section scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

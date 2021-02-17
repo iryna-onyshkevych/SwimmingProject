@@ -8,19 +8,19 @@ namespace Swimming.ADO.BL.Services
 {
     public class TrainingSwimmerSwimStyleService
     {
-        private readonly IConnection _context;
+        private readonly ITrainingsSwimmersSwimStyleManager<TrainingsSwimmersSwimStyle> _swimmersTrainingManager;
 
-        public TrainingSwimmerSwimStyleService(IConnection context)
+        public TrainingSwimmerSwimStyleService(ITrainingsSwimmersSwimStyleManager<TrainingsSwimmersSwimStyle> swimmersTrainingManager)
         {
-            _context = context;
+            _swimmersTrainingManager = swimmersTrainingManager;
         }
+
         public void SelectTraining()
         {
             try
             {
                 Console.WriteLine("TrainingId\tName\t\tSurname\t\tDate\t\t\tDistance\t\tStyle\n");
-                ITrainingsSwimmersSwimStyleManager<TrainingsSwimmersSwimStyle> trainingManager = new TrainingSwimmerSwimStyleRepository(_context);
-                var trainings = trainingManager.GetView();
+                var trainings = _swimmersTrainingManager.GetView();
                 foreach (TrainingsSwimmersSwimStyle c in trainings)
                 {
                     Console.WriteLine($"{c.TrainingId,10} {c.FirstName,15}{c.LastName,15}{c.TrainingDate,20}{c.Distance,15}{c.Style,15}");

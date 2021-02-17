@@ -9,11 +9,11 @@ namespace Swimming.ADO.BL.Services
 {
     public class CoachService
     {
-        private readonly ICoachManager<Coach> _context;
+        private readonly ICoachManager<Coach> _coachManager;
 
         public CoachService(ICoachManager<Coach> coachManager)
         {
-            _context = coachManager;
+            _coachManager = coachManager;
         }
 
         public bool IsAllAlphabetic(string value)
@@ -59,7 +59,7 @@ namespace Swimming.ADO.BL.Services
             try
             {
                 Coach coach = new Coach { FirstName = name, LastName = surname, WorkExperience = Convert.ToInt32(workExperience) };
-                _context.Add(coach);
+                _coachManager.Add(coach);
                 Console.WriteLine("Coach is added");
             }
             catch (Exception ex)
@@ -81,7 +81,7 @@ namespace Swimming.ADO.BL.Services
                     Console.WriteLine("Incorrect id! Try again ");
                     id = Console.ReadLine();
                 }
-                _context.Delete(Convert.ToInt32(id));
+                _coachManager.Delete(Convert.ToInt32(id));
                 Console.WriteLine("Coach is deleted");
             }
             catch (Exception ex)
@@ -96,7 +96,7 @@ namespace Swimming.ADO.BL.Services
             {
                 Console.Write("Coaches:\n");
                 Console.WriteLine("\tCoach Id \tFirstName \tSecondName\tWorkExperience");
-                var coaches = _context.GetList();
+                var coaches = _coachManager.GetList();
                 foreach (Coach c in coaches)
                 {
                     Console.WriteLine($"{c.Id,15}{c.FirstName,15} {c.LastName,17} {c.WorkExperience,15}");
@@ -150,7 +150,7 @@ namespace Swimming.ADO.BL.Services
             try
             {
                 Coach coach = new Coach { FirstName = newName, LastName = newSurname, WorkExperience = Convert.ToInt32(newWorkExperience) };
-                _context.Update(Convert.ToInt32(coachId), coach);
+                _coachManager.Update(Convert.ToInt32(coachId), coach);
                 Console.WriteLine("Coach is updated"); 
             }
             catch (Exception ex)

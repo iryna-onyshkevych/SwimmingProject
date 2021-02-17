@@ -9,12 +9,13 @@ namespace Swimming.ADO.BL.Services
 {
     public class TrainingService
     {
-        private readonly IConnection _context;
+        private readonly ITrainingManager<Training> _trainingManager;
 
-        public TrainingService(IConnection context)
+        public TrainingService(ITrainingManager<Training> trainingManager)
         {
-            _context = context;
+            _trainingManager = trainingManager;
         }
+
         public bool IsAllAlphabetic(string value)
         {
             foreach (char c in value)
@@ -73,8 +74,7 @@ namespace Swimming.ADO.BL.Services
                     Distance = Convert.ToInt32(distance)
                 };
 
-                ITrainingManager<Training> trainingManager = new TrainingRepository(_context);
-                trainingManager.Add(training);
+                _trainingManager.Add(training);
                 Console.WriteLine("Training is added");
             }
             catch (Exception ex)
@@ -107,8 +107,7 @@ namespace Swimming.ADO.BL.Services
             try
             {
                 Training training = new Training { Distance = Convert.ToInt32(newDistance) };
-                ITrainingManager<Training> trainingManager = new TrainingRepository(_context);
-                trainingManager.Update(Convert.ToInt32(trainingId), training);
+                _trainingManager.Update(Convert.ToInt32(trainingId), training);
                 Console.WriteLine("Distance is updated");
             }
             catch (Exception ex)

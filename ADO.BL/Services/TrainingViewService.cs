@@ -12,17 +12,16 @@ namespace ADO.BL.Services
 {
     public class TrainingViewService: ITrainingViewService
     {
-        private readonly IConnection _context;
+        private readonly ITrainingsSwimmersSwimStyleManager<TrainingsSwimmersSwimStyle> _swimmersTrainingManager;
 
-        public TrainingViewService(IConnection context)
+        public TrainingViewService(ITrainingsSwimmersSwimStyleManager<TrainingsSwimmersSwimStyle> swimmersTrainingManager)
         {
-            _context = context;
+            _swimmersTrainingManager = swimmersTrainingManager;
         }
 
         public IEnumerable<TrainingsSwimmersSwimStyleDTO> SelectSwimmersTrainings()
         {
-            ITrainingsSwimmersSwimStyleManager<TrainingsSwimmersSwimStyle> tariningManager = new TrainingSwimmerSwimStyleRepository(_context);
-            var trainings = tariningManager.GetView();
+            var trainings = _swimmersTrainingManager.GetView();
 
             var trainingList = trainings.Select(x => new TrainingsSwimmersSwimStyleDTO()
             {
@@ -40,8 +39,7 @@ namespace ADO.BL.Services
        
         public TrainingsSwimmersSwimStyleDTO GetViewTraining(int id)
         {
-            ITrainingsSwimmersSwimStyleManager<TrainingsSwimmersSwimStyle> tariningManager = new TrainingSwimmerSwimStyleRepository(_context);
-            var training = tariningManager.GetViewTraining(id);
+            var training = _swimmersTrainingManager.GetViewTraining(id);
             TrainingsSwimmersSwimStyleDTO selectedTraining = new TrainingsSwimmersSwimStyleDTO
             {
                 TrainingId = Convert.ToInt32(training.TrainingId),

@@ -12,17 +12,16 @@ namespace ADO.BL.Services
 {
     public class SwimmerService : ISwimmerService
     {
-        private readonly IConnection _context;
+        private readonly ISwimmerManager<Swimmer> _swimmerManager;
 
-        public SwimmerService(IConnection context)
+        public SwimmerService(ISwimmerManager<Swimmer> swimmerManager)
         {
-            _context = context;
+            _swimmerManager = swimmerManager;
         }
 
         public IEnumerable<SwimmerDTO> SelectSwimmers()
         {
-            ISwimmerManager<Swimmer> swimmerManager = new SwimmerRepository(_context);
-            var swimmers = swimmerManager.GetList();
+            var swimmers = _swimmerManager.GetList();
             var swimmerList = swimmers.Select(x => new SwimmerDTO()
             {
                 Id = x.Id,
@@ -38,28 +37,24 @@ namespace ADO.BL.Services
         public void AddSwimmer(SwimmerDTO swimmer)
         {
             Swimmer newSwimmer = new Swimmer { FirstName = swimmer.FirstName, LastName = swimmer.LastName, Age = Convert.ToInt32(swimmer.Age), CoachId = Convert.ToInt32(swimmer.CoachId) };
-            ISwimmerManager<Swimmer> swimmerManager = new SwimmerRepository(_context);
-            swimmerManager.Add(newSwimmer);
+            _swimmerManager.Add(newSwimmer);
         }
 
         public void DeleteSwimmer(int id)
         {
-            ISwimmerManager<Swimmer> swimmerManager = new SwimmerRepository(_context);
-            swimmerManager.Delete(Convert.ToInt32(id));
+            _swimmerManager.Delete(Convert.ToInt32(id));
         }
 
         
         public void UpdateSwimmer(SwimmerDTO swimmer)
         {
             Swimmer updatedSwimmer = new Swimmer { FirstName = swimmer.FirstName, LastName = swimmer.LastName, Age = Convert.ToInt32(swimmer.Age), CoachId = Convert.ToInt32(swimmer.CoachId) };
-            ISwimmerManager<Swimmer> swimmerManager = new SwimmerRepository(_context);
-            swimmerManager.Update(Convert.ToInt32(swimmer.Id), updatedSwimmer);
+            _swimmerManager.Update(Convert.ToInt32(swimmer.Id), updatedSwimmer);
         }
 
         public SwimmerDTO GetSwimmer(int id)
         {
-            ISwimmerManager<Swimmer> swimmerManager = new SwimmerRepository(_context);
-            var swimmer = swimmerManager.GetSwimmer(id);
+            var swimmer = _swimmerManager.GetSwimmer(id);
             SwimmerDTO selectedSwimmer = new SwimmerDTO { Id = swimmer.Id, FirstName = swimmer.FirstName, LastName = swimmer.LastName, Age = Convert.ToInt32(swimmer.Age), CoachId = Convert.ToInt32(swimmer.CoachId) };
             return selectedSwimmer;
         }

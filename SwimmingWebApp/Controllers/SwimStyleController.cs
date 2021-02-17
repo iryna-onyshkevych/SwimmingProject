@@ -44,9 +44,9 @@ namespace SwimmingWebApp.Controllers
             {
                 service.AddSwimStyle(swimStyle);
             }
-            catch (Exception ex)
+            catch 
             {
-                throw new InvalidOperationException("\tERROR!\n\n" + ex.Message);
+                return Content($"\tERROR!\n\n\n Entered data is invalid! \n");
             }
 
             return RedirectToAction("Index");
@@ -79,9 +79,9 @@ namespace SwimmingWebApp.Controllers
             {
                 service.UpdateSwimStyle(swimStyle);
             }
-            catch (Exception ex)
+            catch 
             {
-                return Content("\tERROR!\n\n" + ex.Message);
+                return Content($"\tERROR!\n\n\n Entered data is invalid!");
             }
             return RedirectToAction("Index");
         }
@@ -109,7 +109,14 @@ namespace SwimmingWebApp.Controllers
         [HttpPost]
         public IActionResult Edit(SwimStyleDTO swimStyle)
         {
-            service.UpdateSwimStyle(swimStyle);
+            try
+            {
+                service.UpdateSwimStyle(swimStyle);
+            }
+            catch
+            {
+                return Content($"\tERROR!\n\n\n Entered data is invalid! Can't edit {swimStyle.StyleName} \n");
+            }
             return RedirectToAction("Index");
         }
     }

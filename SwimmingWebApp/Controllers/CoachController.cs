@@ -10,9 +10,9 @@ namespace SwimmingWebApp.Controllers
     {
         ICoachService service;
 
-        public CoachController(ICoachService r)
+        public CoachController(ICoachService _service)
         {
-            service = r;
+            service = _service;
         }
 
         [HttpGet]
@@ -37,9 +37,9 @@ namespace SwimmingWebApp.Controllers
             {
                 service.AddCoach(coach);
             }
-            catch (Exception ex)
+            catch
             {
-                return Content("\tERROR!\n\n" + ex.Message);
+                return Content("\tERROR!\n\n\n Entered data is invalid!\n");
             }
             return RedirectToAction("Index");
         }
@@ -56,9 +56,9 @@ namespace SwimmingWebApp.Controllers
             {
                 service.UpdateCoach(coach);
             }
-            catch (Exception ex)
+            catch 
             {
-                return Content("\tERROR!\n\n" + ex.Message);
+                return Content("\tERROR!\n\n\n Entered data is invalid! \n");
             }
             return RedirectToAction("Index");
         }
@@ -72,7 +72,7 @@ namespace SwimmingWebApp.Controllers
             }
             catch (Exception ex)
             {
-                return Content("\tERROR!\n\n" + ex.Message);
+                return Content("\tERROR!\n\n ",ex.Message);
             }
 
             return RedirectToAction("Index");
@@ -101,7 +101,14 @@ namespace SwimmingWebApp.Controllers
         [HttpPost]
         public IActionResult Edit(CoachDTO coach)
         {
-            service.UpdateCoach(coach);
+            try
+            {
+                service.UpdateCoach(coach);
+            }
+            catch
+            {
+                return Content($"\tERROR!\n\n\n Entered data is invalid! Can't edit {coach.FirstName} {coach.LastName} \n");
+            }
             return RedirectToAction("Index");
         }
     }

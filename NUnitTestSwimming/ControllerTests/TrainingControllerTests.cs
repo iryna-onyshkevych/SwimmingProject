@@ -12,13 +12,13 @@ namespace NUnitTestSwimming.ControllerTests
         public void TrainingController_Result_NotNull()
         {
             //arrange
-
+            int page = 1;
             var serviceMock = new Mock<ITrainingViewService>();
             serviceMock.Setup(a => a.SelectSwimmersTrainings());
             TrainingController controller = new TrainingController(serviceMock.Object);
 
             //act
-            var result = controller.Index();
+            var result = controller.Index(page);
 
             //assert
             Assert.IsNotNull(result);
@@ -28,12 +28,13 @@ namespace NUnitTestSwimming.ControllerTests
         public void TrainingContoller_InstanceofViewResult()
         {
             //arrange
+            int page = 1;
             var serviceMock = new Mock<ITrainingViewService>();
             serviceMock.Setup(a => a.SelectSwimmersTrainings());
             TrainingController controller = new TrainingController(serviceMock.Object);
 
             //act
-            var result = controller.Index();
+            var result = controller.Index(page);
             var viewResult = Is.TypeOf<ViewResult>();
 
             //assert

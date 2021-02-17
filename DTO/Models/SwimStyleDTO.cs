@@ -10,10 +10,10 @@ namespace DTO.Models
             training = new HashSet<TrainingDTO>();
         }
 
-        [Required(ErrorMessage = "Id is invalid!")]
+        [Required(ErrorMessage = "Id is required!")]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Style Name is invalid!")]
+        [Required(ErrorMessage = "Style Name is required!")]
         public string StyleName { get; set; }
         public virtual ICollection<TrainingDTO> training { get; set; }
     }

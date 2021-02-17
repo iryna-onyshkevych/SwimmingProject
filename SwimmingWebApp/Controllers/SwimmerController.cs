@@ -37,11 +37,11 @@ namespace SwimmingWebApp.Controllers
             {
                 service.AddSwimmer(swimmer);
             }
-            catch ( Exception ex)
+            catch
             {
-                throw new InvalidOperationException("\tERROR!\n\n" + ex.Message);
+                return Content("\tERROR!\n\n\n Entered data is invalid!\n");
             }
-         
+
             return RedirectToAction("Index");
         }
 
@@ -54,7 +54,7 @@ namespace SwimmingWebApp.Controllers
             }
             catch (Exception ex)
             {
-                return Content("\tERROR!\n\n" + ex.Message);
+                return Content("\tERROR!\n\n ", ex.Message);
             }
 
             return RedirectToAction("Index");
@@ -72,9 +72,9 @@ namespace SwimmingWebApp.Controllers
             {
                 service.UpdateSwimmer(swimmer);
             }
-            catch (Exception ex)
+            catch 
             {
-                return Content("\tERROR!\n\n" + ex.Message);
+                return Content($"\tERROR!\n\n\n Entered data is invalid!");
             }
 
             return RedirectToAction("Index");
@@ -104,7 +104,14 @@ namespace SwimmingWebApp.Controllers
         [HttpPost]
         public IActionResult Edit(SwimmerDTO swimmer)
         {
-            service.UpdateSwimmer(swimmer);
+            try
+            {
+                service.UpdateSwimmer(swimmer);
+            }
+            catch
+            {
+                return Content($"\tERROR!\n\n\n Entered data is invalid! Can't edit {swimmer.FirstName} {swimmer.LastName} \n");
+            }
             return RedirectToAction("Index");
         }
     }

@@ -8,11 +8,11 @@ namespace Swimming.ADO.BL.Services
 {
     public class SwimStyleService
     {
-        private readonly IConnection _context;
+        private readonly ISwimStyleManager<SwimStyle> _swimStyleManager;
 
-        public SwimStyleService(IConnection context)
+        public SwimStyleService(ISwimStyleManager<SwimStyle> swimStyleManager)
         {
-            _context = context;
+            _swimStyleManager = swimStyleManager;
         }
 
         public void SelectSwimStyles()
@@ -21,8 +21,7 @@ namespace Swimming.ADO.BL.Services
             {
                 Console.Write("Swimming Styles:\n");
                 Console.WriteLine("\tId \tStyle Name ");
-                ISwimStyleManager<SwimStyle> coachManager = new SwimStyleRepository(_context);
-                var coaches = coachManager.GetList();
+                var coaches = _swimStyleManager.GetList();
                 foreach (SwimStyle c in coaches)
                 {
                     Console.WriteLine($"{c.Id,10} {c.StyleName,15}");

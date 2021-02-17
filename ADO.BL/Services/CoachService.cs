@@ -16,9 +16,9 @@ namespace ADO.BL.Services
 
         private ICoachManager<Coach> _coachManager;
 
-        public CoachService(ICoachManager<Coach> salonManager)
+        public CoachService(ICoachManager<Coach> coachManager)
         {
-            _coachManager = salonManager;
+            _coachManager = coachManager;
         }
       
         public void AddCoach(CoachDTO coach)

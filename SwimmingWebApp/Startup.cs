@@ -33,6 +33,10 @@ namespace SwimmingWebApp
             services.AddTransient<ITrainingViewService, TrainingViewService>();
             services.AddTransient<IConnection, Connection>();
             services.AddTransient <ICoachManager<Coach>, CoachRepository>();
+            services.AddTransient<ISwimmerManager<Swimmer>, SwimmerRepository>();
+            services.AddTransient<ISwimStyleManager<SwimStyle>, SwimStyleRepository>();
+            services.AddTransient<ITrainingManager<Training>, TrainingRepository>();
+            services.AddTransient<ITrainingsSwimmersSwimStyleManager<TrainingsSwimmersSwimStyle>, TrainingSwimmerSwimStyleRepository>();
             services.AddControllersWithViews();
         }
 

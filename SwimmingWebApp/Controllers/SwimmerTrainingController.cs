@@ -26,9 +26,9 @@ namespace SwimmingWebApp.Controllers
             {
                 service.AddTraining(training);
             }
-            catch (Exception ex)
+            catch 
             {
-                return Content("\tERROR!\n\n" + ex.Message);
+                return Content("\tERROR!\n\n\n Entered data is invalid! \n");
             }
 
             return RedirectToAction("Index", "Training");
@@ -61,9 +61,9 @@ namespace SwimmingWebApp.Controllers
             {
                 service.UpdateTraining(training);
             }
-            catch (Exception ex)
+            catch
             {
-                return Content("\tERROR!\n\n" + ex.Message);
+                return Content("\tERROR!\n\n\n Entered data is invalid! \n");
             }
 
             return RedirectToAction("Index", "Training");
@@ -86,7 +86,14 @@ namespace SwimmingWebApp.Controllers
         [HttpPost]
         public IActionResult Edit(TrainingDTO training)
         {
-            service.UpdateTraining(training);
+            try
+            {
+                service.UpdateTraining(training);
+            }
+            catch
+            {
+                return Content("\tERROR!\n\n\n Entered data is invalid!");
+            }
             return RedirectToAction("Index", "Training");
         }
     }
